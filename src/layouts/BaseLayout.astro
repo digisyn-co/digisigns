@@ -1,0 +1,36 @@
+---
+// Shared HTML shell used by EVERY page on the platform, including the
+// Template Library itself and every page inside every template.
+// It only owns: <html>/<head> plumbing, the CSS reset, and SEO tags.
+// It does NOT own navigation, footer, colors, or type — those are
+// template-specific and layered on by each template's own
+// TemplateLayout (src/templates/<slug>/TemplateLayout.astro), which
+// wraps this component.
+import SEO from "@/components/SEO.astro";
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  bodyClass?: string;
+  htmlClass?: string;
+}
+
+const { title, description, canonicalPath, ogImage, bodyClass, htmlClass } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class={htmlClass}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEO title={title} description={description} canonicalPath={canonicalPath} ogImage={ogImage} />
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>
