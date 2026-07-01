@@ -1,0 +1,59 @@
+---
+// Canonical footer, normalized from the Home screen's footer (the richest
+// of the source versions). Links that had no dedicated page in this
+// 7-page build (Our History, Careers, Press Kit, FAQ, Privacy Policy,
+// Terms of Service) route to Contact instead of dead-ending. The
+// newsletter form is decorative — there's no backend to submit to.
+---
+
+<footer class="bg-on-surface border-t-4 border-primary text-surface pt-24 pb-12">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg w-full px-margin-mobile md:px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+    <div class="space-y-stack-md">
+      <div class="font-display-lg text-display-lg-mobile text-primary">RapidRelo</div>
+      <p class="font-body-md text-surface-variant opacity-80 max-w-sm">
+        Premium relocation services for residential and commercial needs. Precision logistics, handled with care.
+      </p>
+      <div class="flex gap-4">
+        <a class="w-10 h-10 bg-surface-variant/20 flex items-center justify-center hover:bg-primary transition-colors" href="/templates/movers-premium/contact">
+          <span class="material-symbols-outlined text-surface">public</span>
+        </a>
+        <a class="w-10 h-10 bg-surface-variant/20 flex items-center justify-center hover:bg-primary transition-colors" href="mailto:hello@rapidrelo.example">
+          <span class="material-symbols-outlined text-surface">mail</span>
+        </a>
+        <a class="w-10 h-10 bg-surface-variant/20 flex items-center justify-center hover:bg-primary transition-colors" href="tel:1800RAPIDRE">
+          <span class="material-symbols-outlined text-surface">call</span>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="space-y-4">
+        <h5 class="font-label-bold text-label-bold uppercase text-primary">Company</h5>
+        <ul class="space-y-2">
+          <li><a class="text-surface-variant hover:text-primary transition-colors" href="/templates/movers-premium/about">About Us</a></li>
+          <li><a class="text-surface-variant hover:text-primary transition-colors" href="/templates/movers-premium/industries">Industries</a></li>
+          <li><a class="text-surface-variant hover:text-primary transition-colors" href="/templates/movers-premium/contact">Careers</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h5 class="font-label-bold text-label-bold uppercase text-primary">Support</h5>
+        <ul class="space-y-2">
+          <li><a class="text-surface-variant hover:text-primary transition-colors" href="/templates/movers-premium/contact">FAQ</a></li>
+          <li><a class="text-surface-variant hover:text-primary transition-colors" href="/templates/movers-premium/contact">Privacy Policy</a></li>
+          <li><a class="text-surface-variant hover:text-primary transition-colors" href="/templates/movers-premium/contact">Terms of Service</a></li>
+          <li><a class="text-surface-variant hover:text-primary transition-colors" href="/templates/movers-premium/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="space-y-stack-md">
+      <h5 class="font-label-bold text-label-bold uppercase text-primary">Newsletter Signup</h5>
+      <p class="text-surface-variant opacity-80 font-label-sm">Get moving tips and exclusive discounts.</p>
+      <form class="flex border-2 border-surface-variant">
+        <input class="flex-grow bg-transparent px-4 py-2 text-surface focus:outline-none placeholder:text-surface-variant/50" placeholder="Your Email" type="email" />
+        <button class="bg-primary text-on-surface px-4 py-2 font-label-bold uppercase hover:bg-primary-fixed-dim transition-colors" type="button">Join</button>
+      </form>
+    </div>
+  </div>
+  <div class="mt-24 pt-8 border-t border-surface-variant/20 text-center container max-w-container-max mx-auto px-margin-mobile">
+    <p class="font-label-sm text-label-sm opacity-60">© 2026 RapidRelo Moving &amp; Storage. Licensed &amp; Insured. DOT# 123456789</p>
+  </div>
+</footer>

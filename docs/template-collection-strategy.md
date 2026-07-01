@@ -15,12 +15,12 @@ design-token architecture that makes this possible in one Tailwind build.
 - **Japanese Minimal** — monochromatic, ample whitespace, thin lines. Focus on precision and calm.
 
 ## 2. Law Firm (2 templates)
-- **Prestige Litigation** — traditional navy/burgundy, heavy grids, marble textures. Focus on authority. *(placeholder: `law-prestige`)*
+- **Prestige Litigation** — traditional navy/burgundy, heavy grids, marble textures. Focus on authority. **Built as `law-prestige` ("Prestige Law").**
 - **Modern Legal** — clean white, vibrant blue, glassmorphism. Focus on transparency and tech-forwardness.
 
 ## 3. Movers (2 templates)
 - **Fast Conversion** — urgency-driven, quote calculator hero, bright orange/yellow. Focus on immediate booking.
-- **Premium Relocation** — lifestyle-driven, high-end interior photography, soft champagne tones. Focus on care. *(placeholder: `movers-premium`)*
+- **Premium Relocation** — lifestyle-driven, high-end interior photography, soft champagne tones. Focus on care. **Built as `movers-premium` ("RapidRelo").**
 
 ## 4. Electrician (2 templates)
 - **Local Service Leader** — trust-based, worker headshots, bright blue/red. Focus on reliability.

@@ -1,0 +1,45 @@
+---
+interface Props {
+  active: "home" | "about" | "services" | "industries" | "contact";
+}
+const { active } = Astro.props;
+
+const links = [
+  { href: "/templates/movers-premium", label: "Home", key: "home" },
+  { href: "/templates/movers-premium/services", label: "Services", key: "services" },
+  { href: "/templates/movers-premium/about", label: "About", key: "about" },
+  { href: "/templates/movers-premium/industries", label: "Industries", key: "industries" },
+];
+---
+
+<header class="bg-surface-container-lowest border-b-2 border-on-surface sticky top-0 z-50">
+  <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+    <a href="/templates/movers-premium" class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase tracking-tighter text-on-surface">
+      RapidRelo
+    </a>
+    <nav class="hidden md:flex gap-8 items-center">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "font-label-bold text-label-bold uppercase px-2 py-1 transition-colors",
+            active === link.key
+              ? "text-primary border-b-4 border-primary pb-1"
+              : "text-on-surface-variant hover:bg-primary-container",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <a
+      href="/templates/movers-premium/contact"
+      class:list={[
+        "bg-primary-container text-on-primary-fixed font-label-bold text-label-bold uppercase px-6 py-3 border-2 border-on-surface block-shadow block-shadow-hover transition-all active:translate-y-1",
+        active === "contact" ? "bg-primary-fixed-dim" : "",
+      ]}
+    >
+      Get a Quote
+    </a>
+  </div>
+</header>

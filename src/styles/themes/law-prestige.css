@@ -1,0 +1,146 @@
+/* Theme tokens for the "Prestige Law" template (law-prestige).
+   Source: Stitch project 13817036897071013700, "Executive Prestige" design
+   system (same underlying palette/type/spacing as accounting-luxury —
+   reused across the accounting and legal verticals per the Template
+   Collection Strategy doc). Scoped to `.theme-law-prestige`. Colors are
+   stored as space-separated RGB triples so Tailwind's opacity modifiers
+   (/10, /20, etc. — see tailwind.config.mjs) work correctly. */
+
+.theme-law-prestige {
+  --color-surface: 249 249 249;
+  --color-surface-dim: 218 218 218;
+  --color-surface-bright: 249 249 249;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-low: 243 243 243;
+  --color-surface-container: 238 238 238;
+  --color-surface-container-high: 232 232 232;
+  --color-surface-container-highest: 226 226 226;
+  --color-on-surface: 26 28 28;
+  --color-on-surface-variant: 68 71 72;
+  --color-inverse-surface: 47 49 49;
+  --color-inverse-on-surface: 241 241 241;
+  --color-outline: 116 120 120;
+  --color-outline-variant: 196 199 199;
+  --color-surface-tint: 95 94 94;
+  --color-primary: 0 0 0;
+  --color-on-primary: 255 255 255;
+  --color-primary-container: 28 27 27;
+  --color-on-primary-container: 133 131 131;
+  --color-inverse-primary: 200 198 197;
+  --color-secondary: 119 90 25;
+  --color-on-secondary: 255 255 255;
+  --color-secondary-container: 254 212 136;
+  --color-on-secondary-container: 120 90 26;
+  --color-tertiary: 0 0 0;
+  --color-on-tertiary: 255 255 255;
+  --color-tertiary-container: 22 29 31;
+  --color-on-tertiary-container: 126 133 135;
+  --color-error: 186 26 26;
+  --color-on-error: 255 255 255;
+  --color-error-container: 255 218 214;
+  --color-on-error-container: 147 0 10;
+  --color-primary-fixed: 229 226 225;
+  --color-primary-fixed-dim: 200 198 197;
+  --color-on-primary-fixed: 28 27 27;
+  --color-on-primary-fixed-variant: 71 71 70;
+  --color-secondary-fixed: 255 222 165;
+  --color-secondary-fixed-dim: 233 193 118;
+  --color-on-secondary-fixed: 38 25 0;
+  --color-on-secondary-fixed-variant: 93 66 1;
+  --color-tertiary-fixed: 221 228 230;
+  --color-tertiary-fixed-dim: 193 200 202;
+  --color-on-tertiary-fixed: 22 29 31;
+  --color-on-tertiary-fixed-variant: 65 72 74;
+  --color-background: 249 249 249;
+  --color-on-background: 26 28 28;
+  --color-surface-variant: 226 226 226;
+  --color-text-primary: 26 28 28;
+  --color-text-muted: 116 120 120;
+  --color-metric-positive: 46 125 50;
+  --color-border-subtle: 226 226 226;
+
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+.theme-law-prestige .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.theme-law-prestige .marble-texture {
+  background-color: rgb(249 249 249);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(226, 226, 222, 0.2) 0, transparent 50%),
+    radial-gradient(at 50% 0%, rgba(200, 198, 197, 0.1) 0, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(240, 240, 240, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+}
+
+.theme-law-prestige .luxury-shadow,
+.theme-law-prestige .luxury-card-shadow,
+.theme-law-prestige .bespoke-card,
+.theme-law-prestige .deep-shadow {
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.theme-law-prestige .bespoke-card:hover,
+.theme-law-prestige .card-hover-lift:hover,
+.theme-law-prestige .hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* All source screens used slightly different underline class names
+   (gold-underline / gold-underline-hover / champagne-underline /
+   hallmark-underline) for the same visual pattern — consolidated here. */
+.theme-law-prestige .gold-underline,
+.theme-law-prestige .gold-underline-hover,
+.theme-law-prestige .champagne-underline,
+.theme-law-prestige .hallmark-underline {
+  position: relative;
+}
+.theme-law-prestige .gold-underline::after,
+.theme-law-prestige .gold-underline-hover::after,
+.theme-law-prestige .champagne-underline::after,
+.theme-law-prestige .hallmark-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: rgb(var(--color-secondary));
+  transition: width 0.3s ease;
+}
+.theme-law-prestige .gold-underline:hover::after,
+.theme-law-prestige .gold-underline-hover:hover::after,
+.theme-law-prestige .champagne-underline:hover::after,
+.theme-law-prestige .hallmark-underline:hover::after,
+.theme-law-prestige .group:hover .champagne-underline::after {
+  width: 100%;
+}
+
+.theme-law-prestige .heavy-grid-line {
+  border-color: rgba(68, 71, 72, 0.1);
+}
+
+.theme-law-prestige .hero-gradient {
+  background: linear-gradient(to bottom, rgba(25, 28, 28, 0.05), rgba(25, 28, 28, 0));
+}
+
+.theme-law-prestige .text-shadow-subtle {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.theme-law-prestige .reveal-on-scroll,
+.theme-law-prestige .reveal-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-law-prestige .reveal-on-scroll.active,
+.theme-law-prestige .reveal-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
