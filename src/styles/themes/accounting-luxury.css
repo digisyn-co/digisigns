@@ -8,65 +8,65 @@
    file participates in. */
 
 .theme-accounting-luxury {
-  --color-primary: #000000;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #1c1b1b;
-  --color-on-primary-container: #ffffff;
-  --color-primary-fixed: #3d3d3d;
-  --color-primary-fixed-dim: #1c1b1b;
-  --color-on-primary-fixed: #ffffff;
-  --color-on-primary-fixed-variant: #e0e0e0;
-  --color-inverse-primary: #ffffff;
+  --color-primary: 0 0 0;
+  --color-on-primary: 255 255 255;
+  --color-primary-container: 28 27 27;
+  --color-on-primary-container: 255 255 255;
+  --color-primary-fixed: 61 61 61;
+  --color-primary-fixed-dim: 28 27 27;
+  --color-on-primary-fixed: 255 255 255;
+  --color-on-primary-fixed-variant: 224 224 224;
+  --color-inverse-primary: 255 255 255;
 
-  --color-secondary: #775a19;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #fed488;
-  --color-on-secondary-container: #5a4310;
-  --color-secondary-fixed: #fed488;
-  --color-secondary-fixed-dim: #e0b968;
-  --color-on-secondary-fixed: #2b1d00;
-  --color-on-secondary-fixed-variant: #5a4310;
+  --color-secondary: 119 90 25;
+  --color-on-secondary: 255 255 255;
+  --color-secondary-container: 254 212 136;
+  --color-on-secondary-container: 90 67 16;
+  --color-secondary-fixed: 254 212 136;
+  --color-secondary-fixed-dim: 224 185 104;
+  --color-on-secondary-fixed: 43 29 0;
+  --color-on-secondary-fixed-variant: 90 67 16;
 
-  --color-tertiary: #3d3d3d;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #e0e0e0;
-  --color-on-tertiary-container: #1c1b1b;
-  --color-tertiary-fixed: #e0e0e0;
-  --color-tertiary-fixed-dim: #c4c4c4;
-  --color-on-tertiary-fixed: #1c1b1b;
-  --color-on-tertiary-fixed-variant: #3d3d3d;
+  --color-tertiary: 61 61 61;
+  --color-on-tertiary: 255 255 255;
+  --color-tertiary-container: 224 224 224;
+  --color-on-tertiary-container: 28 27 27;
+  --color-tertiary-fixed: 224 224 224;
+  --color-tertiary-fixed-dim: 196 196 196;
+  --color-on-tertiary-fixed: 28 27 27;
+  --color-on-tertiary-fixed-variant: 61 61 61;
 
-  --color-error: #b3261e;
-  --color-on-error: #ffffff;
-  --color-error-container: #f9dedc;
-  --color-on-error-container: #410e0b;
+  --color-error: 179 38 30;
+  --color-on-error: 255 255 255;
+  --color-error-container: 249 222 220;
+  --color-on-error-container: 65 14 11;
 
-  --color-background: #f9f9f9;
-  --color-on-background: #1c1b1b;
+  --color-background: 249 249 249;
+  --color-on-background: 28 27 27;
 
-  --color-surface: #f9f9f9;
-  --color-on-surface: #1c1b1b;
-  --color-on-surface-variant: #49454f;
-  --color-surface-variant: #e7e0ec;
-  --color-surface-dim: #ded8d8;
-  --color-surface-bright: #f9f9f9;
-  --color-surface-deep: #0d0d0d;
-  --color-surface-tint: #000000;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f3f3f3;
-  --color-surface-container: #ededed;
-  --color-surface-container-high: #e7e7e7;
-  --color-surface-container-highest: #e1e1e1;
-  --color-inverse-surface: #313030;
-  --color-inverse-on-surface: #f4f0ef;
+  --color-surface: 249 249 249;
+  --color-on-surface: 28 27 27;
+  --color-on-surface-variant: 73 69 79;
+  --color-surface-variant: 231 224 236;
+  --color-surface-dim: 222 216 216;
+  --color-surface-bright: 249 249 249;
+  --color-surface-deep: 13 13 13;
+  --color-surface-tint: 0 0 0;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-low: 243 243 243;
+  --color-surface-container: 237 237 237;
+  --color-surface-container-high: 231 231 231;
+  --color-surface-container-highest: 225 225 225;
+  --color-inverse-surface: 49 48 48;
+  --color-inverse-on-surface: 244 240 239;
 
-  --color-outline: #7c7776;
-  --color-outline-variant: #cdc4c2;
-  --color-border-subtle: #e1e1e1;
+  --color-outline: 124 119 118;
+  --color-outline-variant: 205 196 194;
+  --color-border-subtle: 225 225 225;
 
-  --color-text-primary: #1c1b1b;
-  --color-text-muted: #6b6b6b;
-  --color-metric-positive: #2e7d32;
+  --color-text-primary: 28 27 27;
+  --color-text-muted: 107 107 107;
+  --color-metric-positive: 46 125 50;
 
   --radius-default: 0.25rem;
   --radius-lg: 0.5rem;
