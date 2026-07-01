@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 
-// NOTE: update `site` once the production domain is confirmed.
-// This is used for canonical URLs and (later) sitemap generation.
+// Production domain confirmed 2026-07-02. Used for canonical URLs and
+// (later) sitemap generation.
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://designs.digisyn.co",
   output: "static",
   trailingSlash: "ignore",
   build: {

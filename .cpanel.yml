@@ -1,28 +1,27 @@
-# cPanel "Git Version Control" auto-deploy hook.
-# When this repo is added under cPanel > Git Version Control and this file
-# exists at the repo root, cPanel runs the `deployment.tasks` commands after
-# every pull, relative to the repo's clone path on the server.
+# cPanel "Git Version Control" auto-deploy hook for digisync's account.
+# Repo is checked out at /home/digisync/designs.digisyn.co. Astro's own
+# build output directory (dist/) lives right inside that checkout, so no
+# copy/rsync step is needed — we just need to build in place.
 #
-# ACTION NEEDED BEFORE THIS WORKS (values are placeholders):
-#   1. Replace CPANEL_USERNAME below with your actual cPanel account username.
-#   2. Replace DEPLOYPATH with the public_html path this site should publish to
-#      (use a subfolder, e.g. public_html/ or public_html/mysite/, depending on
-#      whether this is the primary domain or an addon domain).
-#   3. Node/npm must be reachable in the shell cPanel uses to run this hook.
-#      Most shared cPanel hosts only expose Node via "Setup Node.js App"
-#      (Passenger), which installs it under a virtualenv-style path, e.g.:
-#        source /home/CPANEL_USERNAME/nodevenv/repo/20/bin/activate
-#      Create a Node.js App pointing at this repo's checkout path first, note
-#      the Node version it gives you, then uncomment/adjust the `source` line
-#      below to match. Without this, `npm` will not be found and the deploy
-#      task will fail silently from cPanel's perspective (check the Git
-#      Version Control deploy log in cPanel if the live site doesn't update).
+# ACTION NEEDED IN cPANEL (one-time, UI-only, I can't do this from here):
+#   1. cPanel > Domains > designs.digisyn.co > change the Document Root
+#      from /home/digisync/designs.digisyn.co
+#      to   /home/digisync/designs.digisyn.co/dist
+#      This keeps package.json, src/, tsconfig.json, etc. outside the
+#      public web root — only the built HTML/CSS/JS in dist/ is served.
+#   2. Confirm the Node.js virtualenv path below matches what's shown under
+#      cPanel > Setup Node.js App for this project (create an app pointed at
+#      this checkout path if one doesn't exist yet; any recent Node 18/20
+#      is fine). The version number in the path (currently "20") may need
+#      to change to match. Without this, `npm`/`npx` won't be on PATH when
+#      cPanel runs this hook and the deploy will silently fail (this is
+#      likely why "Last Deployment Information" showed "Not available").
+#   3. After both are set, click "Deploy HEAD Commit" in Git Version
+#      Control (or just push a new commit) to trigger it.
 
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/CPANEL_USERNAME/public_html/
-    # - source /home/CPANEL_USERNAME/nodevenv/repo/20/bin/activate
+    - source /home/digisync/nodevenv/designs.digisyn.co/20/bin/activate
     - npm install
     - npm run build
-    - /bin/cp -R dist/* $DEPLOYPATH
