@@ -1,0 +1,157 @@
+/* Theme tokens for the "Estate & Accord" (Luxury Accounting) template.
+   Source: Stitch project 13817036897071013700 — Home, About, Services,
+   Service Detail, Industries, Contact screens. Scoped to
+   `.theme-accounting-luxury` so it only applies inside
+   src/pages/templates/accounting-luxury/*, never leaking into the
+   platform shell or other templates. See tailwind.config.mjs header
+   comment for the full CSS-var + prefix-on-collision convention this
+   file participates in. */
+
+.theme-accounting-luxury {
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1c1b1b;
+  --color-on-primary-container: #ffffff;
+  --color-primary-fixed: #3d3d3d;
+  --color-primary-fixed-dim: #1c1b1b;
+  --color-on-primary-fixed: #ffffff;
+  --color-on-primary-fixed-variant: #e0e0e0;
+  --color-inverse-primary: #ffffff;
+
+  --color-secondary: #775a19;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fed488;
+  --color-on-secondary-container: #5a4310;
+  --color-secondary-fixed: #fed488;
+  --color-secondary-fixed-dim: #e0b968;
+  --color-on-secondary-fixed: #2b1d00;
+  --color-on-secondary-fixed-variant: #5a4310;
+
+  --color-tertiary: #3d3d3d;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #e0e0e0;
+  --color-on-tertiary-container: #1c1b1b;
+  --color-tertiary-fixed: #e0e0e0;
+  --color-tertiary-fixed-dim: #c4c4c4;
+  --color-on-tertiary-fixed: #1c1b1b;
+  --color-on-tertiary-fixed-variant: #3d3d3d;
+
+  --color-error: #b3261e;
+  --color-on-error: #ffffff;
+  --color-error-container: #f9dedc;
+  --color-on-error-container: #410e0b;
+
+  --color-background: #f9f9f9;
+  --color-on-background: #1c1b1b;
+
+  --color-surface: #f9f9f9;
+  --color-on-surface: #1c1b1b;
+  --color-on-surface-variant: #49454f;
+  --color-surface-variant: #e7e0ec;
+  --color-surface-dim: #ded8d8;
+  --color-surface-bright: #f9f9f9;
+  --color-surface-deep: #0d0d0d;
+  --color-surface-tint: #000000;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f3f3;
+  --color-surface-container: #ededed;
+  --color-surface-container-high: #e7e7e7;
+  --color-surface-container-highest: #e1e1e1;
+  --color-inverse-surface: #313030;
+  --color-inverse-on-surface: #f4f0ef;
+
+  --color-outline: #7c7776;
+  --color-outline-variant: #cdc4c2;
+  --color-border-subtle: #e1e1e1;
+
+  --color-text-primary: #1c1b1b;
+  --color-text-muted: #6b6b6b;
+  --color-metric-positive: #2e7d32;
+
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+/* --- Component classes shared across all Estate & Accord pages --- */
+.theme-accounting-luxury .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.theme-accounting-luxury .luxury-shadow,
+.theme-accounting-luxury .deep-shadow {
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.15);
+}
+
+.theme-accounting-luxury .gold-underline {
+  position: relative;
+}
+.theme-accounting-luxury .gold-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 48px;
+  height: 2px;
+  background: var(--color-secondary);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.theme-accounting-luxury .gold-underline:hover::after {
+  width: 100%;
+}
+
+.theme-accounting-luxury .hover-lift,
+.theme-accounting-luxury .floating-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.theme-accounting-luxury .hover-lift:hover,
+.theme-accounting-luxury .floating-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-accounting-luxury .timeline-line {
+  background: linear-gradient(to bottom, transparent, var(--color-outline-variant), transparent);
+}
+
+.theme-accounting-luxury .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.theme-accounting-luxury .reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.theme-accounting-luxury .razor-border-bottom {
+  border-bottom: 1px solid var(--color-outline-variant);
+}
+
+.theme-accounting-luxury .input-focus-line:focus {
+  border-color: var(--color-secondary);
+  outline: none;
+}
+
+.theme-accounting-luxury .glass-panel {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.theme-accounting-luxury .industry-card:hover .industry-bg {
+  transform: scale(1.08);
+  opacity: 0.16;
+}
+
+.theme-accounting-luxury .gold-gradient-text {
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-secondary-fixed));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.theme-accounting-luxury .sidebar-sticky {
+  position: sticky;
+  top: 8rem;
+}

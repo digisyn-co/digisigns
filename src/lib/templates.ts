@@ -47,6 +47,27 @@ const noPages = {
 
 export const templates: TemplateMeta[] = [
   {
+    slug: "accounting-luxury",
+    name: "Estate & Accord",
+    industry: "Accounting / Luxury Wealth Advisory",
+    tagline:
+      "A monochrome-and-gold advisory system for multi-generational wealth firms — dynastic trust design, estate architecture, institutional audit.",
+    previewImage:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDAcbn0huadOpMgP9eLYDSOQIslf1x6tK59fSqO86bTqPPyy3YBsmvI8XObKttv7rQq4zZ_PqJ_Xx1rpoh7NORLXtd_XIzaJ6uHq1YBRkcUp8ijV7szzQyhUaTeciuYbcyoaFduMW87NIZSP7AViX856cAZ2tsLPUgyMoKpRAZCatBCDcsKx3CkhrNyBvgJkdZKm4mGEt3khmh6KTM1sGfl4kJlCHgoboHkkuY4Rw-NxpoCHBX65EHoue6Nq0yx45lgsRCTeG4y_R-4",
+    releaseNote: "Live",
+    status: "live",
+    featured: true,
+    pages: {
+      ...noPages,
+      home: true,
+      about: true,
+      services: true,
+      serviceDetail: true,
+      industries: true,
+      contact: true,
+    },
+  },
+  {
     slug: "b2b-executive-suite",
     name: "The Executive Suite",
     industry: "B2B Services",
@@ -56,7 +77,7 @@ export const templates: TemplateMeta[] = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuC53HaWDutBpb_dNVndbZS8WbTO6sSc5BD7Rg2K0V8uUzidMiFtxNlI-StleTD1B1qKmUZkhXmOpo7Fabsr6IeVHLwKRUNYAOhEUZDkaCruWzc_JuhPuWV9P_9MiES44L_fh4HEAz0YmolNWZ-BgNychIAY1gtWkhlsk4HmNQXd9x7DTM6NeA7m9iC0GyaKVD70pRojK5twG4Nh4e1_sxveh0aZ-eCP_d1a0NCKRKDbL2kapy-eeqvrSRlPiFaDDkkkRJQR7L3BPtDo",
     releaseNote: "Premium System Release",
     status: "in-progress",
-    featured: true,
+    featured: false,
     pages: { ...noPages },
   },
   {

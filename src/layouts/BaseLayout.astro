@@ -3,11 +3,22 @@
 // Template Library itself and every page inside every template.
 // It only owns: <html>/<head> plumbing, the CSS reset, and SEO tags.
 // It does NOT own navigation, footer, colors, or type — those are
-// template-specific and layered on by each template's own
-// TemplateLayout (src/templates/<slug>/TemplateLayout.astro), which
-// wraps this component.
+// authored per-template in src/styles/themes/<slug>.css and layered on
+// by each template's own TemplateLayout (src/templates/<slug>/TemplateLayout.astro).
+//
+// IMPORTANT bundling note: plain CSS side-effect imports (`import "./x.css"`)
+// only reliably get included in the production build when they're imported
+// directly from THIS file — Astro/Vite silently drops equivalent imports
+// made from a page's frontmatter or from a nested non-page component (e.g.
+// TemplateLayout.astro) two-plus levels away from the page entrypoint, even
+// though the component itself renders fine. So every theme file, though
+// authored and owned per-template, must ALSO be registered with a single
+// import line here. Add one line per new template; do not move the theme
+// files themselves out of src/styles/themes/.
 import SEO from "@/components/SEO.astro";
 import "@/styles/global.css";
+import "@/styles/themes/digisigns.css";
+import "@/styles/themes/accounting-luxury.css";
 
 interface Props {
   title: string;

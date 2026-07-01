@@ -80,6 +80,17 @@ export default {
         "text-muted": "var(--color-text-muted)",
         "metric-positive": "var(--color-metric-positive)",
       },
+      // NOTE on the two patterns below:
+      // 1. Colors + borderRadius (above/below) always resolve through CSS
+      //    vars, so template themes can share class names with different
+      //    values — see src/styles/themes/<slug>.css.
+      // 2. fontFamily / fontSize / spacing are NOT fixed Tailwind scale
+      //    names, so when a second template reuses a key name from an
+      //    earlier template with a DIFFERENT value, we prefix the new
+      //    template's colliding key with a short slug prefix (e.g. "ea-"
+      //    for accounting-luxury / Estate & Accord) instead of overwriting
+      //    it. Keys that are new or happen to share the same value stay
+      //    unprefixed. Extend this file the same way for future templates.
       fontFamily: {
         "label-sm": ["var(--font-label-sm)", "sans-serif"],
         "headline-md": ["var(--font-headline-md)", "sans-serif"],
@@ -89,6 +100,14 @@ export default {
         "display-hero": ["var(--font-display-hero)", "sans-serif"],
         "display-hero-mobile": ["var(--font-display-hero-mobile)", "sans-serif"],
         "body-lg": ["var(--font-body-lg)", "sans-serif"],
+
+        // accounting-luxury (Estate & Accord) — "ea-" prefix on collisions
+        "ea-headline-md": ["Playfair Display", "serif"],
+        "ea-label-sm": ["Inter", "sans-serif"],
+        "label-md": ["Inter", "sans-serif"],
+        "display-lg": ["Playfair Display", "serif"],
+        "headline-sm": ["Playfair Display", "serif"],
+        "display-lg-mobile": ["Playfair Display", "serif"],
       },
       fontSize: {
         "label-sm": ["14px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "600" }],
@@ -99,6 +118,14 @@ export default {
         "display-hero": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }],
         "display-hero-mobile": ["40px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "800" }],
         "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+
+        // accounting-luxury (Estate & Accord) — "ea-" prefix on collisions
+        "ea-headline-md": ["32px", { lineHeight: "1.2", fontWeight: "600" }],
+        "ea-label-sm": ["12px", { lineHeight: "1.0", letterSpacing: "0.03em", fontWeight: "500" }],
+        "label-md": ["14px", { lineHeight: "1.0", letterSpacing: "0.05em", fontWeight: "600" }],
+        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "headline-sm": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+        "display-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
       },
       spacing: {
         "component-gap": "32px",
@@ -109,15 +136,23 @@ export default {
         "section-gap": "120px",
         "stack-lg": "48px",
         "margin-desktop": "64px",
+
+        // accounting-luxury (Estate & Accord) — "ea-" prefix on collisions
+        "ea-stack-sm": "12px",
+        "ea-stack-md": "24px",
+        "ea-container-max": "1440px",
+        base: "8px",
+        "margin-mobile": "20px",
       },
       borderRadius: {
-        DEFAULT: "0.125rem",
-        lg: "0.25rem",
-        xl: "0.5rem",
-        full: "0.75rem",
+        DEFAULT: "var(--radius-default)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+        full: "var(--radius-full)",
       },
       maxWidth: {
         "container-max": "1280px",
+        "ea-container-max": "1440px",
       },
     },
   },
