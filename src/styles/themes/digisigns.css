@@ -1,0 +1,76 @@
+/* Theme tokens for the DigiSigns root platform landing page
+   (Stitch project 13817036897071013700, screen 14d0f3d8448e4542a8cd58c1298420d4).
+   This is the platform's own dark brand theme, not one of the /templates/<slug>/
+   business templates — scope it to `.theme-digisigns` so it never leaks into
+   template pages, which will each get their own theme file in this folder. */
+
+.theme-digisigns {
+  --color-primary: #b7c4ff;
+  --color-on-primary: #002682;
+  --color-primary-container: #0052ff;
+  --color-on-primary-container: #dfe3ff;
+  --color-primary-fixed: #dde1ff;
+  --color-primary-fixed-dim: #b7c4ff;
+  --color-on-primary-fixed: #001452;
+  --color-on-primary-fixed-variant: #0038b6;
+  --color-inverse-primary: #004ced;
+
+  --color-secondary: #ffffff;
+  --color-on-secondary: #003828;
+  --color-secondary-container: #36ffc4;
+  --color-on-secondary-container: #007255;
+  --color-secondary-fixed: #36ffc4;
+  --color-secondary-fixed-dim: #00e1ab;
+  --color-on-secondary-fixed: #002116;
+  --color-on-secondary-fixed-variant: #00513c;
+
+  --color-tertiary: #ffb4a1;
+  --color-on-tertiary: #611300;
+  --color-tertiary-container: #bf3003;
+  --color-on-tertiary-container: #ffddd5;
+  --color-tertiary-fixed: #ffdbd2;
+  --color-tertiary-fixed-dim: #ffb4a1;
+  --color-on-tertiary-fixed: #3c0800;
+  --color-on-tertiary-fixed-variant: #891e00;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  --color-background: #0b1326;
+  --color-on-background: #dae2fd;
+
+  --color-surface: #0b1326;
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #c3c5d9;
+  --color-surface-variant: #2d3449;
+  --color-surface-dim: #0b1326;
+  --color-surface-bright: #31394d;
+  --color-surface-deep: #020617;
+  --color-surface-tint: #b7c4ff;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+  --color-inverse-surface: #dae2fd;
+  --color-inverse-on-surface: #283044;
+
+  --color-outline: #8d90a2;
+  --color-outline-variant: #434656;
+  --color-border-subtle: #1e293b;
+
+  --color-text-primary: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-metric-positive: #10b981;
+
+  --font-label-sm: "Inter";
+  --font-headline-md: "Inter";
+  --font-metric-display: "Inter";
+  --font-headline-lg: "Inter";
+  --font-body-md: "Inter";
+  --font-display-hero: "Inter";
+  --font-display-hero-mobile: "Inter";
+  --font-body-lg: "Inter";
+}

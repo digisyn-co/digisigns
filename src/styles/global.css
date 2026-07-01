@@ -1,0 +1,13 @@
+/* Shared baseline for every page on the platform. Tailwind's preflight
+   layer now supplies the CSS reset (box-sizing, margin removal, etc.),
+   replacing the old hand-written reset.css. Keep this file to Tailwind
+   directives plus truly global, non-visual defaults only — anything
+   template-specific belongs in src/styles/themes/<slug>.css instead. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
