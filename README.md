@@ -69,8 +69,10 @@ template's `theme.css`.
 5. Register (or update) the template in `src/lib/templates.ts` once it has at
    least a working Home page, so it appears in the Library.
 6. Commit with a structured message (see below), push.
-7. cPanel Git Version Control pulls and runs `.cpanel.yml`, which builds and
-   publishes `dist/` to `public_html`.
+7. cPanel Git Version Control pulls and runs `.cpanel.yml`, which builds Astro
+   in place (`dist/` ends up inside the checkout itself). The subdomain's
+   document root points at that `dist/` folder, not the repo root, so source
+   files are never web-exposed.
 
 I will never regenerate or restructure an already-approved page as a side
 effect of adding a new one.
@@ -93,22 +95,14 @@ npm run build     # outputs static site to dist/
 npm run preview   # serve the built dist/ locally
 ```
 
-## Outstanding setup (needs your input, not blocking work on templates)
+## Deployment (cPanel account: digisync)
 
-- **Domain**: `astro.config.mjs` has `site: "https://example.com"` as a
-  placeholder — update once the real domain is confirmed (affects canonical
-  URLs and future sitemap generation).
-- **GitHub repo**: create an empty repo and share the URL; I'll hand you
-  commits to push (or push directly if you give me a way to authenticate).
-- **cPanel deploy**: `.cpanel.yml` has placeholder values
-  (`CPANEL_USERNAME`, deploy path, Node virtualenv path). It needs your real
-  cPanel username, the public_html path this site should publish to, and
-  confirmation that Node is enabled via cPanel's "Setup Node.js App" (most
-  shared hosts don't expose `npm` to shell scripts otherwise). If your host
-  can't run Node at deploy time, the fallback is building in GitHub Actions
-  and having `.cpanel.yml` just copy a pre-built `dist/` — let me know if
-  that's the case and I'll switch the pipeline.
+- **Domain**: `https://designs.digisyn.co` — confirmed as the production domain, set in `astro.config.mjs`.
+- **GitHub**: `https://github.com/digisyn-co/digisigns`, `main` branch.
+- **cPanel Git Version Control**: repo checked out at `/home/digisync/designs.digisyn.co`. `.cpanel.yml` runs `npm install && npm run build`, which produces `dist/` inside that same checkout — no copy step needed.
+- **One-time manual step still needed**: in cPanel > Domains, change `designs.digisyn.co`'s document root from `/home/digisync/designs.digisyn.co` to `/home/digisync/designs.digisyn.co/dist`, so only built output is web-exposed (not `src/`, `package.json`, etc). Also confirm the Node.js virtualenv path in `.cpanel.yml` matches cPanel > Setup Node.js App for this project (currently assumes `nodevenv/designs.digisyn.co/20`) — deploys were showing "Not available" before this fix, most likely because `npm` wasn't on PATH for the hook.
+- After both are confirmed, click "Deploy HEAD Commit" in Git Version Control, or just push — it'll trigger automatically from then on.
 
 ## Status
 
-No templates yet. Waiting on the first Stitch screen ID.
+Root platform landing page (`/`) implemented from Stitch screen `14d0f3d8...`. No business templates (`/templates/<slug>/`) yet — waiting on the first template Home screen.
