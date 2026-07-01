@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Nav from "./Nav.astro";
+import Footer from "./Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  active: "home" | "about" | "practices" | "industries" | "contact";
+  canonicalPath?: string;
+}
+const { title, description, active, canonicalPath } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  htmlClass="scroll-smooth"
+  bodyClass="theme-law-prestige bg-background text-on-background font-body-md overflow-x-hidden"
+>
+  <Fragment slot="head">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  </Fragment>
+
+  <Nav active={active} />
+  <slot />
+  <Footer />
+
+  <script>
+    const targets = document.querySelectorAll(".reveal-on-scroll, .reveal-up");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.1 }
+    );
+    targets.forEach((el) => observer.observe(el));
+  </script>
+</BaseLayout>
