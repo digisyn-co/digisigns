@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active: "home" | "about" | "services" | "industries" | "contact";
+  active: "home" | "about" | "services" | "industries" | "blog" | "contact";
 }
 const { active } = Astro.props;
 
@@ -9,15 +9,16 @@ const links = [
   { href: "/templates/movers-premium/services", label: "Services", key: "services" },
   { href: "/templates/movers-premium/about", label: "About", key: "about" },
   { href: "/templates/movers-premium/industries", label: "Industries", key: "industries" },
+  { href: "/templates/movers-premium/blog", label: "Moving Tips", key: "blog" },
 ];
 ---
 
 <header class="bg-surface-container-lowest border-b-2 border-on-surface sticky top-0 z-50">
-  <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+  <div class="relative flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
     <a href="/templates/movers-premium" class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase tracking-tighter text-on-surface">
       RapidRelo
     </a>
-    <nav class="hidden md:flex gap-8 items-center">
+    <nav id="mobile-menu-movers-premium" class="hidden md:flex gap-8 items-center bg-surface-container-lowest border-t-2 border-on-surface">
       {links.map((link) => (
         <a
           href={link.href}
@@ -32,14 +33,26 @@ const links = [
         </a>
       ))}
     </nav>
-    <a
-      href="/templates/movers-premium/contact"
-      class:list={[
-        "bg-primary-container text-on-primary-fixed font-label-bold text-label-bold uppercase px-6 py-3 border-2 border-on-surface block-shadow block-shadow-hover transition-all active:translate-y-1",
-        active === "contact" ? "bg-primary-fixed-dim" : "",
-      ]}
-    >
-      Get a Quote
-    </a>
+    <div class="flex items-center gap-3">
+      <a
+        href="/templates/movers-premium/contact"
+        class:list={[
+          "bg-primary-container text-on-primary-fixed font-label-bold text-label-bold uppercase px-6 py-3 border-2 border-on-surface block-shadow block-shadow-hover transition-all active:translate-y-1",
+          active === "contact" ? "bg-primary-fixed-dim" : "",
+        ]}
+      >
+        Get a Quote
+      </a>
+      <button
+        type="button"
+        class="md:hidden text-on-surface border-2 border-on-surface p-2"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        data-mobile-menu-toggle="#mobile-menu-movers-premium"
+      >
+        <span class="material-symbols-outlined" data-icon-open>menu</span>
+        <span class="material-symbols-outlined hidden" data-icon-close>close</span>
+      </button>
+    </div>
   </div>
 </header>

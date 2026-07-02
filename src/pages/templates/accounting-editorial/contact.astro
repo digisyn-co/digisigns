@@ -86,20 +86,20 @@ import TemplateLayout from "@/templates/accounting-editorial/TemplateLayout.astr
 <!-- Step 2 Content (Hidden) -->
 <div class="hidden space-y-8" id="step-2">
 <h3 class="font-si-headline-sm text-si-headline-sm text-primary mb-6">What is the nature of your challenge?</h3>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<button class="border border-outline-variant p-6 text-left hover:border-secondary hover:bg-secondary-fixed transition-all group">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="challenge-options">
+<button class="border border-outline-variant p-6 text-left hover:border-secondary hover:bg-secondary-fixed transition-all group aria-pressed:border-secondary aria-pressed:bg-secondary-fixed" onclick="selectChallenge(this)" aria-pressed="false" type="button">
 <span class="material-symbols-outlined text-secondary mb-4">analytics</span>
 <p class="font-si-label-lg font-bold">Tax &amp; Assurance</p>
 </button>
-<button class="border border-outline-variant p-6 text-left hover:border-secondary hover:bg-secondary-fixed transition-all group">
+<button class="border border-outline-variant p-6 text-left hover:border-secondary hover:bg-secondary-fixed transition-all group aria-pressed:border-secondary aria-pressed:bg-secondary-fixed" onclick="selectChallenge(this)" aria-pressed="false" type="button">
 <span class="material-symbols-outlined text-secondary mb-4">strategy</span>
 <p class="font-si-label-lg font-bold">Strategic Advisory</p>
 </button>
-<button class="border border-outline-variant p-6 text-left hover:border-secondary hover:bg-secondary-fixed transition-all group">
+<button class="border border-outline-variant p-6 text-left hover:border-secondary hover:bg-secondary-fixed transition-all group aria-pressed:border-secondary aria-pressed:bg-secondary-fixed" onclick="selectChallenge(this)" aria-pressed="false" type="button">
 <span class="material-symbols-outlined text-secondary mb-4">settings_suggest</span>
 <p class="font-si-label-lg font-bold">Process Outsourcing</p>
 </button>
-<button class="border border-outline-variant p-6 text-left hover:border-secondary hover:bg-secondary-fixed transition-all group">
+<button class="border border-outline-variant p-6 text-left hover:border-secondary hover:bg-secondary-fixed transition-all group aria-pressed:border-secondary aria-pressed:bg-secondary-fixed" onclick="selectChallenge(this)" aria-pressed="false" type="button">
 <span class="material-symbols-outlined text-secondary mb-4">gavel</span>
 <p class="font-si-label-lg font-bold">Litigation Support</p>
 </button>
@@ -131,11 +131,17 @@ import TemplateLayout from "@/templates/accounting-editorial/TemplateLayout.astr
 <span class="material-symbols-outlined">west</span>
                                 Back
                             </button>
-<button class="bg-secondary text-on-primary px-10 py-4 font-si-label-lg text-si-label-lg uppercase font-bold flex items-center gap-4 hover:brightness-110 transition-all">
+<button class="bg-secondary text-on-primary px-10 py-4 font-si-label-lg text-si-label-lg uppercase font-bold flex items-center gap-4 hover:brightness-110 transition-all" onclick="submitInquiry()" type="button">
                                 Initiate Consultation
                                 <span class="material-symbols-outlined">check_circle</span>
 </button>
 </div>
+</div>
+<!-- Confirmation (Hidden) -->
+<div class="hidden text-center py-12" id="step-done">
+<span class="material-symbols-outlined text-6xl text-secondary mb-6" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+<h3 class="font-si-headline-sm text-si-headline-sm text-primary mb-4">Consultation Requested.</h3>
+<p class="font-si-body-md text-on-surface-variant max-w-md mx-auto">A specialized partner will respond within 12 business hours, as outlined above.</p>
 </div>
 </div>
 </div>
@@ -192,14 +198,39 @@ import TemplateLayout from "@/templates/accounting-editorial/TemplateLayout.astr
 <section class="bg-primary py-16">
 <div class="max-w-si-container-max mx-auto px-si-margin-desktop flex flex-col md:flex-row justify-between items-center gap-8">
 <h3 class="font-si-headline-sm text-si-headline-sm text-on-primary">Receive emails <span class="italic text-secondary-fixed">worth</span> reading</h3>
-<div class="flex w-full md:w-auto gap-0 border border-outline-variant/30">
-<input class="bg-white/5 border-none text-on-primary px-6 py-4 w-full md:w-80 focus:ring-1 focus:ring-secondary" placeholder="Your professional email" type="email"/>
-<button class="bg-secondary text-on-primary px-8 py-4 font-si-label-lg text-si-label-lg uppercase font-bold whitespace-nowrap hover:brightness-110 transition-all">
+<form class="flex w-full md:w-auto gap-0 border border-outline-variant/30" id="newsletterForm" data-success-target="#newsletterSuccess">
+<input class="bg-white/5 border-none text-on-primary px-6 py-4 w-full md:w-80 focus:ring-1 focus:ring-secondary" placeholder="Your professional email" type="email" required/>
+<button class="bg-secondary text-on-primary px-8 py-4 font-si-label-lg text-si-label-lg uppercase font-bold whitespace-nowrap hover:brightness-110 transition-all" type="submit">
                         Subscribe
                     </button>
-</div>
+</form>
+<p class="hidden font-si-label-lg text-si-label-lg text-on-primary" id="newsletterSuccess">You're subscribed. Welcome aboard.</p>
 </div>
 </section>
 </main>
 
+<script>
+  function goToStep(step: number) {
+    [1, 2, 3].forEach((n) => {
+      const el = document.getElementById(`step-${n}`);
+      if (el) el.classList.toggle("hidden", n !== step);
+    });
+  }
+  // @ts-ignore -- exposed for the inline onclick="" handlers in this page
+  window.goToStep = goToStep;
+
+  function selectChallenge(btn: HTMLElement) {
+    document.querySelectorAll("#challenge-options button").forEach((b) => b.setAttribute("aria-pressed", "false"));
+    btn.setAttribute("aria-pressed", "true");
+  }
+  // @ts-ignore -- exposed for the inline onclick="" handlers in this page
+  window.selectChallenge = selectChallenge;
+
+  function submitInquiry() {
+    ["step-1", "step-2", "step-3"].forEach((id) => document.getElementById(id)?.classList.add("hidden"));
+    document.getElementById("step-done")?.classList.remove("hidden");
+  }
+  // @ts-ignore -- exposed for the inline onclick="" handler in this page
+  window.submitInquiry = submitInquiry;
+</script>
 </TemplateLayout>

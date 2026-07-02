@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active: "home" | "about" | "services" | "knowledge-hub" | "contact";
+  active: "home" | "about" | "services" | "knowledge-hub" | "blog" | "contact";
 }
 const { active } = Astro.props;
 const links = [
@@ -11,9 +11,9 @@ const links = [
 ---
 
 <header class="bg-surface border-b border-outline-variant full-width top-0 z-50 sticky">
-  <nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-si-container-max mx-auto">
+  <nav class="relative flex justify-between items-center w-full px-margin-desktop py-4 max-w-si-container-max mx-auto">
     <a href="/templates/accounting-editorial" class="font-si-headline-md text-si-headline-md font-bold text-primary">Strategic Insight</a>
-    <div class="hidden md:flex gap-8 items-center">
+    <div id="mobile-menu-accounting-editorial" class="hidden md:flex gap-8 items-center bg-surface border-t border-outline-variant">
       {links.map((link) => (
         <a
           href={link.href}
@@ -26,14 +26,26 @@ const links = [
         </a>
       ))}
     </div>
-    <a
-      href="/templates/accounting-editorial/contact"
-      class:list={[
-        "bg-secondary text-on-primary px-6 py-2 font-si-label-lg text-si-label-lg font-bold hover:brightness-110 transition-all uppercase tracking-widest",
-        active === "contact" ? "brightness-110" : "",
-      ]}
-    >
-      Contact
-    </a>
+    <div class="flex items-center gap-3">
+      <a
+        href="/templates/accounting-editorial/contact"
+        class:list={[
+          "bg-secondary text-on-primary px-6 py-2 font-si-label-lg text-si-label-lg font-bold hover:brightness-110 transition-all uppercase tracking-widest",
+          active === "contact" ? "brightness-110" : "",
+        ]}
+      >
+        Contact
+      </a>
+      <button
+        type="button"
+        class="md:hidden text-primary p-2"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        data-mobile-menu-toggle="#mobile-menu-accounting-editorial"
+      >
+        <span class="material-symbols-outlined" data-icon-open>menu</span>
+        <span class="material-symbols-outlined hidden" data-icon-close>close</span>
+      </button>
+    </div>
   </nav>
 </header>

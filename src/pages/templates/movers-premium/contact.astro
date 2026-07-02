@@ -105,6 +105,12 @@ import TemplateLayout from "@/templates/movers-premium/TemplateLayout.astro";
 <button class="bg-primary-container text-on-surface font-label-bold text-label-bold uppercase px-8 py-4 border-2 border-on-surface block-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all grow" type="submit">Get My Moving Quote</button>
 </div>
 </div>
+<!-- Confirmation (Hidden until submit) -->
+<div class="step-content hidden text-center py-8" id="step-done">
+<span class="material-symbols-outlined text-6xl text-primary-container mb-4">task_alt</span>
+<h2 class="font-rr-headline-md text-rr-headline-md mb-stack-sm uppercase">Quote Requested.</h2>
+<p class="font-rr-body-md text-on-surface-variant max-w-sm mx-auto">An agent will call you back within 15 minutes during business hours to confirm your move.</p>
+</div>
 </form>
 </div>
 </div>
@@ -178,4 +184,23 @@ import TemplateLayout from "@/templates/movers-premium/TemplateLayout.astro";
 </section>
 </main>
 
+<script>
+  function nextStep(step: number) {
+    document.querySelectorAll(".step-content").forEach((el) => el.classList.add("hidden"));
+    const target = document.getElementById(step === 4 ? "step-done" : `step-${step}`);
+    if (target) target.classList.remove("hidden");
+    const bar = document.getElementById("progress-bar");
+    if (bar) bar.style.width = `${Math.min(step, 3) * 33}%`;
+  }
+  // @ts-ignore -- exposed for the inline onclick="" handlers in this page
+  window.nextStep = nextStep;
+
+  const wizard = document.getElementById("booking-wizard");
+  if (wizard) {
+    wizard.addEventListener("submit", (e) => {
+      e.preventDefault();
+      nextStep(4);
+    });
+  }
+</script>
 </TemplateLayout>

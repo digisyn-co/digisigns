@@ -4,7 +4,7 @@
 // Advisory / Strategy / Insights) — replaced here with real routes to the
 // template's 4 primary pages, matching the required-pages set.
 interface Props {
-  active: "home" | "about" | "services" | "industries" | "contact";
+  active: "home" | "about" | "services" | "industries" | "blog" | "contact";
 }
 const { active } = Astro.props;
 
@@ -13,12 +13,13 @@ const links = [
   { href: "/templates/accounting-luxury/about", label: "About", key: "about" },
   { href: "/templates/accounting-luxury/services", label: "Services", key: "services" },
   { href: "/templates/accounting-luxury/industries", label: "Industries", key: "industries" },
+  { href: "/templates/accounting-luxury/blog", label: "Insights", key: "blog" },
 ];
 ---
 
 <header class="fixed top-10 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto bg-surface/90 backdrop-blur-md shadow-sm">
   <a href="/templates/accounting-luxury" class="font-headline-sm text-headline-sm tracking-tighter text-primary">ESTATE &amp; ACCORD</a>
-  <nav class="hidden md:flex items-center gap-10">
+  <nav id="mobile-menu-accounting-luxury" class="hidden md:flex items-center gap-10 bg-surface border-t border-outline/10 shadow-lg md:shadow-none md:border-0">
     {links.map((link) => (
       <a
         href={link.href}
@@ -33,13 +34,25 @@ const links = [
       </a>
     ))}
   </nav>
-  <a
-    href="/templates/accounting-luxury/contact"
-    class:list={[
-      "bg-primary text-on-primary px-8 py-3 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all duration-500 ease-in-out",
-      active === "contact" ? "bg-secondary" : "",
-    ]}
-  >
-    Consultation
-  </a>
+  <div class="flex items-center gap-4">
+    <a
+      href="/templates/accounting-luxury/contact"
+      class:list={[
+        "bg-primary text-on-primary px-8 py-3 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all duration-500 ease-in-out",
+        active === "contact" ? "bg-secondary" : "",
+      ]}
+    >
+      Consultation
+    </a>
+    <button
+      type="button"
+      class="md:hidden text-primary p-2"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      data-mobile-menu-toggle="#mobile-menu-accounting-luxury"
+    >
+      <span class="material-symbols-outlined" data-icon-open>menu</span>
+      <span class="material-symbols-outlined hidden" data-icon-close>close</span>
+    </button>
+  </div>
 </header>

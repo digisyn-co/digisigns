@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active: "home" | "about" | "services" | "portfolio" | "contact";
+  active: "home" | "about" | "services" | "portfolio" | "blog" | "contact";
 }
 const { active } = Astro.props;
 const links = [
@@ -8,15 +8,16 @@ const links = [
   { href: "/templates/creative-studio/about", label: "About Us", key: "about" },
   { href: "/templates/creative-studio/services", label: "Services", key: "services" },
   { href: "/templates/creative-studio/portfolio", label: "Portfolio", key: "portfolio" },
+  { href: "/templates/creative-studio/blog", label: "Journal", key: "blog" },
 ];
 ---
 
 <nav class="bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0px_10px_30px_rgba(121,40,202,0.08)] sticky top-10 z-50">
-  <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+  <div class="relative flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
     <a href="/templates/creative-studio" class="font-cs-display-lg text-cs-headline-md font-black tracking-tighter text-primary">
       The Creative Collective
     </a>
-    <div class="hidden md:flex items-center gap-gutter">
+    <div id="mobile-menu-creative-studio" class="hidden md:flex items-center gap-gutter bg-surface border-t border-outline-variant/30 shadow-lg md:shadow-none md:border-0 rounded-b-[24px] md:rounded-none">
       {links.map((link) => (
         <a
           href={link.href}
@@ -29,14 +30,26 @@ const links = [
         </a>
       ))}
     </div>
-    <a
-      href="/templates/creative-studio/contact"
-      class:list={[
-        "bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform duration-300 active:scale-95 shadow-lg",
-        active === "contact" ? "scale-105" : "",
-      ]}
-    >
-      Start a Project
-    </a>
+    <div class="flex items-center gap-3">
+      <a
+        href="/templates/creative-studio/contact"
+        class:list={[
+          "bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform duration-300 active:scale-95 shadow-lg",
+          active === "contact" ? "scale-105" : "",
+        ]}
+      >
+        Start a Project
+      </a>
+      <button
+        type="button"
+        class="md:hidden text-primary p-2"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        data-mobile-menu-toggle="#mobile-menu-creative-studio"
+      >
+        <span class="material-symbols-outlined" data-icon-open>menu</span>
+        <span class="material-symbols-outlined hidden" data-icon-close>close</span>
+      </button>
+    </div>
   </div>
 </nav>

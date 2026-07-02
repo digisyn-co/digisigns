@@ -1,0 +1,54 @@
+---
+import TemplateLayout from "@/templates/movers-premium/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+export function getStaticPaths() {
+  return blogPosts["movers-premium"].map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const related = blogPosts["movers-premium"].filter((p) => p.slug !== post.slug).slice(0, 2);
+---
+
+<TemplateLayout
+  title={`${post.title} | RapidRelo Moving & Storage`}
+  description={post.excerpt}
+  active="blog"
+  canonicalPath={`/templates/movers-premium/blog/${post.slug}`}
+>
+<main class="w-full py-rr-stack-lg px-rr-margin-mobile md:px-rr-margin-desktop">
+<div class="max-w-3xl mx-auto">
+<a href="/templates/movers-premium/blog" class="font-label-bold text-rr-label-sm uppercase text-on-surface-variant hover:text-primary mb-8 inline-flex items-center gap-2">
+<span aria-hidden="true">&larr;</span> All Moving Tips
+</a>
+<span class="font-label-bold text-rr-label-sm uppercase bg-primary-container inline-block px-3 py-1 mb-6 w-fit">{post.category}</span>
+<h1 class="font-rr-display-lg text-rr-display-lg-mobile md:text-rr-display-lg uppercase mb-8">{post.title}</h1>
+<div class="flex items-center gap-6 font-label-bold text-rr-label-sm uppercase text-on-surface-variant pb-8 mb-8 border-b-2 border-on-surface">
+<span>{post.author}</span>
+<span>{post.date}</span>
+<span>{post.readTime}</span>
+</div>
+<div class="space-y-6">
+{post.body.map((paragraph) => (
+<p class="font-rr-body-md text-body-lg text-on-surface-variant leading-relaxed">{paragraph}</p>
+))}
+</div>
+</div>
+{related.length > 0 && (
+<div class="max-w-rr-container-max mx-auto mt-rr-stack-lg pt-rr-stack-lg border-t-2 border-on-surface">
+<h2 class="font-rr-headline-md text-rr-headline-md uppercase mb-8">More Moving Tips</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+{related.map((p) => (
+<a href={`/templates/movers-premium/blog/${p.slug}`} class="group bg-white border-2 border-on-surface p-rr-stack-lg block-shadow block-shadow-hover transition-all">
+<span class="font-label-bold text-rr-label-sm uppercase bg-primary-container inline-block px-3 py-1 mb-4 w-fit">{p.category}</span>
+<h3 class="font-rr-headline-sm text-rr-headline-sm uppercase">{p.title}</h3>
+</a>
+))}
+</div>
+</div>
+)}
+</main>
+</TemplateLayout>

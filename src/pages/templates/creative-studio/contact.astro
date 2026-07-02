@@ -119,10 +119,33 @@ import TemplateLayout from "@/templates/creative-studio/TemplateLayout.astro";
                                 </button>
 </div>
 </div>
+<!-- Confirmation -->
+<div class="step step-inactive text-center py-12" id="step-done">
+<span class="material-symbols-outlined text-6xl text-primary mb-6">celebration</span>
+<h2 class="font-cs-headline-lg text-cs-headline-lg-mobile md:text-cs-headline-lg mb-4 text-on-surface">Project Ignited.</h2>
+<p class="font-cs-body-lg text-cs-body-lg text-on-surface-variant max-w-md mx-auto">Thanks for reaching out — a strategist will review your brief and reply within one business day.</p>
+</div>
 </form>
 </div>
 </div>
 </section>
+<script>
+  function nextStep(step: number) {
+    document.querySelectorAll(".step").forEach((el) => el.classList.add("step-inactive"));
+    const target = document.getElementById(step === 4 ? "step-done" : `step${step}`);
+    if (target) target.classList.remove("step-inactive");
+  }
+  // @ts-ignore -- exposed for the inline onclick="" handlers in this page
+  window.nextStep = nextStep;
+
+  const form = document.getElementById("multiStepForm");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      nextStep(4);
+    });
+  }
+</script>
 <!-- Our HQ: Map Section -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop">
 <div class="max-w-container-max mx-auto">
