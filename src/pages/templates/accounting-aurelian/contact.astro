@@ -1,0 +1,100 @@
+---
+import TemplateLayout from "@/templates/accounting-aurelian/TemplateLayout.astro";
+---
+
+<TemplateLayout
+  title="Consultation | Aurelian Tax & Advisory"
+  description="Begin a private dialogue with Aurelian Tax & Advisory. Consultations are conducted in complete discretion."
+  active="contact"
+  canonicalPath="/templates/accounting-aurelian/contact"
+>
+<main class="pt-8">
+<!-- Hero -->
+<section class="max-w-au-container-max mx-auto px-au-margin-mobile md:px-margin-desktop py-au-section-gap">
+<div class="max-w-3xl reveal-on-scroll">
+<span class="font-au-label-md text-au-label-md text-on-tertiary-container uppercase tracking-widest mb-6 block">Begin a Dialogue</span>
+<h1 class="font-au-display-lg text-au-headline-lg-mobile md:text-au-display-lg text-primary mb-8 leading-tight">
+                    Private Consultation.
+                </h1>
+<p class="font-au-body-lg text-au-body-lg text-on-surface-variant max-w-2xl">
+                    Our intake process is highly selective, ensuring each client receives the focused artistry their complexity demands. Every conversation begins in complete discretion.
+                </p>
+</div>
+</section>
+<!-- Form + Info -->
+<section class="max-w-au-container-max mx-auto px-au-margin-mobile md:px-margin-desktop pb-au-section-gap">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-au-gutter">
+<div class="lg:col-span-7 bg-surface-container-low p-8 md:p-16 reveal-on-scroll">
+<h2 class="font-au-headline-lg text-au-headline-lg text-primary mb-10">Request an Introduction</h2>
+<form id="aurelianContactForm" data-success-target="#aurelianContactSuccess" class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="font-au-label-md text-au-label-md text-on-surface-variant uppercase tracking-wide" for="au-name">Full Name</label>
+<input id="au-name" name="name" required type="text" class="w-full bg-transparent border-0 border-b border-primary/30 py-3 px-0 focus:ring-0 focus:border-on-tertiary-container transition-colors outline-none font-au-body-md placeholder:text-outline/50" placeholder="Your name" />
+</div>
+<div class="space-y-2">
+<label class="font-au-label-md text-au-label-md text-on-surface-variant uppercase tracking-wide" for="au-email">Email Address</label>
+<input id="au-email" name="email" required type="email" class="w-full bg-transparent border-0 border-b border-primary/30 py-3 px-0 focus:ring-0 focus:border-on-tertiary-container transition-colors outline-none font-au-body-md placeholder:text-outline/50" placeholder="you@example.com" />
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-au-label-md text-au-label-md text-on-surface-variant uppercase tracking-wide" for="au-interest">Area of Interest</label>
+<select id="au-interest" name="interest" class="w-full bg-transparent border-0 border-b border-primary/30 py-3 px-0 focus:ring-0 focus:border-on-tertiary-container transition-colors outline-none font-au-body-md">
+<option>Strategic Tax Planning</option>
+<option>Private Wealth Management</option>
+<option>Corporate Advisory</option>
+<option>Other</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-au-label-md text-au-label-md text-on-surface-variant uppercase tracking-wide" for="au-message">Message</label>
+<textarea id="au-message" name="message" required rows="5" class="w-full bg-transparent border-0 border-b border-primary/30 py-3 px-0 focus:ring-0 focus:border-on-tertiary-container transition-colors outline-none resize-none font-au-body-md placeholder:text-outline/50" placeholder="Tell us about your circumstances."></textarea>
+</div>
+<button type="submit" class="bg-primary text-on-primary px-12 py-5 font-au-label-md text-au-label-md tracking-widest uppercase hover:opacity-90 transition-all active:scale-95">
+                            Request Consultation
+                        </button>
+</form>
+<div id="aurelianContactSuccess" class="hidden text-center py-12">
+<span class="material-symbols-outlined text-on-tertiary-container text-5xl mb-6">check_circle</span>
+<h3 class="font-au-headline-md text-au-headline-md text-primary mb-2">Your Inquiry Has Been Received</h3>
+<p class="text-on-surface-variant font-au-body-md">A senior advisor will respond within one business day, in complete confidence.</p>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col justify-between">
+<div class="bg-primary text-on-primary p-8 md:p-16 reveal-on-scroll">
+<h3 class="font-au-headline-md text-au-headline-md mb-10 italic">Presence</h3>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed">location_on</span>
+<div>
+<p class="font-au-label-md text-au-label-md mb-1 uppercase tracking-wide">Offices</p>
+<p class="font-au-body-md text-au-body-md opacity-80">Zurich &bull; London &bull; New York</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed">mail</span>
+<div>
+<p class="font-au-label-md text-au-label-md mb-1 uppercase tracking-wide">Email</p>
+<p class="font-au-body-md text-au-body-md opacity-80">private@aureliantax.example</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed">schedule</span>
+<div>
+<p class="font-au-label-md text-au-label-md mb-1 uppercase tracking-wide">Availability</p>
+<p class="font-au-body-md text-au-body-md opacity-80">By private appointment only</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-8 md:p-16 border border-outline-variant/20 reveal-on-scroll">
+<span class="material-symbols-outlined text-on-tertiary-container text-4xl mb-6 block">verified_user</span>
+<p class="italic font-au-body-lg text-au-body-lg text-primary">
+                            "Every conversation begins the same way: in complete discretion, and without obligation."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</TemplateLayout>

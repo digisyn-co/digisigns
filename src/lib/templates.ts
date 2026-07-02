@@ -210,6 +210,25 @@ export const templates: TemplateMeta[] = [
     },
   },
   {
+    slug: "accounting-aurelian",
+    name: "Aurelian Tax & Advisory",
+    industry: "Accounting / Artistic Private Wealth",
+    tagline: "An editorial, artisanal wealth-advisory system with Midnight Emerald and warm gold, asymmetric grids, and a philosophy-led brand voice.",
+    previewImage:
+      "https://lh3.googleusercontent.com/aida/AP1WRLs73YhzwcL8EEpa42OTTw1Z8DLyIxgcmGKucb-0dXh0WsNuoKIJh6FcEsjMMcUHSfibiotct42VLbffhZ3cujrdrpWlE5WTd9HQUi6PSB2wjcjW2boXYVjIPoWcdRCoWd76dR-m4sW8oImaI1-paa187m_x0tOEw2DIzCrCd27ffBSjshHObHkBr4899DVH13i7CRTB7UyzALLtDnYvY2Ban705jwQPszOieLySrzGVLUI0p4hFikxfxNw2",
+    releaseNote: "Live",
+    status: "live",
+    featured: false,
+    pages: {
+      ...noPages,
+      home: true,
+      about: true,
+      services: true,
+      contact: true,
+      blog: true,
+    },
+  },
+  {
     slug: "electrician-industrial",
     name: "Industrial Infrastructure",
     industry: "Industrial / Trades",

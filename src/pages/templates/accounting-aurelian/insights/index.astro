@@ -1,0 +1,79 @@
+---
+import TemplateLayout from "@/templates/accounting-aurelian/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+const posts = blogPosts["accounting-aurelian"];
+const [featured, ...rest] = posts;
+---
+
+<TemplateLayout
+  title="Perspectives on Wealth | Aurelian Tax & Advisory"
+  description="A curated editorial exploring the intersection of financial precision, legacy architecture, and the sophisticated craft of preservation."
+  active="insights"
+  canonicalPath="/templates/accounting-aurelian/insights"
+>
+<main class="pt-8 pb-au-section-gap">
+<!-- Hero -->
+<section class="max-w-au-container-max mx-auto px-au-margin-mobile md:px-margin-desktop mb-24">
+<div class="grid grid-cols-12 gap-au-gutter">
+<div class="col-span-12 md:col-span-8 reveal-on-scroll">
+<span class="font-au-label-md text-au-label-md text-on-tertiary-container uppercase tracking-widest mb-6 block">Library of Thoughts</span>
+<h1 class="font-au-display-lg text-au-headline-lg-mobile md:text-au-display-lg text-primary mb-8 leading-tight">
+                        Perspectives on Wealth
+                    </h1>
+<p class="font-au-body-lg text-au-body-lg text-on-surface-variant max-w-2xl">
+                        A curated editorial exploring the intersection of financial precision, legacy architecture, and the sophisticated craft of preservation.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Featured Article -->
+{featured && (
+<section class="max-w-au-container-max mx-auto px-au-margin-mobile md:px-margin-desktop mb-au-section-gap">
+<a href={`/templates/accounting-aurelian/insights/${featured.slug}`} class="group relative grid grid-cols-12 gap-au-gutter items-center overflow-hidden reveal-on-scroll">
+<div class="col-span-12 md:col-span-7 relative h-[320px] md:h-[600px] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="A high-contrast editorial photograph of a minimalist architectural structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQhNKTNJByef3JpCL-VlWBAu0bJ2LFLotUHkzUQvwYehufMJXTLCJTCOZ8bw_HjeVkjxh5DCN5-Wd-kWNMY0h1NSOggpcYfS6Lj4xrBY0ctVeeBwk9-iqEkp0Q9GVXFnri_kryBG0AqanJ18pHIBJ92Z_ym6sGghKBxl0nE7OZ6jwbK2b7yUl8BAkvAtTP5AWwIg1YTZ53YNZVKUbsyx28ad5t1ge_HAnFByM4yC6I2_ENrUSV7ttMPPxN4bCV4Tem_wHcybg5hdDv" />
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+<div class="col-span-12 md:col-span-5 md:-ml-24 z-10 bg-surface p-8 md:p-16 border border-outline-variant/10 shadow-sm">
+<div class="flex items-center gap-4 mb-6">
+<span class="bg-primary-container text-on-primary-fixed px-3 py-1 font-au-label-md text-au-caption uppercase tracking-wider">Featured</span>
+<span class="text-outline font-au-body-md text-au-caption">{featured.date}</span>
+</div>
+<h2 class="font-au-headline-lg text-au-headline-lg text-primary mb-6 group-hover:text-on-tertiary-container transition-colors duration-300">
+                        {featured.title}
+                    </h2>
+<p class="font-au-body-md text-au-body-md text-on-surface-variant mb-8">{featured.excerpt}</p>
+<span class="inline-flex items-center font-au-label-md text-au-label-md text-primary">
+                        Read Investigation
+                        <span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">arrow_right_alt</span>
+</span>
+</div>
+</a>
+</section>
+)}
+<!-- Insight Grid -->
+<section class="max-w-au-container-max mx-auto px-au-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-12 editorial-border pb-6 reveal-on-scroll">
+<h3 class="font-au-headline-md text-au-headline-md">Recent Entries</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-au-gutter">
+{rest.map((post) => (
+<a href={`/templates/accounting-aurelian/insights/${post.slug}`} class="group cursor-pointer reveal-on-scroll">
+<div class="aspect-[4/5] mb-8 overflow-hidden bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/20 text-[64px]">auto_stories</span>
+</div>
+<div class="flex justify-between items-center mb-4">
+<span class="font-au-label-md text-au-caption text-on-tertiary-container tracking-widest uppercase">{post.category}</span>
+<span class="font-au-body-md text-au-caption text-outline">{post.date}</span>
+</div>
+<h4 class="font-au-headline-md text-au-headline-md text-primary mb-4 group-hover:underline decoration-on-tertiary-container underline-offset-4">
+                        {post.title}
+                    </h4>
+<p class="font-au-body-md text-au-body-md text-on-surface-variant line-clamp-3">{post.excerpt}</p>
+</a>
+))}
+</div>
+</section>
+</main>
+</TemplateLayout>

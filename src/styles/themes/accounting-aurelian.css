@@ -1,0 +1,102 @@
+/* Theme tokens for "Aurelian Tax & Advisory" (accounting-aurelian,
+   Accounting / Artistic Private Wealth archetype). Source design system:
+   Artful Finance Design -- Playfair Display + Inter, Midnight Emerald
+   primary with warm gold/ochre accent, editorial asymmetric grids, film
+   grain texture, generous whitespace. Scoped to `.theme-accounting-aurelian`.
+   RGB-triple colors for opacity modifiers. */
+
+.theme-accounting-aurelian {
+  --color-primary: 0 22 18;
+  --color-on-primary: 255 255 255;
+  --color-primary-container: 13 44 38;
+  --color-on-primary-container: 117 149 140;
+  --color-primary-fixed: 200 234 224;
+  --color-primary-fixed-dim: 173 205 196;
+  --color-on-primary-fixed: 1 32 27;
+  --color-on-primary-fixed-variant: 47 76 69;
+  --color-inverse-primary: 173 205 196;
+
+  --color-secondary: 94 95 91;
+  --color-on-secondary: 255 255 255;
+  --color-secondary-container: 227 227 222;
+  --color-on-secondary-container: 100 101 97;
+  --color-secondary-fixed: 227 227 222;
+  --color-secondary-fixed-dim: 199 199 194;
+  --color-on-secondary-fixed: 27 28 25;
+  --color-on-secondary-fixed-variant: 70 71 68;
+
+  --color-tertiary: 37 11 0;
+  --color-on-tertiary: 255 255 255;
+  --color-tertiary-container: 69 27 0;
+  --color-on-tertiary-container: 220 113 43;
+  --color-tertiary-fixed: 255 219 202;
+  --color-tertiary-fixed-dim: 255 182 142;
+  --color-on-tertiary-fixed: 51 18 0;
+  --color-on-tertiary-fixed-variant: 118 51 0;
+
+  --color-error: 186 26 26;
+  --color-on-error: 255 255 255;
+  --color-error-container: 255 218 214;
+  --color-on-error-container: 147 0 10;
+
+  --color-background: 248 249 255;
+  --color-on-background: 18 28 40;
+  --color-surface: 248 249 255;
+  --color-on-surface: 18 28 40;
+  --color-surface-variant: 217 227 244;
+  --color-on-surface-variant: 65 72 70;
+  --color-surface-dim: 209 219 236;
+  --color-surface-bright: 248 249 255;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-low: 238 244 255;
+  --color-surface-container: 229 238 255;
+  --color-surface-container-high: 223 233 250;
+  --color-surface-container-highest: 217 227 244;
+  --color-outline: 113 121 118;
+  --color-outline-variant: 193 200 197;
+  --color-inverse-surface: 39 49 62;
+  --color-inverse-on-surface: 234 241 255;
+  --color-surface-tint: 70 100 93;
+
+  --radius-default: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
+
+.theme-accounting-aurelian .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.theme-accounting-aurelian .grain-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+}
+
+.theme-accounting-aurelian .editorial-line {
+  height: 1px;
+  background: linear-gradient(to right, rgb(var(--color-primary)) 0%, rgb(var(--color-primary) / 0) 100%);
+}
+
+.theme-accounting-aurelian .asymmetric-border {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.theme-accounting-aurelian .ghost-card {
+  border: 1px solid rgb(var(--color-primary) / 0.05);
+  transition: all 0.4s ease;
+}
+.theme-accounting-aurelian .ghost-card:hover {
+  border-color: rgb(var(--color-primary) / 0.15);
+}
+
+.theme-accounting-aurelian .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-accounting-aurelian .reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}

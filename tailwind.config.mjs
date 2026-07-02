@@ -176,6 +176,18 @@ export default {
         "tp-body-md": ["Inter", "sans-serif"],
         "tp-label-md": ["Inter", "sans-serif"],
         "tp-label-sm": ["Inter", "sans-serif"],
+
+        // accounting-aurelian (Aurelian Tax & Advisory) -- "au-" prefix.
+        // Playfair Display for display/headline, Inter for body/label.
+        "au-display-lg": ["\"Playfair Display\"", "serif"],
+        "au-display-md": ["\"Playfair Display\"", "serif"],
+        "au-headline-lg": ["\"Playfair Display\"", "serif"],
+        "au-headline-lg-mobile": ["\"Playfair Display\"", "serif"],
+        "au-headline-md": ["\"Playfair Display\"", "serif"],
+        "au-body-lg": ["Inter", "sans-serif"],
+        "au-body-md": ["Inter", "sans-serif"],
+        "au-label-md": ["Inter", "sans-serif"],
+        "au-caption": ["Inter", "sans-serif"],
       },
       fontSize: {
         "label-sm": ["14px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "600" }],
@@ -247,6 +259,17 @@ export default {
         "tp-body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
         "tp-label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
         "tp-label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+
+        // accounting-aurelian (Aurelian Tax & Advisory)
+        "au-display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "au-display-md": ["48px", { lineHeight: "1.2", fontWeight: "600" }],
+        "au-headline-lg": ["36px", { lineHeight: "1.3", fontWeight: "600" }],
+        "au-headline-lg-mobile": ["28px", { lineHeight: "1.3", fontWeight: "600" }],
+        "au-headline-md": ["24px", { lineHeight: "1.4", fontWeight: "500" }],
+        "au-body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        "au-body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+        "au-label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }],
+        "au-caption": ["12px", { lineHeight: "1.4", fontWeight: "400" }],
       },
       spacing: {
         "component-gap": "32px",
@@ -301,6 +324,14 @@ export default {
         "tp-md": "24px",
         "tp-lg": "48px",
         "tp-xl": "80px",
+
+        // accounting-aurelian -- margin-desktop (64px) matches the shared
+        // scale exactly and is reused unprefixed; the rest differs.
+        "au-container-max": "1280px",
+        "au-margin-mobile": "24px",
+        "au-gutter": "32px",
+        "au-section-gap": "128px",
+        "au-unit": "8px",
       },
       borderRadius: {
         DEFAULT: "var(--radius-default)",
@@ -324,6 +355,7 @@ export default {
         "zl-container-max": "1440px",
         "si-container-max": "1440px",
         "tp-container-max": "1200px",
+        "au-container-max": "1280px",
       },
     },
   },
