@@ -51,18 +51,44 @@ import TemplateLayout from "@/templates/movers-premium/TemplateLayout.astro";
 <option>Office / Commercial</option>
 </select>
 </div>
-<button class="w-full bg-primary-container text-on-primary-fixed font-rr-display-lg text-rr-headline-sm uppercase py-4 border-2 border-on-surface block-shadow-hover transition-all active:translate-y-1" type="button">
+<button class="w-full bg-primary-container text-on-primary-fixed font-rr-display-lg text-rr-headline-sm uppercase py-4 border-2 border-on-surface block-shadow-hover transition-all active:translate-y-1" id="quoteCalcButton" type="button">
                                     Calculate My Quote
                                 </button>
 <p class="text-center font-rr-label-sm text-rr-label-sm opacity-60 italic">
                                     *No credit card required for estimate.
                                 </p>
 </form>
+<div class="hidden text-center py-4" id="quoteCalcResult">
+<p class="font-label-bold text-label-sm uppercase text-on-surface-variant mb-2">Estimated Range</p>
+<p class="font-rr-display-lg text-rr-headline-sm text-primary mb-4" id="quoteCalcAmount">$1,200 &ndash; $2,400</p>
+<a href="/templates/movers-premium/contact" class="inline-block bg-on-surface text-white font-label-bold text-label-sm uppercase px-6 py-3 border-2 border-on-surface hover:bg-primary-container hover:text-on-surface transition-all">Lock In This Quote</a>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
+<script>
+  const quoteBtn = document.getElementById("quoteCalcButton");
+  if (quoteBtn) {
+    quoteBtn.addEventListener("click", () => {
+      const sizeSelect = document.querySelector<HTMLSelectElement>('select');
+      const ranges: Record<string, string> = {
+        "Studio / 1 Bedroom": "$800 \u2013 $1,500",
+        "2-3 Bedroom Home": "$1,600 \u2013 $3,200",
+        "4+ Bedroom Home": "$3,400 \u2013 $6,500",
+        "Office / Commercial": "$2,800 \u2013 $9,000",
+      };
+      const size = sizeSelect?.value ?? "2-3 Bedroom Home";
+      const amountEl = document.getElementById("quoteCalcAmount");
+      if (amountEl) amountEl.textContent = ranges[size] ?? "$1,600 \u2013 $3,200";
+      const form = quoteBtn.closest("form");
+      const result = document.getElementById("quoteCalcResult");
+      if (form) form.classList.add("hidden");
+      if (result) result.classList.remove("hidden");
+    });
+  }
+</script>
 <!-- Trust Bar -->
 <section class="bg-on-surface py-8">
 <div class="container max-w-rr-container-max mx-auto px-rr-margin-mobile md:px-rr-margin-desktop">
