@@ -11,13 +11,22 @@ import TemplateLayout from "@/templates/accounting-zen/TemplateLayout.astro";
 <main class="pt-32">
 <!-- Hero Section -->
 <section class="max-w-zl-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
-<div class="md:col-span-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-stretch">
+<div class="md:col-span-8 flex flex-col h-full justify-between">
+<div>
 <span class="text-zl-label-sm font-zl-label-sm text-outline uppercase tracking-[0.2em] mb-4 block">Our Philosophy</span>
-<h1 class="font-zl-display text-zl-display text-primary mb-8">Foundations of Calm.</h1>
+<h1 class="font-zl-display text-zl-display-mobile md:text-zl-display text-primary mb-8">Foundations of Calm.</h1>
 <p class="font-zl-body-lg text-zl-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
                         In the noise of global markets, clarity is the rarest currency. Zen Ledger Advisory was founded on the principle that precision is not found in more data, but in the space between the numbers.
                     </p>
+</div>
+<div class="hidden md:block mt-12">
+<div class="horizontal-line mb-8"></div>
+<p class="font-zl-headline-md text-zl-headline-md text-on-surface-variant italic max-w-xl">
+                        "Every ledger tells a story. Ours is written in restraint."
+                    </p>
+<span class="block mt-4 text-zl-label-sm font-zl-label-sm text-outline uppercase tracking-[0.2em]">— Founding Partner, Zen Ledger Advisory</span>
+</div>
 </div>
 <div class="md:col-span-4 hidden md:block">
 <div class="aspect-[3/4] border border-outline-variant p-2 grayscale opacity-80">

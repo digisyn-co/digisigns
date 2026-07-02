@@ -147,6 +147,7 @@ export default {
         // accounting-zen (Zen Ledger Advisory) — "zl-" prefix. Source
         // Serif 4 + Inter, Japanese-minimal system.
         "zl-display": ["\"Source Serif 4\"", "serif"],
+        "zl-display-mobile": ["\"Source Serif 4\"", "serif"],
         "zl-headline-lg-mobile": ["\"Source Serif 4\"", "serif"],
         "zl-headline-md": ["Inter", "sans-serif"],
         "zl-headline-lg": ["\"Source Serif 4\"", "serif"],
@@ -207,7 +208,8 @@ export default {
         "cs-body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
 
         // accounting-zen
-        "zl-display": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "300" }],
+        "zl-display": ["64px", { lineHeight: "1.15", letterSpacing: "-0.02em", fontWeight: "300" }],
+        "zl-display-mobile": ["36px", { lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: "300" }],
         "zl-headline-lg-mobile": ["24px", { lineHeight: "1.3", fontWeight: "400" }],
         "zl-headline-md": ["20px", { lineHeight: "1.5", letterSpacing: "0.01em", fontWeight: "500" }],
         "zl-headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
@@ -256,7 +258,7 @@ export default {
         "rr-margin-desktop": "40px",
 
         // accounting-zen — only container-max differs from the shared scale
-        "zl-container-max": "1280px",
+        "zl-container-max": "1440px",
 
         // accounting-editorial — margin-desktop differs (80px); base,
         // gutter, and margin-mobile match the shared scale exactly and are
@@ -285,7 +287,7 @@ export default {
         "ea-container-max": "1440px",
         "lp-container-max": "1440px",
         "rr-container-max": "1360px",
-        "zl-container-max": "1280px",
+        "zl-container-max": "1440px",
         "si-container-max": "1440px",
       },
     },
