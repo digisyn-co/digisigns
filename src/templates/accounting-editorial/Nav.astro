@@ -1,0 +1,39 @@
+---
+interface Props {
+  active: "home" | "about" | "services" | "knowledge-hub" | "contact";
+}
+const { active } = Astro.props;
+const links = [
+  { href: "/templates/accounting-editorial/knowledge-hub", label: "Knowledge Hub", key: "knowledge-hub" },
+  { href: "/templates/accounting-editorial/about", label: "About", key: "about" },
+  { href: "/templates/accounting-editorial/services", label: "Services", key: "services" },
+];
+---
+
+<header class="bg-surface border-b border-outline-variant full-width top-0 z-50 sticky">
+  <nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-7xl mx-auto">
+    <a href="/templates/accounting-editorial" class="font-si-headline-md text-si-headline-md font-bold text-primary">Strategic Insight</a>
+    <div class="hidden md:flex gap-8 items-center">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "font-si-label-lg text-si-label-lg transition-colors",
+            active === link.key ? "text-secondary border-b-2 border-secondary font-bold" : "text-on-surface-variant hover:text-primary",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <a
+      href="/templates/accounting-editorial/contact"
+      class:list={[
+        "bg-secondary text-on-primary px-6 py-2 font-si-label-lg text-si-label-lg font-bold hover:brightness-110 transition-all uppercase tracking-widest",
+        active === "contact" ? "brightness-110" : "",
+      ]}
+    >
+      Contact
+    </a>
+  </nav>
+</header>

@@ -130,6 +130,40 @@ export default {
         "rr-label-sm": ["Inter", "sans-serif"],
         "rr-body-md": ["Inter", "sans-serif"],
         "label-bold": ["Inter", "sans-serif"],
+
+        // creative-studio (Vivid Catalyst) — "cs-" prefix. Distinct
+        // triple-font system (Montserrat/Plus Jakarta Sans/JetBrains Mono);
+        // spacing scale happens to match the shared literal values exactly
+        // so no new spacing keys were needed, only type.
+        "cs-display-lg": ["Montserrat", "sans-serif"],
+        "cs-display-lg-mobile": ["Montserrat", "sans-serif"],
+        "cs-headline-lg-mobile": ["Montserrat", "sans-serif"],
+        "cs-headline-md": ["Montserrat", "sans-serif"],
+        "cs-headline-lg": ["Montserrat", "sans-serif"],
+        "cs-label-md": ["\"JetBrains Mono\"", "monospace"],
+        "cs-body-lg": ["\"Plus Jakarta Sans\"", "sans-serif"],
+        "cs-body-md": ["\"Plus Jakarta Sans\"", "sans-serif"],
+
+        // accounting-zen (Zen Ledger Advisory) — "zl-" prefix. Source
+        // Serif 4 + Inter, Japanese-minimal system.
+        "zl-display": ["\"Source Serif 4\"", "serif"],
+        "zl-headline-lg-mobile": ["\"Source Serif 4\"", "serif"],
+        "zl-headline-md": ["Inter", "sans-serif"],
+        "zl-headline-lg": ["\"Source Serif 4\"", "serif"],
+        "zl-label-sm": ["Inter", "sans-serif"],
+        "zl-body-lg": ["Inter", "sans-serif"],
+        "zl-body-md": ["Inter", "sans-serif"],
+
+        // accounting-editorial (Strategic Insight Advisory) — "si-" prefix.
+        // Source Serif 4 + Work Sans, editorial/thought-leadership system.
+        "si-headline-md": ["\"Source Serif 4\"", "serif"],
+        "si-display-lg": ["\"Source Serif 4\"", "serif"],
+        "si-display-lg-mobile": ["\"Source Serif 4\"", "serif"],
+        "si-headline-sm": ["\"Source Serif 4\"", "serif"],
+        "si-headline-lg": ["\"Source Serif 4\"", "serif"],
+        "si-body-md": ["\"Work Sans\"", "sans-serif"],
+        "si-body-lg": ["\"Work Sans\"", "sans-serif"],
+        "si-label-lg": ["\"Work Sans\"", "sans-serif"],
       },
       fontSize: {
         "label-sm": ["14px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "600" }],
@@ -161,6 +195,35 @@ export default {
         "rr-label-sm": ["12px", { lineHeight: "1", fontWeight: "500" }],
         "rr-body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
         "label-bold": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "700" }],
+
+        // creative-studio
+        "cs-display-lg": ["72px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "900" }],
+        "cs-display-lg-mobile": ["48px", { lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "900" }],
+        "cs-headline-lg-mobile": ["32px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "800" }],
+        "cs-headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+        "cs-headline-lg": ["40px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "800" }],
+        "cs-label-md": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500" }],
+        "cs-body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        "cs-body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+
+        // accounting-zen
+        "zl-display": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "300" }],
+        "zl-headline-lg-mobile": ["24px", { lineHeight: "1.3", fontWeight: "400" }],
+        "zl-headline-md": ["20px", { lineHeight: "1.5", letterSpacing: "0.01em", fontWeight: "500" }],
+        "zl-headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
+        "zl-label-sm": ["12px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+        "zl-body-lg": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+        "zl-body-md": ["14px", { lineHeight: "1.6", fontWeight: "400" }],
+
+        // accounting-editorial
+        "si-headline-md": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+        "si-display-lg": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "600" }],
+        "si-display-lg-mobile": ["40px", { lineHeight: "48px", fontWeight: "600" }],
+        "si-headline-sm": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+        "si-headline-lg": ["48px", { lineHeight: "56px", fontWeight: "600" }],
+        "si-body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+        "si-body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+        "si-label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
       },
       spacing: {
         "component-gap": "32px",
@@ -191,6 +254,16 @@ export default {
         "rr-container-max": "1200px",
         "rr-margin-mobile": "16px",
         "rr-margin-desktop": "40px",
+
+        // accounting-zen — only container-max differs from the shared scale
+        "zl-container-max": "1120px",
+
+        // accounting-editorial — margin-desktop differs (80px); base,
+        // gutter, and margin-mobile match the shared scale exactly and are
+        // reused unprefixed. section-padding is a new (non-colliding) key
+        // that happens to share section-gap's 120px value.
+        "si-margin-desktop": "80px",
+        "section-padding": "120px",
       },
       borderRadius: {
         DEFAULT: "var(--radius-default)",
@@ -203,6 +276,7 @@ export default {
         "ea-container-max": "1440px",
         "lp-container-max": "1440px",
         "rr-container-max": "1200px",
+        "zl-container-max": "1120px",
       },
     },
   },

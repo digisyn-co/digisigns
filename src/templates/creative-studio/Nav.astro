@@ -1,0 +1,42 @@
+---
+interface Props {
+  active: "home" | "about" | "services" | "portfolio" | "contact";
+}
+const { active } = Astro.props;
+const links = [
+  { href: "/templates/creative-studio", label: "Home", key: "home" },
+  { href: "/templates/creative-studio/about", label: "About Us", key: "about" },
+  { href: "/templates/creative-studio/services", label: "Services", key: "services" },
+  { href: "/templates/creative-studio/portfolio", label: "Portfolio", key: "portfolio" },
+];
+---
+
+<nav class="bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-[0px_10px_30px_rgba(121,40,202,0.08)] sticky top-10 z-50">
+  <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+    <a href="/templates/creative-studio" class="font-cs-display-lg text-cs-headline-md font-black tracking-tighter text-primary">
+      The Creative Collective
+    </a>
+    <div class="hidden md:flex items-center gap-gutter">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "font-body-md transition-colors",
+            active === link.key ? "text-secondary border-b-2 border-secondary pb-1" : "text-on-surface-variant hover:text-primary",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <a
+      href="/templates/creative-studio/contact"
+      class:list={[
+        "bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform duration-300 active:scale-95 shadow-lg",
+        active === "contact" ? "scale-105" : "",
+      ]}
+    >
+      Start a Project
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,166 @@
+/* Theme tokens for "The Creative Collective" (creative-studio, Digital
+   Marketing / "Creative Conversion Studio" archetype). Source design
+   system: Vivid Catalyst — Montserrat/Plus Jakarta Sans/JetBrains Mono,
+   pink-to-purple gradients, rounded 24px cards. Scoped to
+   `.theme-creative-studio`. RGB-triple colors for opacity modifiers. */
+
+.theme-creative-studio {
+  --color-surface: 252 249 248;
+  --color-surface-dim: 220 217 217;
+  --color-surface-bright: 252 249 248;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-low: 246 243 242;
+  --color-surface-container: 240 237 236;
+  --color-surface-container-high: 235 231 231;
+  --color-surface-container-highest: 229 226 225;
+  --color-on-surface: 28 27 27;
+  --color-on-surface-variant: 92 63 70;
+  --color-inverse-surface: 49 48 48;
+  --color-inverse-on-surface: 243 240 239;
+  --color-outline: 144 110 118;
+  --color-outline-variant: 229 188 197;
+  --color-surface-tint: 186 0 92;
+  --color-primary: 182 0 89;
+  --color-on-primary: 255 255 255;
+  --color-primary-container: 227 0 113;
+  --color-on-primary-container: 255 251 255;
+  --color-inverse-primary: 255 177 197;
+  --color-secondary: 125 45 206;
+  --color-on-secondary: 255 255 255;
+  --color-secondary-container: 151 76 233;
+  --color-on-secondary-container: 255 251 255;
+  --color-tertiary: 0 103 100;
+  --color-on-tertiary: 255 255 255;
+  --color-tertiary-container: 0 130 126;
+  --color-on-tertiary-container: 243 255 253;
+  --color-error: 186 26 26;
+  --color-on-error: 255 255 255;
+  --color-error-container: 255 218 214;
+  --color-on-error-container: 147 0 10;
+  --color-primary-fixed: 255 217 225;
+  --color-primary-fixed-dim: 255 177 197;
+  --color-on-primary-fixed: 63 0 27;
+  --color-on-primary-fixed-variant: 143 0 69;
+  --color-secondary-fixed: 239 219 255;
+  --color-secondary-fixed-dim: 219 184 255;
+  --color-on-secondary-fixed: 43 0 82;
+  --color-on-secondary-fixed-variant: 102 0 183;
+  --color-tertiary-fixed: 71 250 243;
+  --color-tertiary-fixed-dim: 0 221 214;
+  --color-on-tertiary-fixed: 0 32 31;
+  --color-on-tertiary-fixed-variant: 0 80 77;
+  --color-background: 252 249 248;
+  --color-on-background: 28 27 27;
+  --color-surface-variant: 229 226 225;
+  --color-text-primary: 28 27 27;
+  --color-text-muted: 144 110 118;
+  --color-metric-positive: 0 130 126;
+  --color-border-subtle: 229 226 225;
+
+  --radius-default: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+.theme-creative-studio .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Consolidated from several near-duplicate gradient class names across
+   source screens (vibrant-gradient, primary-gradient, gradient-btn). */
+.theme-creative-studio .gradient-bg,
+.theme-creative-studio .vibrant-gradient,
+.theme-creative-studio .primary-gradient,
+.theme-creative-studio .gradient-btn {
+  background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-secondary)) 100%);
+}
+.theme-creative-studio .gradient-btn:hover {
+  box-shadow: 0px 10px 30px rgba(121, 40, 202, 0.3);
+}
+
+.theme-creative-studio .gradient-text,
+.theme-creative-studio .vibrant-gradient-text {
+  background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-secondary)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.theme-creative-studio .vibrant-shadow,
+.theme-creative-studio .custom-shadow,
+.theme-creative-studio .shadow-vibrant,
+.theme-creative-studio .hero-glow-shadow {
+  box-shadow: 0px 10px 30px rgba(121, 40, 202, 0.08);
+}
+.theme-creative-studio .glow-hover:hover {
+  box-shadow: 0px 10px 30px rgba(121, 40, 202, 0.15);
+}
+
+.theme-creative-studio .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(125, 45, 206, 0.1);
+}
+
+.theme-creative-studio .gradient-border-card {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.theme-creative-studio .gradient-border-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.3;
+}
+
+.theme-creative-studio .hero-glow {
+  background: radial-gradient(circle at center, rgba(125, 45, 206, 0.05) 0%, transparent 70%);
+}
+.theme-creative-studio .asymmetric-shape {
+  clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 95%);
+}
+.theme-creative-studio .hero-animation-layer {
+  mask-image: radial-gradient(circle, white 0%, transparent 70%);
+}
+
+.theme-creative-studio .floating-anim,
+.theme-creative-studio .animate-float {
+  animation: creative-float 4s ease-in-out infinite;
+}
+@keyframes creative-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.theme-creative-studio .project-card:hover .project-overlay { opacity: 1; }
+.theme-creative-studio .project-card:hover img { scale: 1.1; }
+
+.theme-creative-studio .accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.theme-creative-studio .accordion-item.active .accordion-content { max-height: 200px; }
+.theme-creative-studio .accordion-item.active .icon-rotate { transform: rotate(180deg); }
+
+.theme-creative-studio .step-inactive { display: none; }
+
+.theme-creative-studio .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-creative-studio .reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}

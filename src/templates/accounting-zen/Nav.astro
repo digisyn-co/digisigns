@@ -1,0 +1,38 @@
+---
+interface Props {
+  active: "home" | "about" | "services" | "industries" | "contact";
+}
+const { active } = Astro.props;
+const links = [
+  { href: "/templates/accounting-zen", label: "Home", key: "home" },
+  { href: "/templates/accounting-zen/about", label: "About", key: "about" },
+  { href: "/templates/accounting-zen/services", label: "Services", key: "services" },
+  { href: "/templates/accounting-zen/industries", label: "Industries", key: "industries" },
+];
+---
+
+<header class="fixed top-10 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto bg-background/80 backdrop-blur-md border-b border-outline-variant">
+  <a href="/templates/accounting-zen" class="font-zl-display text-zl-headline-lg font-light tracking-tighter text-primary">Zen Ledger Advisory</a>
+  <nav class="hidden md:flex gap-gutter items-center">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          "text-zl-label-sm font-zl-label-sm transition-colors duration-300",
+          active === link.key ? "text-primary border-b border-primary pb-1" : "text-on-surface-variant hover:text-primary",
+        ]}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+  <a
+    href="/templates/accounting-zen/contact"
+    class:list={[
+      "bg-primary text-on-primary px-8 py-2 text-zl-label-sm font-zl-label-sm hover:opacity-70 transition-opacity",
+      active === "contact" ? "opacity-70" : "",
+    ]}
+  >
+    Consultation
+  </a>
+</header>
