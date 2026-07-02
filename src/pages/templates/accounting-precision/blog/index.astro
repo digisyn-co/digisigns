@@ -1,0 +1,35 @@
+---
+import TemplateLayout from "@/templates/accounting-precision/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+const posts = blogPosts["accounting-precision"];
+---
+
+<TemplateLayout
+  title="Strategic Insights | TaxPro & Partners"
+  description="The full archive of tax strategy, innovation, and corporate finance insights from TaxPro & Partners."
+  active="blog"
+  canonicalPath="/templates/accounting-precision/blog"
+>
+<main class="py-tp-xl px-margin-mobile md:px-margin-desktop max-w-tp-container-max mx-auto">
+<div class="mb-tp-xl max-w-2xl">
+<h1 class="font-tp-headline-xl text-tp-headline-lg-mobile md:text-tp-headline-xl text-primary mb-tp-md">Strategic Insights</h1>
+<p class="font-tp-body-lg text-tp-body-lg text-on-surface-variant">Stay ahead of legislative changes and market shifts with perspective from our senior partners.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+{posts.map((post) => (
+  <a href={`/templates/accounting-precision/blog/${post.slug}`} class="group cursor-pointer block">
+    <div class="relative h-56 overflow-hidden rounded-xl mb-tp-md bg-surface-container-high flex items-center justify-center">
+      <span class="material-symbols-outlined text-primary/20 text-[64px]">description</span>
+      <div class="absolute top-2 left-2">
+        <span class="bg-white/90 backdrop-blur px-2 py-1 rounded font-tp-label-sm text-tp-label-sm text-primary">{post.category}</span>
+      </div>
+    </div>
+    <span class="text-on-surface-variant font-tp-label-sm text-tp-label-sm">{post.date} &middot; {post.readTime}</span>
+    <h2 class="font-tp-headline-md text-[20px] text-primary mt-1 mb-2 group-hover:text-secondary transition-colors">{post.title}</h2>
+    <p class="text-on-surface-variant line-clamp-2">{post.excerpt}</p>
+  </a>
+))}
+</div>
+</main>
+</TemplateLayout>

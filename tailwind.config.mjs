@@ -165,6 +165,17 @@ export default {
         "si-body-md": ["\"Work Sans\"", "sans-serif"],
         "si-body-lg": ["\"Work Sans\"", "sans-serif"],
         "si-label-lg": ["\"Work Sans\"", "sans-serif"],
+
+        // accounting-precision (TaxPro & Partners) -- "tp-" prefix on
+        // collisions. Inter throughout, no secondary display face.
+        "tp-headline-xl": ["Inter", "sans-serif"],
+        "tp-headline-lg": ["Inter", "sans-serif"],
+        "tp-headline-lg-mobile": ["Inter", "sans-serif"],
+        "tp-headline-md": ["Inter", "sans-serif"],
+        "tp-body-lg": ["Inter", "sans-serif"],
+        "tp-body-md": ["Inter", "sans-serif"],
+        "tp-label-md": ["Inter", "sans-serif"],
+        "tp-label-sm": ["Inter", "sans-serif"],
       },
       fontSize: {
         "label-sm": ["14px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "600" }],
@@ -226,6 +237,16 @@ export default {
         "si-body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
         "si-body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
         "si-label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
+
+        // accounting-precision (TaxPro & Partners)
+        "tp-headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "tp-headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "tp-headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+        "tp-headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+        "tp-body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+        "tp-body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+        "tp-label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
+        "tp-label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
       },
       spacing: {
         "component-gap": "32px",
@@ -267,6 +288,19 @@ export default {
         "si-margin-desktop": "80px",
         "si-container-max": "1440px",
         "section-padding": "120px",
+
+        // accounting-precision -- distinct 1200px container from the
+        // source design system; base/gutter match the shared scale
+        // exactly and are reused unprefixed. xs/sm/md/lg/xl are the
+        // source system's own spacing scale, prefixed since they don't
+        // map onto the shared stack-sm/md/lg or margin-mobile/desktop
+        // values.
+        "tp-container-max": "1200px",
+        "tp-xs": "4px",
+        "tp-sm": "12px",
+        "tp-md": "24px",
+        "tp-lg": "48px",
+        "tp-xl": "80px",
       },
       borderRadius: {
         DEFAULT: "var(--radius-default)",
@@ -289,6 +323,7 @@ export default {
         "rr-container-max": "1360px",
         "zl-container-max": "1440px",
         "si-container-max": "1440px",
+        "tp-container-max": "1200px",
       },
     },
   },

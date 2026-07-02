@@ -168,12 +168,12 @@ export const templates: TemplateMeta[] = [
     },
   },
   {
-    slug: "accounting-zen",
-    name: "Zen Ledger Advisory",
-    industry: "Accounting / Japanese Minimal",
-    tagline: "A calm, precision-led accounting system with washi-paper texture, restrained typography, and a tax-strategy detail architecture.",
+    slug: "accounting-precision",
+    name: "TaxPro & Partners",
+    industry: "Accounting / Corporate Precision",
+    tagline: "A confident corporate tax and accounting system with deep navy and blue tones, bento-grid service cards, and industry-specific case studies.",
     previewImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuC5ooTRrEz0D2dq2lDOEIcCdn9CtxIgKcjf8XwS8QrTorrI9kU7oTGbc9dfNaHHLdi2lLNu_6EaioJfJW3y9d5z_PSCEYI3MkjwJdqA5TioNG1wJsk8N2Z3yhz3c-0PaBfY-gryepQXJmloSPMsY8btKwA0k4NavbpZ56rCA75SEUWw4kEyqc4yXz1SZ4CbJx75O1X55qCUeWKu-2gsQwccIHsBGJFm9RXf7JHcFV_IeVbIw1ffgDSbD0nYeBZgl0A9sujS3svIykLf",
+      "https://lh3.googleusercontent.com/aida/AP1WRLtBG3LJST9y8MGOEmABaLRrWmJmxm5fvb6558WkGzcnxnCeJko8MrlMKbYIZTOCmHOkGfVkDGTs6naMYpuD-Mx93TyzTPdmG10t5iia_qucK9yS6Db-CYv5SXxsxDv6g-TqS9fcX38HcyZ0QRfZeusYrr2VXeF3rtkoVGWszimsf-94EQ7ZGlVLeRGBAzDCsZgvRYJH8RE5LtfQ7sOiBqpr4bHA2JL0KkKa1BBoLs4nSRdGnk9RYNJ6FyY",
     releaseNote: "Live",
     status: "live",
     featured: false,

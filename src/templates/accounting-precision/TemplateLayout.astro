@@ -17,22 +17,17 @@ const { title, description, active, canonicalPath } = Astro.props;
   description={description}
   canonicalPath={canonicalPath}
   htmlClass="scroll-smooth"
-  bodyClass="theme-accounting-zen font-body-lg text-body-lg bg-background text-on-background"
+  bodyClass="theme-accounting-precision bg-surface text-on-surface font-body-md overflow-x-hidden"
 >
   <Fragment slot="head">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   </Fragment>
 
   <Nav active={active} />
-  <!-- Extra pt-10 compensates for the sticky back-to-home banner (h-10)
-       sitting above this template's `fixed` nav — see Nav.astro's
-       `top-10` offset. Each page's own inner pt-32/mt-32 already clears
-       the nav itself; this additional wrapper shifts everything down by
-       exactly the banner's height on top of that. -->
-  <div class="pt-10">
+  <main>
     <slot />
-  </div>
+  </main>
   <Footer />
 
   <script>
