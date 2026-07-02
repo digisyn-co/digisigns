@@ -21,6 +21,9 @@ import "@/styles/themes/digisigns.css";
 import "@/styles/themes/accounting-luxury.css";
 import "@/styles/themes/law-prestige.css";
 import "@/styles/themes/movers-premium.css";
+import "@/styles/themes/creative-studio.css";
+import "@/styles/themes/accounting-zen.css";
+import "@/styles/themes/accounting-editorial.css";
 
 interface Props {
   title: string;
@@ -29,9 +32,17 @@ interface Props {
   ogImage?: string;
   bodyClass?: string;
   htmlClass?: string;
+  // Every template page gets a slim "back to home" banner pinned above its
+  // own nav, linking to the DigiSigns root ("/"). The root landing page
+  // itself sets this to false (it IS home; a link back to itself would be
+  // circular). Height is a fixed 2.5rem (h-10) — see the accounting-luxury
+  // Nav's `top-10` offset, which exists specifically to sit below this bar
+  // since that template's nav uses `fixed` instead of `sticky`/static
+  // positioning and can't rely on normal sticky stacking.
+  showBackToHome?: boolean;
 }
 
-const { title, description, canonicalPath, ogImage, bodyClass, htmlClass } = Astro.props;
+const { title, description, canonicalPath, ogImage, bodyClass, htmlClass, showBackToHome = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -44,6 +55,14 @@ const { title, description, canonicalPath, ogImage, bodyClass, htmlClass } = Ast
     <slot name="head" />
   </head>
   <body class={bodyClass}>
+    {showBackToHome && (
+      <div class="sticky top-0 z-[60] h-10 flex items-center justify-center bg-zinc-900 text-zinc-100 px-4">
+        <a href="/" class="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider hover:text-white transition-colors">
+          <span aria-hidden="true">&larr;</span>
+          Back to DigiSigns Template Collection
+        </a>
+      </div>
+    )}
     <slot />
   </body>
 </html>

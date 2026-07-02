@@ -6,7 +6,7 @@ import Footer from "./Footer.astro";
 interface Props {
   title: string;
   description: string;
-  active: "home" | "about" | "services" | "industries" | "contact";
+  active: "home" | "about" | "services" | "portfolio" | "contact";
   canonicalPath?: string;
 }
 const { title, description, active, canonicalPath } = Astro.props;
@@ -17,15 +17,15 @@ const { title, description, active, canonicalPath } = Astro.props;
   description={description}
   canonicalPath={canonicalPath}
   htmlClass="scroll-smooth"
-  bodyClass="theme-accounting-luxury bg-surface text-on-surface font-body-md selection:bg-secondary/30 overflow-x-hidden"
+  bodyClass="theme-creative-studio bg-surface text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden"
 >
   <Fragment slot="head">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
   </Fragment>
 
   <Nav active={active} />
-  <main class="pt-[136px]">
+  <main>
     <slot />
   </main>
   <Footer />
@@ -41,7 +41,7 @@ const { title, description, active, canonicalPath } = Astro.props;
           }
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     targets.forEach((el) => observer.observe(el));
   </script>

@@ -1,0 +1,130 @@
+/* Theme tokens for "Strategic Insight Advisory" (accounting-editorial,
+   Accounting / "Editorial Aesthetic" archetype). Source design system:
+   Strategic Insight — Source Serif 4 + Work Sans, deep plum + path
+   orange, geometric "path" line-art motif connecting sections, sharp
+   corners. Scoped to `.theme-accounting-editorial`. RGB-triple colors
+   for opacity modifiers. */
+
+.theme-accounting-editorial {
+  --color-surface: 250 249 247;
+  --color-surface-dim: 218 218 216;
+  --color-surface-bright: 250 249 247;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-low: 244 243 241;
+  --color-surface-container: 239 238 236;
+  --color-surface-container-high: 233 232 230;
+  --color-surface-container-highest: 227 226 224;
+  --color-on-surface: 26 28 27;
+  --color-on-surface-variant: 79 67 76;
+  --color-inverse-surface: 47 49 48;
+  --color-inverse-on-surface: 241 241 239;
+  --color-outline: 128 115 125;
+  --color-outline-variant: 210 194 205;
+  --color-surface-tint: 132 73 129;
+  --color-primary: 48 0 51;
+  --color-on-primary: 255 255 255;
+  --color-primary-container: 74 21 75;
+  --color-on-primary-container: 190 125 185;
+  --color-inverse-primary: 246 175 239;
+  --color-secondary: 162 63 0;
+  --color-on-secondary: 255 255 255;
+  --color-secondary-container: 255 126 62;
+  --color-on-secondary-container: 102 37 0;
+  --color-tertiary: 33 21 0;
+  --color-on-tertiary: 255 255 255;
+  --color-tertiary-container: 59 41 0;
+  --color-on-tertiary-container: 190 138 0;
+  --color-error: 186 26 26;
+  --color-on-error: 255 255 255;
+  --color-error-container: 255 218 214;
+  --color-on-error-container: 147 0 10;
+  --color-primary-fixed: 255 214 248;
+  --color-primary-fixed-dim: 246 175 239;
+  --color-on-primary-fixed: 55 1 57;
+  --color-on-primary-fixed-variant: 105 49 104;
+  --color-secondary-fixed: 255 219 204;
+  --color-secondary-fixed-dim: 255 181 149;
+  --color-on-secondary-fixed: 53 16 0;
+  --color-on-secondary-fixed-variant: 124 46 0;
+  --color-tertiary-fixed: 255 222 165;
+  --color-tertiary-fixed-dim: 253 187 36;
+  --color-on-tertiary-fixed: 39 25 0;
+  --color-on-tertiary-fixed-variant: 93 66 0;
+  --color-background: 250 249 247;
+  --color-on-background: 26 28 27;
+  --color-surface-variant: 227 226 224;
+  --color-text-primary: 26 28 27;
+  --color-text-muted: 128 115 125;
+  --color-metric-positive: 46 125 50;
+  --color-border-subtle: 229 229 229;
+
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+.theme-accounting-editorial .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.theme-accounting-editorial .path-line {
+  stroke: rgb(var(--color-outline-variant));
+  fill: none;
+}
+.theme-accounting-editorial .path-line.path-line-animated {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: editorial-dash 5s linear forwards;
+}
+@keyframes editorial-dash {
+  to { stroke-dashoffset: 0; }
+}
+
+.theme-accounting-editorial .path-marker {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(var(--color-secondary));
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.theme-accounting-editorial .editorial-shadow {
+  box-shadow: 0 4px 20px -2px rgba(48, 0, 51, 0.08);
+}
+.theme-accounting-editorial .editorial-border {
+  border-left: 1px solid rgb(var(--color-outline-variant));
+}
+.theme-accounting-editorial .clip-slant {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+.theme-accounting-editorial .text-balanced {
+  text-wrap: balance;
+}
+
+.theme-accounting-editorial .step-active {
+  color: rgb(var(--color-secondary));
+  font-weight: 700;
+}
+.theme-accounting-editorial .step-line {
+  height: 2px;
+  flex-grow: 1;
+  background: rgb(var(--color-outline-variant));
+  margin: 0 12px;
+}
+.theme-accounting-editorial .form-input-focus:focus {
+  border-color: rgb(var(--color-primary));
+  outline: none;
+  box-shadow: 0 1px 0 0 rgb(var(--color-primary));
+}
+
+.theme-accounting-editorial .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-accounting-editorial .reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
