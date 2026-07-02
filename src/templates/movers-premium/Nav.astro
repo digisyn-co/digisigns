@@ -13,12 +13,12 @@ const links = [
 ];
 ---
 
-<header class="bg-surface-container-lowest border-b-2 border-on-surface sticky top-0 z-50">
+<header class="bg-surface-container-lowest border-b-2 border-on-surface sticky top-10 z-50">
   <div class="relative flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
     <a href="/templates/movers-premium" class="font-display-lg text-display-lg-mobile md:text-display-lg uppercase tracking-tighter text-on-surface">
       RapidRelo
     </a>
-    <nav id="mobile-menu-movers-premium" class="hidden md:flex gap-8 items-center bg-surface-container-lowest border-t-2 border-on-surface">
+    <nav id="mobile-menu-movers-premium" class="hidden lg:flex gap-8 items-center bg-surface-container-lowest border-t-2 border-on-surface">
       {links.map((link) => (
         <a
           href={link.href}
@@ -45,7 +45,7 @@ const links = [
       </a>
       <button
         type="button"
-        class="md:hidden text-on-surface border-2 border-on-surface p-2"
+        class="lg:hidden text-on-surface border-2 border-on-surface p-2"
         aria-label="Toggle menu"
         aria-expanded="false"
         data-mobile-menu-toggle="#mobile-menu-movers-premium"

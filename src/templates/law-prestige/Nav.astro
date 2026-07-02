@@ -13,12 +13,12 @@ const links = [
 ];
 ---
 
-<nav class="w-full top-0 z-50 bg-background border-b border-outline-variant/10">
-  <div class="relative max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-24">
-    <a href="/templates/law-prestige" class="font-display-lg text-display-lg text-primary tracking-tighter">
+<nav class="w-full sticky top-10 z-50 bg-background border-b border-outline-variant/10">
+  <div class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-24">
+    <a href="/templates/law-prestige" class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary tracking-tighter">
       Prestige Law
     </a>
-    <div id="mobile-menu-law-prestige" class="hidden md:flex items-center space-x-10 bg-background border-t border-outline-variant/10 shadow-lg md:shadow-none md:border-0">
+    <div id="mobile-menu-law-prestige" class="hidden lg:flex items-center space-x-10 bg-background border-t border-outline-variant/10 shadow-lg lg:shadow-none lg:border-0">
       {links.map((link) => (
         <a
           href={link.href}
@@ -45,7 +45,7 @@ const links = [
       </a>
       <button
         type="button"
-        class="md:hidden text-primary p-2"
+        class="lg:hidden text-primary p-2"
         aria-label="Toggle menu"
         aria-expanded="false"
         data-mobile-menu-toggle="#mobile-menu-law-prestige"

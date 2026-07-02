@@ -17,9 +17,9 @@ const links = [
 ];
 ---
 
-<header class="fixed top-10 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto bg-surface/90 backdrop-blur-md shadow-sm">
+<header class="fixed top-10 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto bg-surface/90 backdrop-blur-md shadow-sm">
   <a href="/templates/accounting-luxury" class="font-headline-sm text-headline-sm tracking-tighter text-primary">ESTATE &amp; ACCORD</a>
-  <nav id="mobile-menu-accounting-luxury" class="hidden md:flex items-center gap-10 bg-surface border-t border-outline/10 shadow-lg md:shadow-none md:border-0">
+  <nav id="mobile-menu-accounting-luxury" class="hidden lg:flex items-center gap-10 bg-surface border-t border-outline/10 shadow-lg lg:shadow-none lg:border-0">
     {links.map((link) => (
       <a
         href={link.href}
@@ -46,7 +46,7 @@ const links = [
     </a>
     <button
       type="button"
-      class="md:hidden text-primary p-2"
+      class="lg:hidden text-primary p-2"
       aria-label="Toggle menu"
       aria-expanded="false"
       data-mobile-menu-toggle="#mobile-menu-accounting-luxury"
