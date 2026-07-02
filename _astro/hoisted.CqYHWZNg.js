@@ -1,1 +1,0 @@
-import"./BaseLayout.astro_astro_type_script_index_0_lang.CXSQb__x.js";import"./hoisted.BwaMf-Et.js";function n(i){const t=document.getElementById("testimonial-slider");if(!t)return;const e=t.querySelector(":scope > div"),o=e instanceof HTMLElement?e.offsetWidth+24:t.clientWidth;t.scrollBy({left:i*o,behavior:"smooth"})}window.slideTestimonial=n;
