@@ -65,6 +65,7 @@ export const templates: TemplateMeta[] = [
       serviceDetail: true,
       industries: true,
       contact: true,
+      blog: true,
     },
   },
   {
@@ -122,6 +123,7 @@ export const templates: TemplateMeta[] = [
       serviceDetail: true,
       industries: true,
       contact: true,
+      blog: true,
     },
   },
   {
@@ -142,6 +144,7 @@ export const templates: TemplateMeta[] = [
       serviceDetail: true,
       industries: true,
       contact: true,
+      blog: true,
     },
   },
   {
@@ -161,6 +164,7 @@ export const templates: TemplateMeta[] = [
       services: true,
       serviceDetail: true,
       contact: true,
+      blog: true,
     },
   },
   {
@@ -181,6 +185,7 @@ export const templates: TemplateMeta[] = [
       serviceDetail: true,
       industries: true,
       contact: true,
+      blog: true,
     },
   },
   {
@@ -201,6 +206,7 @@ export const templates: TemplateMeta[] = [
       serviceDetail: true,
       industries: true,
       contact: true,
+      blog: true,
     },
   },
   {

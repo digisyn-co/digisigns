@@ -64,5 +64,88 @@ const { title, description, canonicalPath, ogImage, bodyClass, htmlClass, showBa
       </div>
     )}
     <slot />
+
+    <!--
+      Site-wide interaction layer (platform chrome, not template-specific).
+      Two generic, data-attribute-driven behaviors used by every template's
+      Nav.astro and every contact form:
+
+      1. Mobile nav: a <button data-mobile-menu-toggle="#selector"> toggles
+         the `.mobile-menu-open` class on the element matching #selector.
+         `.mobile-menu-open` is layout-only (position/display) below; each
+         Nav supplies its own background/border/text color via ordinary
+         Tailwind utility classes (which already resolve per-theme), so no
+         per-template CSS is needed here.
+      2. Contact forms: any <form data-success-target="#selector"> has its
+         submit intercepted, hides itself, and reveals the element matching
+         #selector (a pre-built confirmation/thank-you state). No backend
+         exists for these demo templates, so this is the honest, complete
+         behavior for a static form.
+    -->
+    <style is:global>
+      .mobile-menu-open {
+        display: flex !important;
+        flex-direction: column !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 55;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+    </style>
+    <script>
+      function wireMobileMenus() {
+        document.querySelectorAll("[data-mobile-menu-toggle]").forEach((btn) => {
+          if (btn.hasAttribute("data-wired")) return;
+          btn.setAttribute("data-wired", "true");
+          const selector = btn.getAttribute("data-mobile-menu-toggle");
+          const menu = selector ? document.querySelector(selector) : null;
+          if (!menu) return;
+          btn.addEventListener("click", () => {
+            const isOpen = menu.classList.toggle("mobile-menu-open");
+            btn.setAttribute("aria-expanded", String(isOpen));
+            const openIcon = btn.querySelector("[data-icon-open]");
+            const closeIcon = btn.querySelector("[data-icon-close]");
+            if (openIcon && closeIcon) {
+              openIcon.classList.toggle("hidden", isOpen);
+              closeIcon.classList.toggle("hidden", !isOpen);
+            }
+          });
+          // Close the mobile panel automatically when a link inside it is
+          // clicked (navigating away makes an open overlay stale) and when
+          // the viewport grows past the mobile breakpoint.
+          menu.querySelectorAll("a").forEach((a) => {
+            a.addEventListener("click", () => menu.classList.remove("mobile-menu-open"));
+          });
+        });
+        window.addEventListener("resize", () => {
+          if (window.innerWidth >= 768) {
+            document.querySelectorAll(".mobile-menu-open").forEach((el) => el.classList.remove("mobile-menu-open"));
+          }
+        });
+      }
+
+      function wireContactForms() {
+        document.querySelectorAll("form[data-success-target]").forEach((form) => {
+          if (form.hasAttribute("data-wired")) return;
+          form.setAttribute("data-wired", "true");
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const selector = form.getAttribute("data-success-target");
+            const target = selector ? document.querySelector(selector) : null;
+            if (target) {
+              form.classList.add("hidden");
+              target.classList.remove("hidden");
+              target.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+          });
+        });
+      }
+
+      wireMobileMenus();
+      wireContactForms();
+    </script>
   </body>
 </html>

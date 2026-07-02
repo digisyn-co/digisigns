@@ -1,0 +1,54 @@
+---
+import TemplateLayout from "@/templates/accounting-zen/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+export function getStaticPaths() {
+  return blogPosts["accounting-zen"].map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const related = blogPosts["accounting-zen"].filter((p) => p.slug !== post.slug).slice(0, 2);
+---
+
+<TemplateLayout
+  title={`${post.title} | Zen Ledger Advisory`}
+  description={post.excerpt}
+  active="blog"
+  canonicalPath={`/templates/accounting-zen/blog/${post.slug}`}
+>
+<main class="pt-40 max-w-zl-container-max mx-auto px-margin-desktop">
+<div class="max-w-2xl mx-auto">
+<a href="/templates/accounting-zen/blog" class="text-zl-label-sm font-zl-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary mb-8 inline-flex items-center gap-2">
+<span aria-hidden="true">&larr;</span> All Journal Entries
+</a>
+<span class="text-zl-label-sm font-zl-label-sm text-on-surface-variant opacity-50 block mb-6 uppercase tracking-widest">{post.category}</span>
+<h1 class="font-zl-display text-zl-display mb-8">{post.title}</h1>
+<div class="flex items-center gap-6 text-zl-label-sm font-zl-label-sm text-on-surface-variant uppercase tracking-widest pb-8 mb-8 border-b border-outline-variant">
+<span>{post.author}</span>
+<span>{post.date}</span>
+<span>{post.readTime}</span>
+</div>
+<div class="space-y-6">
+{post.body.map((paragraph) => (
+<p class="text-zl-body-lg font-zl-body-lg text-on-surface-variant leading-relaxed">{paragraph}</p>
+))}
+</div>
+</div>
+{related.length > 0 && (
+<div class="mt-section-gap pt-section-gap border-t border-outline-variant pb-section-gap">
+<h2 class="font-zl-display text-zl-headline-lg mb-8">More From the Journal</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+{related.map((p) => (
+<a href={`/templates/accounting-zen/blog/${p.slug}`} class="group border-t border-outline-variant pt-8">
+<span class="text-zl-label-sm font-zl-label-sm text-on-surface-variant opacity-50 block mb-4 uppercase tracking-widest">{p.category}</span>
+<h3 class="font-zl-display text-zl-headline-lg group-hover:text-primary transition-colors">{p.title}</h3>
+</a>
+))}
+</div>
+</div>
+)}
+</main>
+</TemplateLayout>

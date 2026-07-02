@@ -171,7 +171,7 @@ import TemplateLayout from "@/templates/movers-premium/TemplateLayout.astro";
 <div class="container max-w-rr-container-max mx-auto px-rr-margin-mobile md:px-rr-margin-desktop">
 <h2 class="font-rr-display-lg text-rr-display-lg-mobile md:text-rr-headline-md uppercase text-center mb-16">What our customers say</h2>
 <div class="relative">
-<div class="flex gap-gutter transition-transform duration-500 ease-in-out" id="testimonial-slider">
+<div class="flex gap-gutter overflow-x-auto scroll-smooth snap-x snap-mandatory [&>*]:snap-start [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" id="testimonial-slider">
 <!-- Testimonial 1 -->
 <div class="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)]">
 <div class="bg-surface-container-lowest border-2 border-on-surface p-rr-stack-lg block-shadow h-full flex flex-col">
@@ -267,4 +267,15 @@ import TemplateLayout from "@/templates/movers-premium/TemplateLayout.astro";
 </section>
 </main>
 
+<script>
+  function slideTestimonial(direction: number) {
+    const slider = document.getElementById("testimonial-slider");
+    if (!slider) return;
+    const card = slider.querySelector(":scope > div");
+    const cardWidth = card instanceof HTMLElement ? card.offsetWidth + 24 : slider.clientWidth;
+    slider.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
+  }
+  // @ts-ignore -- exposed for the inline onclick="" handlers in this page
+  window.slideTestimonial = slideTestimonial;
+</script>
 </TemplateLayout>

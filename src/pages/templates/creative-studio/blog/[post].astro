@@ -1,0 +1,54 @@
+---
+import TemplateLayout from "@/templates/creative-studio/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+export function getStaticPaths() {
+  return blogPosts["creative-studio"].map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const related = blogPosts["creative-studio"].filter((p) => p.slug !== post.slug).slice(0, 2);
+---
+
+<TemplateLayout
+  title={`${post.title} | The Creative Collective`}
+  description={post.excerpt}
+  active="blog"
+  canonicalPath={`/templates/creative-studio/blog/${post.slug}`}
+>
+<main class="overflow-x-hidden px-margin-mobile md:px-margin-desktop py-24">
+<div class="max-w-3xl mx-auto">
+<a href="/templates/creative-studio/blog" class="font-cs-label-md text-cs-label-md text-on-surface-variant hover:text-primary mb-8 inline-flex items-center gap-2">
+<span aria-hidden="true">&larr;</span> All Journal Entries
+</a>
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-cs-label-md text-cs-label-md mb-6 uppercase tracking-widest">{post.category}</span>
+<h1 class="font-cs-display-lg text-cs-display-lg-mobile md:text-cs-display-lg text-on-surface mb-8">{post.title}</h1>
+<div class="flex items-center gap-6 font-cs-label-md text-cs-label-md text-on-surface-variant uppercase tracking-widest pb-8 mb-8 border-b border-outline-variant/20">
+<span>{post.author}</span>
+<span>{post.date}</span>
+<span>{post.readTime}</span>
+</div>
+<div class="space-y-6">
+{post.body.map((paragraph) => (
+<p class="font-cs-body-lg text-cs-body-lg text-on-surface-variant leading-relaxed">{paragraph}</p>
+))}
+</div>
+</div>
+{related.length > 0 && (
+<div class="max-w-container-max mx-auto mt-24 pt-16 border-t border-outline-variant/20">
+<h2 class="font-cs-headline-lg text-cs-headline-lg mb-8">More From the Journal</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+{related.map((p) => (
+<a href={`/templates/creative-studio/blog/${p.slug}`} class="group bg-surface-container-lowest p-8 rounded-[24px] border border-outline-variant/30 vibrant-shadow">
+<span class="font-cs-label-md text-cs-label-md text-secondary uppercase tracking-widest mb-4 block">{p.category}</span>
+<h3 class="font-cs-headline-md text-cs-headline-md group-hover:text-primary transition-colors">{p.title}</h3>
+</a>
+))}
+</div>
+</div>
+)}
+</main>
+</TemplateLayout>

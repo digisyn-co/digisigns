@@ -1,0 +1,54 @@
+---
+import TemplateLayout from "@/templates/law-prestige/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+export function getStaticPaths() {
+  return blogPosts["law-prestige"].map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const related = blogPosts["law-prestige"].filter((p) => p.slug !== post.slug).slice(0, 2);
+---
+
+<TemplateLayout
+  title={`${post.title} | Prestige Law`}
+  description={post.excerpt}
+  active="blog"
+  canonicalPath={`/templates/law-prestige/blog/${post.slug}`}
+>
+<main class="max-w-lp-container-max mx-auto px-margin-desktop py-stack-lg">
+<div class="max-w-3xl mx-auto">
+<a href="/templates/law-prestige/blog" class="font-lp-label-sm text-lp-label-sm uppercase tracking-widest text-secondary mb-8 inline-flex items-center gap-2">
+<span aria-hidden="true">&larr;</span> All Insights
+</a>
+<span class="font-lp-label-sm text-lp-label-sm uppercase tracking-[0.3em] text-secondary mb-4 block">{post.category}</span>
+<h1 class="font-display-lg text-display-lg md:text-[56px] leading-[1.1] mb-8">{post.title}</h1>
+<div class="flex items-center gap-6 font-lp-label-sm text-lp-label-sm text-outline uppercase tracking-widest pb-8 mb-8 border-b border-outline-variant/10">
+<span>{post.author}</span>
+<span>{post.date}</span>
+<span>{post.readTime}</span>
+</div>
+<div class="space-y-6">
+{post.body.map((paragraph) => (
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">{paragraph}</p>
+))}
+</div>
+</div>
+{related.length > 0 && (
+<div class="mt-stack-lg pt-stack-lg border-t border-outline-variant/10">
+<h2 class="font-lp-headline-md text-lp-headline-md mb-8">More Insights</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+{related.map((p) => (
+<a href={`/templates/law-prestige/blog/${p.slug}`} class="group bg-surface-container-lowest p-8 deep-shadow rounded-lg border border-outline-variant/10">
+<span class="font-lp-label-sm text-lp-label-sm uppercase tracking-widest text-secondary mb-4 block">{p.category}</span>
+<h3 class="font-lp-headline-md text-lp-headline-md group-hover:text-secondary transition-colors">{p.title}</h3>
+</a>
+))}
+</div>
+</div>
+)}
+</main>
+</TemplateLayout>

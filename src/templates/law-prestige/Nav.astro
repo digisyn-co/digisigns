@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active: "home" | "about" | "practices" | "industries" | "contact";
+  active: "home" | "about" | "practices" | "industries" | "blog" | "contact";
 }
 const { active } = Astro.props;
 
@@ -9,15 +9,16 @@ const links = [
   { href: "/templates/law-prestige/about", label: "About", key: "about" },
   { href: "/templates/law-prestige/practices", label: "Practices", key: "practices" },
   { href: "/templates/law-prestige/industries", label: "Industries", key: "industries" },
+  { href: "/templates/law-prestige/blog", label: "Insights", key: "blog" },
 ];
 ---
 
 <nav class="w-full top-0 z-50 bg-background border-b border-outline-variant/10">
-  <div class="max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-24">
+  <div class="relative max-w-container-max mx-auto px-margin-desktop flex justify-between items-center h-24">
     <a href="/templates/law-prestige" class="font-display-lg text-display-lg text-primary tracking-tighter">
       Prestige Law
     </a>
-    <div class="hidden md:flex items-center space-x-10">
+    <div id="mobile-menu-law-prestige" class="hidden md:flex items-center space-x-10 bg-background border-t border-outline-variant/10 shadow-lg md:shadow-none md:border-0">
       {links.map((link) => (
         <a
           href={link.href}
@@ -32,14 +33,26 @@ const links = [
         </a>
       ))}
     </div>
-    <a
-      href="/templates/law-prestige/contact"
-      class:list={[
-        "bg-primary text-on-primary px-8 py-3 font-label-md uppercase tracking-widest hover:bg-secondary transition-all duration-300",
-        active === "contact" ? "bg-secondary" : "",
-      ]}
-    >
-      Consultation
-    </a>
+    <div class="flex items-center gap-4">
+      <a
+        href="/templates/law-prestige/contact"
+        class:list={[
+          "bg-primary text-on-primary px-8 py-3 font-label-md uppercase tracking-widest hover:bg-secondary transition-all duration-300",
+          active === "contact" ? "bg-secondary" : "",
+        ]}
+      >
+        Consultation
+      </a>
+      <button
+        type="button"
+        class="md:hidden text-primary p-2"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        data-mobile-menu-toggle="#mobile-menu-law-prestige"
+      >
+        <span class="material-symbols-outlined" data-icon-open>menu</span>
+        <span class="material-symbols-outlined hidden" data-icon-close>close</span>
+      </button>
+    </div>
   </div>
 </nav>

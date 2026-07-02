@@ -3,7 +3,8 @@
 // of the source versions). Links that had no dedicated page in this
 // 7-page build (Our History, Careers, Press Kit, FAQ, Privacy Policy,
 // Terms of Service) route to Contact instead of dead-ending. The
-// newsletter form is decorative — there's no backend to submit to.
+// newsletter form intercepts submit client-side (data-success-target) and
+// shows a confirmation message -- there is no backend to persist to.
 ---
 
 <footer class="bg-on-surface border-t-4 border-primary text-surface pt-24 pb-12">
@@ -47,10 +48,11 @@
     <div class="space-y-stack-md">
       <h5 class="font-label-bold text-label-bold uppercase text-primary">Newsletter Signup</h5>
       <p class="text-surface-variant opacity-80 font-label-sm">Get moving tips and exclusive discounts.</p>
-      <form class="flex border-2 border-surface-variant">
-        <input class="flex-grow bg-transparent px-4 py-2 text-surface focus:outline-none placeholder:text-surface-variant/50" placeholder="Your Email" type="email" />
-        <button class="bg-primary text-on-surface px-4 py-2 font-label-bold uppercase hover:bg-primary-fixed-dim transition-colors" type="button">Join</button>
+      <form class="flex border-2 border-surface-variant" id="rrNewsletterForm" data-success-target="#rrNewsletterSuccess">
+        <input class="flex-grow bg-transparent px-4 py-2 text-surface focus:outline-none placeholder:text-surface-variant/50" placeholder="Your Email" type="email" required />
+        <button class="bg-primary text-on-surface px-4 py-2 font-label-bold uppercase hover:bg-primary-fixed-dim transition-colors" type="submit">Join</button>
       </form>
+      <p class="hidden font-label-sm text-primary" id="rrNewsletterSuccess">You're on the list. Welcome to RapidRelo.</p>
     </div>
   </div>
   <div class="mt-24 pt-8 border-t border-surface-variant/20 text-center container max-w-container-max mx-auto px-margin-mobile">
