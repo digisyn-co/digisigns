@@ -12,7 +12,7 @@ design-token architecture that makes this possible in one Tailwind build.
 - **Friendly Human** — soft mint/blue, rounded corners, approachable photography. Simplifies tax stress. *(placeholder: `accounting-friendly`)*
 - **Ultra User-Friendly** — high contrast, bold CTA buttons, wizard-style forms. Built for speed and conversion.
 - **Editorial Aesthetic** — wide gutters, oversized typography, asymmetrical layouts. Positioned as a thought leader. **Built as `accounting-editorial` ("Strategic Insight Advisory").**
-- **Japanese Minimal** — monochromatic, ample whitespace, thin lines. Focus on precision and calm. **Built as `accounting-zen` ("Zen Ledger Advisory").**
+- **Corporate Precision** — deep navy and confident blue, bento-grid service cards, generous whitespace. Focus on institutional trust and clarity. **Built as `accounting-precision` ("TaxPro & Partners").**
 
 ## 2. Law Firm (2 templates)
 - **Prestige Litigation** — traditional navy/burgundy, heavy grids, marble textures. Focus on authority. **Built as `law-prestige` ("Prestige Law").**

@@ -1,0 +1,54 @@
+---
+import TemplateLayout from "@/templates/accounting-precision/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+export function getStaticPaths() {
+  return blogPosts["accounting-precision"].map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const related = blogPosts["accounting-precision"].filter((p) => p.slug !== post.slug).slice(0, 2);
+---
+
+<TemplateLayout
+  title={`${post.title} | TaxPro & Partners`}
+  description={post.excerpt}
+  active="blog"
+  canonicalPath={`/templates/accounting-precision/blog/${post.slug}`}
+>
+<main class="py-tp-xl px-margin-mobile md:px-margin-desktop max-w-tp-container-max mx-auto">
+<div class="max-w-3xl mx-auto">
+<a href="/templates/accounting-precision/blog" class="font-tp-label-md text-tp-label-md uppercase tracking-widest text-secondary mb-tp-lg inline-flex items-center gap-2">
+<span aria-hidden="true">&larr;</span> All Insights
+</a>
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded font-tp-label-sm text-tp-label-sm w-fit mb-tp-md inline-block mt-tp-md">{post.category}</span>
+<h1 class="font-tp-headline-xl text-tp-headline-lg-mobile md:text-tp-headline-xl text-primary mb-tp-md">{post.title}</h1>
+<div class="flex flex-wrap items-center gap-tp-md font-tp-label-sm text-tp-label-sm text-on-surface-variant uppercase tracking-widest pb-tp-md mb-tp-md border-b border-outline-variant">
+<span>{post.author}</span>
+<span>{post.date}</span>
+<span>{post.readTime}</span>
+</div>
+<div class="space-y-tp-md">
+{post.body.map((paragraph) => (
+<p class="font-tp-body-lg text-tp-body-lg text-on-surface-variant leading-relaxed">{paragraph}</p>
+))}
+</div>
+</div>
+{related.length > 0 && (
+<div class="mt-tp-xl pt-tp-xl border-t border-outline-variant">
+<h2 class="font-tp-headline-lg text-tp-headline-lg text-primary mb-tp-lg">More Insights</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+{related.map((p) => (
+<a href={`/templates/accounting-precision/blog/${p.slug}`} class="group bg-white p-tp-lg rounded-xl corporate-shadow border border-outline-variant/30">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded font-tp-label-sm text-tp-label-sm w-fit mb-tp-md inline-block">{p.category}</span>
+<h3 class="font-tp-headline-md text-tp-headline-md text-primary group-hover:text-secondary transition-colors">{p.title}</h3>
+</a>
+))}
+</div>
+</div>
+)}
+</main>
+</TemplateLayout>
