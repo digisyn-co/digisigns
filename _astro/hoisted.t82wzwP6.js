@@ -1,0 +1,1 @@
+import"./BaseLayout.astro_astro_type_script_index_0_lang.CXSQb__x.js";const o=document.querySelectorAll(".reveal-on-scroll"),t=new IntersectionObserver(e=>{for(const r of e)r.isIntersecting&&(r.target.classList.add("active"),t.unobserve(r.target))},{threshold:.1});o.forEach(e=>t.observe(e));
