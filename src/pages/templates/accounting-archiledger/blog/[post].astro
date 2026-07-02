@@ -1,0 +1,54 @@
+---
+import TemplateLayout from "@/templates/accounting-archiledger/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+export function getStaticPaths() {
+  return blogPosts["accounting-archiledger"].map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const related = blogPosts["accounting-archiledger"].filter((p) => p.slug !== post.slug).slice(0, 2);
+---
+
+<TemplateLayout
+  title={`${post.title} | ARCHI-LEDGER`}
+  description={post.excerpt}
+  active="blog"
+  canonicalPath={`/templates/accounting-archiledger/blog/${post.slug}`}
+>
+<main class="max-w-container-max mx-auto px-al-margin-mobile md:px-al-margin-desktop py-al-margin-desktop md:py-24">
+<div class="max-w-3xl mx-auto">
+  <a href="/templates/accounting-archiledger/blog" class="font-al-label-md text-al-label-md uppercase tracking-widest text-secondary mb-8 inline-flex items-center gap-2">
+    <span aria-hidden="true">&larr;</span> All Insights
+  </a>
+  <span class="bg-primary text-on-primary px-3 py-1 font-al-label-sm text-al-label-sm w-fit inline-block mt-6 mb-4 uppercase tracking-widest">{post.category}</span>
+  <h1 class="font-al-headline-xl text-al-headline-lg-mobile md:text-al-headline-xl text-primary mb-6">{post.title}</h1>
+  <div class="flex flex-wrap items-center gap-6 font-al-label-sm text-al-label-sm text-on-surface-variant uppercase tracking-widest pb-6 mb-6 border-b border-primary">
+    <span>{post.author}</span>
+    <span>{post.date}</span>
+    <span>{post.readTime}</span>
+  </div>
+  <div class="space-y-6">
+    {post.body.map((paragraph) => (
+      <p class="font-al-body-lg text-al-body-lg text-on-surface-variant leading-relaxed">{paragraph}</p>
+    ))}
+  </div>
+</div>
+{related.length > 0 && (
+  <div class="mt-al-margin-desktop md:mt-24 pt-al-margin-desktop md:pt-24 border-t border-primary">
+    <h2 class="font-al-headline-lg text-al-headline-lg text-primary mb-8 uppercase">More Insights</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 border-t border-l border-primary">
+      {related.map((p) => (
+        <a href={`/templates/accounting-archiledger/blog/${p.slug}`} class="group block p-8 border-r border-b border-primary bg-white hover:bg-surface-container-low transition-colors">
+          <span class="font-al-label-sm text-al-label-sm text-secondary uppercase tracking-widest">{p.category}</span>
+          <h3 class="font-al-headline-md text-al-headline-md text-primary mt-3">{p.title}</h3>
+        </a>
+      ))}
+    </div>
+  </div>
+)}
+</main>
+</TemplateLayout>

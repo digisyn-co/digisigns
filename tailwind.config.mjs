@@ -188,6 +188,18 @@ export default {
         "au-body-md": ["Inter", "sans-serif"],
         "au-label-md": ["Inter", "sans-serif"],
         "au-caption": ["Inter", "sans-serif"],
+
+        // accounting-archiledger (Archi-Ledger) -- "al-" prefix.
+        // Montserrat for headline*, Inter for body*/label*, brutalist
+        // architectural system with sharp hard-shadow cards.
+        "al-headline-xl": ["Montserrat", "sans-serif"],
+        "al-headline-lg": ["Montserrat", "sans-serif"],
+        "al-headline-lg-mobile": ["Montserrat", "sans-serif"],
+        "al-headline-md": ["Montserrat", "sans-serif"],
+        "al-body-lg": ["Inter", "sans-serif"],
+        "al-body-md": ["Inter", "sans-serif"],
+        "al-label-md": ["Inter", "sans-serif"],
+        "al-label-sm": ["Inter", "sans-serif"],
       },
       fontSize: {
         "label-sm": ["14px", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "600" }],
@@ -270,6 +282,16 @@ export default {
         "au-body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
         "au-label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }],
         "au-caption": ["12px", { lineHeight: "1.4", fontWeight: "400" }],
+
+        // accounting-archiledger (Archi-Ledger)
+        "al-headline-xl": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "al-headline-lg": ["32px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "al-headline-lg-mobile": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+        "al-headline-md": ["20px", { lineHeight: "1.4", fontWeight: "600" }],
+        "al-body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        "al-body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+        "al-label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }],
+        "al-label-sm": ["12px", { lineHeight: "1.2", fontWeight: "500" }],
       },
       spacing: {
         "component-gap": "32px",
@@ -332,6 +354,14 @@ export default {
         "au-gutter": "32px",
         "au-section-gap": "128px",
         "au-unit": "8px",
+
+        // accounting-archiledger -- container-max (1440px) matches the
+        // shared scale exactly and is reused unprefixed; margin-mobile,
+        // margin-desktop, gutter, and unit all differ and are prefixed.
+        "al-margin-mobile": "16px",
+        "al-margin-desktop": "40px",
+        "al-gutter": "0px",
+        "al-unit": "4px",
       },
       borderRadius: {
         DEFAULT: "var(--radius-default)",

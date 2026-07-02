@@ -1,0 +1,51 @@
+---
+interface Props {
+  active: "home" | "about" | "services" | "blog" | "contact";
+}
+const { active } = Astro.props;
+const links = [
+  { href: "/templates/accounting-archiledger", label: "Home", key: "home" },
+  { href: "/templates/accounting-archiledger/services", label: "Services", key: "services" },
+  { href: "/templates/accounting-archiledger/about", label: "About Us", key: "about" },
+  { href: "/templates/accounting-archiledger/blog", label: "Insights", key: "blog" },
+];
+---
+
+<header class="bg-surface border-b border-primary w-full sticky top-10 z-50">
+  <nav class="flex justify-between items-center w-full px-al-margin-mobile md:px-al-margin-desktop h-16 max-w-container-max mx-auto">
+    <a href="/templates/accounting-archiledger" class="font-al-headline-md text-al-headline-md font-bold uppercase tracking-tighter text-primary">
+      ARCHI-LEDGER
+    </a>
+    <div id="mobile-menu-accounting-archiledger" class="hidden lg:flex items-center gap-8 bg-surface border-t border-primary lg:border-0">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "font-al-label-md text-al-label-md uppercase tracking-widest transition-colors",
+            active === link.key ? "text-primary font-bold border-b-2 border-primary pb-1" : "text-on-surface-variant hover:text-primary",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <div class="flex items-center gap-4">
+      <a
+        href="/templates/accounting-archiledger/contact"
+        class="hidden sm:inline-block bg-primary text-on-primary font-al-label-md text-al-label-md px-6 py-2 border border-primary hover:bg-surface hover:text-primary transition-all hard-shadow uppercase tracking-widest"
+      >
+        Client Login
+      </a>
+      <button
+        type="button"
+        class="lg:hidden text-primary p-2"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        data-mobile-menu-toggle="#mobile-menu-accounting-archiledger"
+      >
+        <span class="material-symbols-outlined" data-icon-open>menu</span>
+        <span class="material-symbols-outlined hidden" data-icon-close>close</span>
+      </button>
+    </div>
+  </nav>
+</header>

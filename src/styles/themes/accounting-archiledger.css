@@ -1,0 +1,102 @@
+/* Theme tokens for "Archi-Ledger" (accounting-archiledger, Accounting /
+   "Brutalist Architectural" archetype). Source design system: Boxed
+   Ledger Solutions -- Montserrat headlines + Inter body, near-black navy
+   primary on off-white, heavy 1-2px solid borders, hard offset shadows,
+   grid-line decoration. Scoped to `.theme-accounting-archiledger`.
+   RGB-triple colors for opacity modifiers. */
+
+.theme-accounting-archiledger {
+  --color-surface: 249 250 245;
+  --color-surface-dim: 217 218 214;
+  --color-surface-bright: 249 250 245;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-low: 243 244 240;
+  --color-surface-container: 237 238 234;
+  --color-surface-container-high: 232 232 228;
+  --color-surface-container-highest: 226 227 223;
+  --color-on-surface: 26 28 26;
+  --color-on-surface-variant: 69 71 77;
+  --color-inverse-surface: 47 49 46;
+  --color-inverse-on-surface: 240 241 237;
+  --color-outline: 117 119 125;
+  --color-outline-variant: 197 198 205;
+  --color-surface-tint: 84 94 118;
+  --color-primary: 5 17 37;
+  --color-on-primary: 255 255 255;
+  --color-primary-container: 27 38 59;
+  --color-on-primary-container: 130 141 167;
+  --color-inverse-primary: 187 198 226;
+  --color-secondary: 71 96 126;
+  --color-on-secondary: 255 255 255;
+  --color-secondary-container: 194 220 255;
+  --color-on-secondary-container: 72 97 126;
+  --color-tertiary: 0 18 37;
+  --color-on-tertiary: 255 255 255;
+  --color-tertiary-container: 15 39 63;
+  --color-on-tertiary-container: 121 143 171;
+  --color-error: 186 26 26;
+  --color-on-error: 255 255 255;
+  --color-error-container: 255 218 214;
+  --color-on-error-container: 147 0 10;
+  --color-primary-fixed: 215 226 255;
+  --color-primary-fixed-dim: 187 198 226;
+  --color-on-primary-fixed: 16 27 48;
+  --color-on-primary-fixed-variant: 60 71 93;
+  --color-secondary-fixed: 209 228 255;
+  --color-secondary-fixed-dim: 175 201 234;
+  --color-on-secondary-fixed: 0 29 54;
+  --color-on-secondary-fixed-variant: 47 72 101;
+  --color-tertiary-fixed: 209 228 255;
+  --color-tertiary-fixed-dim: 178 200 231;
+  --color-on-tertiary-fixed: 3 29 52;
+  --color-on-tertiary-fixed-variant: 51 72 97;
+  --color-background: 249 250 245;
+  --color-on-background: 26 28 26;
+  --color-surface-variant: 226 227 223;
+
+  --radius-default: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 9999px;
+}
+
+.theme-accounting-archiledger .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.theme-accounting-archiledger .brutalist-border {
+  border: 1px solid rgb(var(--color-primary));
+}
+
+.theme-accounting-archiledger .brutalist-border-thick {
+  border: 2px solid rgb(var(--color-primary));
+}
+
+.theme-accounting-archiledger .hard-shadow {
+  box-shadow: 4px 4px 0px 0px rgb(var(--color-primary));
+}
+
+.theme-accounting-archiledger .hard-shadow-hover {
+  transition: all 0.15s ease;
+}
+.theme-accounting-archiledger .hard-shadow-hover:hover {
+  box-shadow: 6px 6px 0px 0px rgb(var(--color-primary));
+  transform: translate(-2px, -2px);
+}
+
+.theme-accounting-archiledger .grid-bg {
+  background-image:
+    linear-gradient(rgb(var(--color-primary) / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--color-primary) / 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.theme-accounting-archiledger .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-accounting-archiledger .reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
