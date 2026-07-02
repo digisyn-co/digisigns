@@ -9,12 +9,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { templates } from "@/lib/templates";
 
 const featured = templates.find((t) => t.featured);
-// Live templates that aren't the single featured showcase still need real,
-// clickable links to their /templates/<slug>/ routes -- they render in their
-// own grid below, separate from true "Coming Soon" (status: in-progress)
-// placeholder cards, which stay non-clickable.
+// Homepage shows only real, live templates -- no placeholder/"Coming Soon"
+// cards for templates that don't have real builds yet (status: in-progress
+// templates aren't rendered here at all).
 const liveOthers = templates.filter((t) => !t.featured && t.status === "live");
-const upcoming = templates.filter((t) => t.status === "in-progress");
 ---
 
 <BaseLayout
@@ -190,7 +188,7 @@ const upcoming = templates.filter((t) => t.status === "in-progress");
       <div class="max-w-container-max mx-auto px-margin-desktop">
         <div class="mb-16">
           <span class="font-label-sm text-label-sm uppercase text-secondary-fixed-dim tracking-widest mb-4 block">Live Now</span>
-          <h2 class="font-headline-lg text-headline-lg text-text-primary">More Systems in the Collection</h2>
+          <h2 class="font-headline-lg text-headline-lg text-text-primary">The Rest of the Collection</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {liveOthers.map((t) => (
@@ -212,44 +210,6 @@ const upcoming = templates.filter((t) => t.status === "in-progress");
       </div>
     </section>
   )}
-
-  <!-- Upcoming Previews Grid -->
-  <section class="py-24 bg-surface-container-lowest">
-    <div class="max-w-container-max mx-auto px-margin-desktop">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-        <div>
-          <span class="font-label-sm text-label-sm uppercase text-secondary-fixed-dim tracking-widest mb-4 block">The Pipeline by John Lamigo</span>
-          <h2 class="font-headline-lg text-headline-lg text-text-primary">Coming Soon to DigiSigns</h2>
-        </div>
-        <div class="hidden md:block">
-          <button class="border-b border-primary py-2 font-label-sm text-label-sm uppercase tracking-widest text-text-primary hover:text-primary hover:border-primary transition-all">Request Custom Build</button>
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-        {upcoming.map((t, i) => (
-          <div class="group reveal-on-scroll" style={i % 3 !== 0 ? `transition-delay: ${(i % 3) * 0.1}s` : undefined}>
-            <div class="aspect-square bg-surface overflow-hidden mb-6 relative border border-border-subtle">
-              <div class="absolute inset-0 bg-surface-deep/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center">
-                <button class="bg-primary-container text-on-primary-container px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest">Inspect Build</button>
-              </div>
-              <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70" alt={`Preview of the ${t.name} template`} src={t.previewImage} />
-              {t.releaseNote && (
-                <div class="absolute top-4 right-4 bg-surface-bright/90 backdrop-blur px-3 py-1 font-label-sm text-[10px] uppercase tracking-widest z-20 text-text-primary border border-border-subtle">{t.releaseNote}</div>
-              )}
-            </div>
-            <h3 class="font-headline-md text-headline-md text-text-primary mb-2">{t.name}</h3>
-            <p class="font-label-sm text-label-sm uppercase text-text-muted tracking-widest">Engineered by John Lamigo</p>
-          </div>
-        ))}
-        <!-- Custom Request -->
-        <div class="border-2 border-dashed border-border-subtle aspect-square flex flex-col items-center justify-center p-12 text-center group hover:border-primary transition-colors cursor-pointer reveal-on-scroll">
-          <span class="material-symbols-outlined text-4xl text-outline group-hover:text-primary mb-4">add_circle</span>
-          <h3 class="font-headline-md text-headline-md text-text-primary/40 group-hover:text-text-primary mb-2">Bespoke Strategy</h3>
-          <p class="font-body-md text-text-muted/60">Hire John for custom WordPress development and digital strategy tailored to your growth goals.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Final CTA Section -->
   <section class="py-24 bg-surface border-t border-border-subtle overflow-hidden relative">
