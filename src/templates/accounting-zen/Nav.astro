@@ -14,7 +14,7 @@ const links = [
 
 <header class="fixed top-10 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto bg-background/80 backdrop-blur-md border-b border-outline-variant">
   <a href="/templates/accounting-zen" class="font-zl-display text-zl-headline-lg font-light tracking-tighter text-primary">Zen Ledger Advisory</a>
-  <nav id="mobile-menu-accounting-zen" class="hidden md:flex gap-gutter items-center bg-background border-t border-outline-variant">
+  <nav id="mobile-menu-accounting-zen" class="hidden lg:flex gap-gutter items-center bg-background border-t border-outline-variant">
     {links.map((link) => (
       <a
         href={link.href}
@@ -39,7 +39,7 @@ const links = [
     </a>
     <button
       type="button"
-      class="md:hidden text-primary p-2"
+      class="lg:hidden text-primary p-2"
       aria-label="Toggle menu"
       aria-expanded="false"
       data-mobile-menu-toggle="#mobile-menu-accounting-zen"

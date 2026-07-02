@@ -17,7 +17,7 @@ const links = [
     <a href="/templates/creative-studio" class="font-cs-display-lg text-cs-headline-md font-black tracking-tighter text-primary">
       The Creative Collective
     </a>
-    <div id="mobile-menu-creative-studio" class="hidden md:flex items-center gap-gutter bg-surface border-t border-outline-variant/30 shadow-lg md:shadow-none md:border-0 rounded-b-[24px] md:rounded-none">
+    <div id="mobile-menu-creative-studio" class="hidden lg:flex items-center gap-gutter bg-surface border-t border-outline-variant/30 shadow-lg lg:shadow-none lg:border-0 rounded-b-[24px] lg:rounded-none">
       {links.map((link) => (
         <a
           href={link.href}
@@ -42,7 +42,7 @@ const links = [
       </a>
       <button
         type="button"
-        class="md:hidden text-primary p-2"
+        class="lg:hidden text-primary p-2"
         aria-label="Toggle menu"
         aria-expanded="false"
         data-mobile-menu-toggle="#mobile-menu-creative-studio"

@@ -10,10 +10,10 @@ const links = [
 ];
 ---
 
-<header class="bg-surface border-b border-outline-variant w-full top-0 z-50 sticky">
-  <nav class="relative flex justify-between items-center w-full px-margin-desktop py-4 max-w-si-container-max mx-auto">
+<header class="bg-surface border-b border-outline-variant w-full top-10 z-50 sticky">
+  <nav class="relative flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-si-container-max mx-auto">
     <a href="/templates/accounting-editorial" class="font-si-headline-md text-si-headline-md font-bold text-primary">Strategic Insight</a>
-    <div id="mobile-menu-accounting-editorial" class="hidden md:flex gap-8 items-center bg-surface border-t border-outline-variant">
+    <div id="mobile-menu-accounting-editorial" class="hidden lg:flex gap-8 items-center bg-surface border-t border-outline-variant">
       {links.map((link) => (
         <a
           href={link.href}
@@ -38,7 +38,7 @@ const links = [
       </a>
       <button
         type="button"
-        class="md:hidden text-primary p-2"
+        class="lg:hidden text-primary p-2"
         aria-label="Toggle menu"
         aria-expanded="false"
         data-mobile-menu-toggle="#mobile-menu-accounting-editorial"
