@@ -229,7 +229,7 @@ export default {
         "component-gap": "32px",
         "stack-sm": "8px",
         gutter: "24px",
-        "container-max": "1600px",
+        "container-max": "1440px",
         "stack-md": "16px",
         "section-gap": "120px",
         "stack-lg": "48px",
@@ -238,7 +238,7 @@ export default {
         // accounting-luxury (Estate & Accord) — "ea-" prefix on collisions
         "ea-stack-sm": "12px",
         "ea-stack-md": "24px",
-        "ea-container-max": "1680px",
+        "ea-container-max": "1440px",
         base: "8px",
         "margin-mobile": "20px",
 
@@ -247,23 +247,23 @@ export default {
         // that collide with DIGISIGNS values get the "lp-" prefix.
         "lp-stack-sm": "12px",
         "lp-stack-md": "24px",
-        "lp-container-max": "1680px",
+        "lp-container-max": "1440px",
 
         // movers-premium — distinct 1200px/8px-baseline industrial scale.
         "rr-stack-lg": "32px",
-        "rr-container-max": "1520px",
+        "rr-container-max": "1360px",
         "rr-margin-mobile": "16px",
         "rr-margin-desktop": "40px",
 
         // accounting-zen — only container-max differs from the shared scale
-        "zl-container-max": "1440px",
+        "zl-container-max": "1280px",
 
         // accounting-editorial — margin-desktop differs (80px); base,
         // gutter, and margin-mobile match the shared scale exactly and are
         // reused unprefixed. section-padding is a new (non-colliding) key
         // that happens to share section-gap's 120px value.
         "si-margin-desktop": "80px",
-        "si-container-max": "1600px",
+        "si-container-max": "1440px",
         "section-padding": "120px",
       },
       borderRadius: {
@@ -273,15 +273,20 @@ export default {
         full: "var(--radius-full)",
       },
       maxWidth: {
-        // Widened (July 2026) so template pages don't letterbox on large /
-        // ultrawide monitors -- previous values (1120-1440px) left huge
-        // empty side margins on screens 1800px+.
-        "container-max": "1600px",
-        "ea-container-max": "1680px",
-        "lp-container-max": "1680px",
-        "rr-container-max": "1520px",
-        "zl-container-max": "1440px",
-        "si-container-max": "1600px",
+        // Calibrated (July 2026) to the ~1280-1440px range every real
+        // marketing site converges on: wide enough to avoid letterboxing
+        // on large monitors, narrow enough that flex/grid sections with
+        // fixed-max-w inner content (max-w-md/xl/2xl text blocks, absolute-
+        // positioned decorative elements) don't stretch into oversized
+        // internal gaps. An earlier pass overcorrected to 1600-1680px,
+        // which fixed the letterboxing but introduced exactly that
+        // stretching problem -- this is the second, moderated attempt.
+        "container-max": "1440px",
+        "ea-container-max": "1440px",
+        "lp-container-max": "1440px",
+        "rr-container-max": "1360px",
+        "zl-container-max": "1280px",
+        "si-container-max": "1440px",
       },
     },
   },
