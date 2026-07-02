@@ -229,6 +229,25 @@ export const templates: TemplateMeta[] = [
     },
   },
   {
+    slug: "accounting-archiledger",
+    name: "Archi-Ledger",
+    industry: "Accounting / Brutalist Architectural",
+    tagline: "A brutalist, structural-integrity accounting system with near-black navy, hard offset shadows, and grid-line precision.",
+    previewImage:
+      "https://lh3.googleusercontent.com/aida/AP1WRLtujopxKu97AoqW3F0_f_sgll8oVx2rTi9mCw5clDLAF2ALZDdVPHgexWEpdZzx400aVbTwjM1CUSr6rK8gMRbPvZXXUQoy7ldEK_M0gr-hc1OqZLMjpUBp5aTeJ9ys7WgE7DKnovynlhavZcnMg8TBYQHpIa-3reOmBWUMKEiVWul8PGaQVuGmXtlfLUXVH7LB6nYQgOXcLVhJDh0pQpfELvZ-Q8YQLukIZfhyddZmLkZARVYHVFDmebQ",
+    releaseNote: "Live",
+    status: "live",
+    featured: false,
+    pages: {
+      ...noPages,
+      home: true,
+      about: true,
+      services: true,
+      contact: true,
+      blog: true,
+    },
+  },
+  {
     slug: "electrician-industrial",
     name: "Industrial Infrastructure",
     industry: "Industrial / Trades",

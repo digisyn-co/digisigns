@@ -1,0 +1,116 @@
+---
+import TemplateLayout from "@/templates/accounting-archiledger/TemplateLayout.astro";
+
+const services = [
+  {
+    icon: "account_balance_wallet",
+    title: "Tax Planning & Compliance",
+    items: [
+      "Strategic Corporate Tax Structuring",
+      "International Tax & Transfer Pricing",
+      "Multi-state Sales & Use Tax Optimization",
+      "R&D Tax Credit Maximization",
+    ],
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBPrpsC0KRgYGAtD0SLVUzO-_PkVDSFyCrh5Dk_8b_o4G4QNGLHw-Oyg1SyOvph2VmsWiiCH-JWnV8jrUsY58BZTAqDKjkLdtoPe0owpt8iisXmjp0_35e0xPfRkJOkOMrbwTDnmSIvPgIobPWo0ve_WFKaRh9d5OS_03wvypI1-0BmLjoPcMreATF14Xq51uHrFp9s6FuCsnpKktuegNKKX2Oeaew1W33SlHoP92VyUbIFdjBqooX0q0lczw0tYFOFZZW4T9GO08w",
+    alt: "A professional accountant working in a high-tech office with sharp architectural lines, deep navy and charcoal data visualizations on screen.",
+    reverse: false,
+  },
+  {
+    icon: "fact_check",
+    title: "Audit & Assurance",
+    items: [
+      "SEC & Public Company Financial Audits",
+      "Internal Control Reviews (SOX Compliance)",
+      "Employee Benefit Plan Audits",
+      "Financial Statement Compilations & Reviews",
+    ],
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBAqXpxPUG2VwC-2qc8VC-OVJPdJgIX534ZFreLl7-hlEBVclX4cXpLn38vgxwc6pVsCQMvcXjwh_yJ9NiXHURyvBC2-5HYDv8yyJsbpITNGdOOrTZXrrwxoQthjiF7TedIv_fJL6ix45BpBE4fjbCuFPIlhMs0VcIdMxF91fkHZMr94JDeV1HRucPkiIgxr4_7GUHihL9Ihema3-E5Y-5dpWB11GsclyKvuid1FmBRx_tA4CJ3naveNoMMxSCEYdR-LbO_lAWf-WM",
+    alt: "An abstract architectural blueprint of a modern skyscraper overlaid with glowing digital data streams and grid patterns.",
+    reverse: true,
+  },
+  {
+    icon: "insights",
+    title: "Business Advisory",
+    items: [
+      "Mergers & Acquisitions Due Diligence",
+      "Outsourced CFO & Strategic Planning",
+      "ERP System Selection & Implementation",
+      "Succession Planning & Exit Strategies",
+    ],
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBzDJeGX8pvEb-s1zBaLkBcxnfrK9vkwsGzEVzQ7JOue31GNgNSU7403L0t7on-V7CKneqLJ7lVRZfBVXGbwhhulQASUYH2rqzBTJYrQS5paQNS87pk9oLGEZgugYYpA9CtwmfMyIRFA0rTZGJn8GEkuARu57xYzpvI3NjEiEdajRI5_aL_qbECqtwQr8w6yRr1wF1JI502KDXZIOQxMe_0KfoC010QavXl4E9AkV5Z-Od3S4snDFiB_sprh3DopnK6VOqT1NW_yBk",
+    alt: "A macro shot of a physical architectural model showing clean white blocks and structured urban planning with dramatic lighting.",
+    reverse: false,
+  },
+  {
+    icon: "search_check",
+    title: "Forensic Accounting",
+    items: [
+      "Fraud Investigation & Remediation",
+      "Litigation Support & Expert Testimony",
+      "Asset Tracing & Recovery Analysis",
+      "Business Valuations & Marital Dissolution",
+    ],
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAPc5wQFbN-47Z38mD_EJrqj73U5tQP5RGZshGhbYIyo717wi5UV9ISSJ4CV6ulYgkanZplDGNYenSKxh3eXuL4YoknXhUA5AHtnChIkTaFA6bDntWIqB19ZVnYknLXT9Y3hb2tC8FCefDj0kOOXVmePPozZdZwiD5iCDpnorUqr5bg8Rxfwf2m8W855iaup6fl7K_Yezh7GhCZJbTznczFT-Zlzlzu0RKAxBZhOKAKTI2rBZQkiEdxPVRdgFAhVfkXy5sTi--zy1E",
+    alt: "A dark, moody close-up of an illuminated magnifying glass resting on a stack of financial ledgers.",
+    reverse: true,
+  },
+];
+---
+
+<TemplateLayout
+  title="Services | ARCHI-LEDGER"
+  description="Precision-engineered accounting: tax planning & compliance, audit & assurance, business advisory, and forensic accounting from ARCHI-LEDGER."
+  active="services"
+  canonicalPath="/templates/accounting-archiledger/services"
+>
+<main class="max-w-container-max mx-auto px-al-margin-mobile md:px-al-margin-desktop py-al-margin-desktop md:py-24">
+
+<section class="mb-al-margin-desktop md:mb-24 border border-primary p-8 md:p-12 bg-surface-container relative overflow-hidden">
+  <div class="max-w-3xl relative z-10">
+    <h1 class="font-al-headline-xl text-al-headline-lg-mobile md:text-al-headline-xl mb-6 text-primary">Structural Integrity for Financial Success.</h1>
+    <p class="font-al-body-lg text-al-body-lg text-on-surface-variant max-w-xl">
+      ARCHI-LEDGER provides precision-engineered accounting and advisory services for high-growth enterprises. Our methodology is built on the rigorous principles of architectural planning applied to financial systems.
+    </p>
+  </div>
+</section>
+
+<div class="space-y-0 border-t border-primary">
+  {services.map((s) => (
+    <section class="grid grid-cols-1 md:grid-cols-2 border-b border-l border-r border-primary">
+      <div class:list={["p-8 md:p-12 flex flex-col justify-center bg-white border-primary", s.reverse ? "md:order-2 md:border-l border-t md:border-t-0" : "md:border-r"]}>
+        <div class="mb-8 inline-flex items-center justify-center w-12 h-12 border border-primary bg-secondary-container">
+          <span class="material-symbols-outlined text-primary">{s.icon}</span>
+        </div>
+        <h2 class="font-al-headline-lg text-al-headline-lg mb-6 text-primary">{s.title}</h2>
+        <ul class="space-y-4 mb-10">
+          {s.items.map((item) => (
+            <li class="flex items-start">
+              <span class="material-symbols-outlined text-primary mr-3 text-[18px]">chevron_right</span>
+              <span class="font-al-body-md text-al-body-md">{item}</span>
+            </li>
+          ))}
+        </ul>
+        <a href="/templates/accounting-archiledger/contact" class="w-fit px-8 py-3 border-2 border-primary font-al-label-md text-al-label-md uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all hard-shadow active:translate-y-0.5">Inquire</a>
+      </div>
+      <div class:list={["h-64 md:h-auto min-h-[400px] relative", s.reverse ? "md:order-1" : ""]}>
+        <img class="absolute inset-0 w-full h-full object-cover" src={s.image} alt={s.alt} loading="lazy" />
+      </div>
+    </section>
+  ))}
+</div>
+
+<section class="mt-al-margin-desktop md:mt-24 border-2 border-primary p-12 text-center bg-primary text-on-primary">
+  <h3 class="font-al-headline-lg text-al-headline-lg mb-4">Ready to Build a Better Foundation?</h3>
+  <p class="font-al-body-md text-al-body-md mb-8 opacity-80 max-w-xl mx-auto">Contact our lead partners today for a structural audit of your current accounting practices.</p>
+  <div class="flex flex-wrap justify-center gap-4">
+    <a href="/templates/accounting-archiledger/contact" class="bg-white text-primary border border-white px-10 py-3 font-al-label-md text-al-label-md uppercase tracking-widest hover:bg-primary-fixed-dim transition-all">Schedule Consultation</a>
+    <a href="/templates/accounting-archiledger/about" class="bg-transparent text-white border border-white px-10 py-3 font-al-label-md text-al-label-md uppercase tracking-widest hover:bg-white/10 transition-all">View Case Studies</a>
+  </div>
+</section>
+
+</main>
+</TemplateLayout>

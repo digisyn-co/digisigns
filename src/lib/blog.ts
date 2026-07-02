@@ -495,6 +495,72 @@ export const blogPosts: Record<string, BlogPost[]> = {
       ],
     },
   ],
+  "accounting-archiledger": [
+    {
+      slug: "structural-impact-global-minimum-tax-multinational-entities",
+      title: "The Structural Impact of Global Minimum Tax on Multi-National Entities",
+      excerpt:
+        "Pillar Two reshapes cross-border tax structuring the way a new building code reshapes architecture -- the old blueprints still stand, but they no longer clear inspection.",
+      date: "June 12, 2026",
+      author: "ARCHI-LEDGER Partners",
+      readTime: "6 min read",
+      category: "Regulation",
+      body: [
+        "The global minimum tax framework did not arrive as a single dramatic reform. It arrived the way structural load requirements usually do -- jurisdiction by jurisdiction, adopted on different timelines, each one closing off a load-bearing assumption that multi-national tax structures had quietly relied on for years.",
+        "For entities operating across a dozen or more jurisdictions, the practical effect is a floor beneath what used to be a genuinely competitive landscape of headline rates. A structure built to route income through a low-rate jurisdiction now has to account for a top-up tax that erases most of the arbitrage, and it applies whether or not that jurisdiction itself has adopted the rules.",
+        "The firms navigating this most capably are treating it as a structural audit problem rather than a rate-shopping problem: which entities have real substance, which ones exist mainly on paper, and which income streams would survive a top-up recalculation without triggering unexpected liability at group level. That audit has to happen before the return is filed, not after.",
+        "What this means in practice is a shift from optimizing a single jurisdiction's rate to modeling the group's effective rate as one integrated system. A structure that looks efficient entity-by-entity can still fail at the consolidated level, and the firms that model both together are the ones avoiding the unpleasant surprises this framework is designed to surface.",
+      ],
+    },
+    {
+      slug: "blockchain-ledger-architecture-beyond-hype-audit-accuracy",
+      title: "Blockchain Ledger Architecture: Moving Beyond the Hype to Audit Accuracy",
+      excerpt:
+        "Distributed ledgers promised to make auditing obsolete. What they actually delivered is a new category of evidence -- and a new set of questions about what that evidence proves.",
+      date: "May 8, 2026",
+      author: "ARCHI-LEDGER Partners",
+      readTime: "5 min read",
+      category: "Technology",
+      body: [
+        "The early pitch for blockchain in accounting was that immutable, timestamped records would make traditional audit procedures redundant -- if the ledger can't be altered, what is there left to verify? That framing misunderstood what an audit is actually for. An audit doesn't just confirm that a transaction was recorded; it confirms that the recorded transaction reflects economic reality.",
+        "A distributed ledger can guarantee the first without guaranteeing the second. Data entered incorrectly, fraudulently, or based on a flawed off-chain agreement is just as immutable as data entered correctly. The chain proves the record hasn't been tampered with after the fact. It says nothing about whether the record was accurate to begin with.",
+        "Where blockchain architecture genuinely changes the audit is at the reconciliation layer. Cross-entity and cross-border transactions that used to require days of matching statements between counterparties can, on a well-implemented shared ledger, be verified in real time, which shifts audit effort away from transaction-matching and toward the higher-value work of assessing whether the underlying business events actually happened as represented.",
+        "The firms treating blockchain as a shortcut past due diligence are the ones most likely to be caught out by it. The firms treating it as a new category of audit evidence -- one that still requires the same skepticism applied to any other record -- are the ones extracting real efficiency from it.",
+      ],
+    },
+    {
+      slug: "economic-stability-volatile-markets-fixed-grid-asset-approach",
+      title: "Economic Stability in Volatile Markets: A Fixed-Grid Asset Approach",
+      excerpt:
+        "Borrowing a structural engineering principle -- distribute load across a fixed grid rather than concentrating it -- for portfolio construction in unstable conditions.",
+      date: "April 3, 2026",
+      author: "ARCHI-LEDGER Partners",
+      readTime: "4 min read",
+      category: "Strategy",
+      body: [
+        "Structural engineers don't design buildings to resist every possible stress at a single point. They distribute load across a grid, so that no individual column is asked to carry more than its share, and the failure of any one member doesn't cascade into failure of the whole structure. Portfolio construction in volatile markets benefits from the same discipline.",
+        "A concentrated position, however well-reasoned at the time it was built, is a single load-bearing column. It performs exactly as intended right up until the assumption underneath it changes, at which point the entire structure it was supporting is exposed all at once. A fixed-grid approach spreads exposure across asset classes, geographies, and durations deliberately, not as diversification for its own sake but as a load-distribution strategy.",
+        "The discipline that matters most in this approach isn't the initial grid design -- it's resisting the urge to concentrate back toward whichever cell of the grid performed best last quarter. Structural integrity comes from maintaining the distribution through the cycle, not from re-optimizing it every time one column looks stronger than the others.",
+        "In practice, this means clients see less dramatic upside in any single strong year, and meaningfully less dramatic downside in a weak one. For institutional capital that has to survive multiple cycles rather than optimize for one, that trade is usually the correct one.",
+      ],
+    },
+    {
+      slug: "the-audit-as-blueprint-rethinking-assurance",
+      title: "The Audit as Blueprint: Rethinking Assurance for High-Growth Enterprises",
+      excerpt:
+        "A well-run audit isn't a compliance checkbox performed after the fact -- it's a blueprint a growing company can build the next five years on.",
+      date: "March 1, 2026",
+      author: "ARCHI-LEDGER Partners",
+      readTime: "5 min read",
+      category: "Strategy",
+      body: [
+        "Most high-growth companies treat the annual audit as a cost of doing business -- a compliance exercise their finance team endures once a year and forgets about until the next one. That framing wastes most of the value an audit can actually provide, because a rigorous audit does something a growth-focused finance team rarely has time to do on its own: it stress-tests the structural assumptions underneath every number on the balance sheet.",
+        "We treat the audit process the way a structural engineer treats a building inspection -- not as a pass/fail exercise, but as a detailed record of exactly where the load-bearing assumptions are sound and where they're carrying more weight than they were designed for. Revenue recognition policies that worked at ten million in revenue often don't scale cleanly to a hundred million, and an audit is where that gap gets identified before it becomes a restatement.",
+        "The enterprises that get the most out of this process are the ones that treat the management letter as a punch list, not a formality. Every finding is a specific, addressable structural note -- fix this control, formalize this process, close this gap -- and the companies that work through that list methodically enter their next audit cycle measurably stronger than the ones that file the letter away.",
+        "An audit conducted this way stops being an annual interruption and becomes what it should have been all along: a blueprint the finance function can build the next year's growth on, revised and re-verified every cycle.",
+      ],
+    },
+  ],
 };
 
 export function getBlogPost(templateSlug: string, postSlug: string): BlogPost | undefined {

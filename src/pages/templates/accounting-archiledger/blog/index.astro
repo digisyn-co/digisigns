@@ -1,0 +1,30 @@
+---
+import TemplateLayout from "@/templates/accounting-archiledger/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+const posts = blogPosts["accounting-archiledger"];
+---
+
+<TemplateLayout
+  title="Strategic Insights | ARCHI-LEDGER"
+  description="The full archive of structural, regulatory, and technology insights from ARCHI-LEDGER's partners."
+  active="blog"
+  canonicalPath="/templates/accounting-archiledger/blog"
+>
+<main class="max-w-container-max mx-auto px-al-margin-mobile md:px-al-margin-desktop py-al-margin-desktop md:py-24">
+<div class="mb-al-margin-desktop md:mb-16 max-w-2xl">
+  <h1 class="font-al-headline-xl text-al-headline-lg-mobile md:text-al-headline-xl text-primary mb-6 uppercase">Strategic Insights</h1>
+  <p class="font-al-body-lg text-al-body-lg text-on-surface-variant">Structural analysis of the regulatory, technological, and economic forces shaping global finance.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 border-t border-l border-primary">
+  {posts.map((post) => (
+    <a href={`/templates/accounting-archiledger/blog/${post.slug}`} class="group block p-8 border-r border-b border-primary bg-white hover:bg-surface-container-low transition-colors">
+      <span class="font-al-label-sm text-al-label-sm text-secondary uppercase tracking-widest">{post.category}</span>
+      <h2 class="font-al-headline-md text-al-headline-md text-primary mt-3 mb-3">{post.title}</h2>
+      <p class="font-al-body-md text-al-body-md text-on-surface-variant line-clamp-3 mb-4">{post.excerpt}</p>
+      <span class="font-al-label-sm text-al-label-sm text-on-surface-variant uppercase tracking-widest">{post.date} &middot; {post.readTime}</span>
+    </a>
+  ))}
+</div>
+</main>
+</TemplateLayout>

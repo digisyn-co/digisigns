@@ -1,0 +1,135 @@
+---
+import TemplateLayout from "@/templates/accounting-archiledger/TemplateLayout.astro";
+
+const values = [
+  { icon: "account_balance", title: "Integrity", body: "Uncompromising commitment to ethical transparency. Our audits are built on the bedrock of truth, ensuring every ledger entry reflects objective reality." },
+  { icon: "architecture", title: "Precision", body: "Mathematical accuracy is our minimum standard. We apply engineering-grade rigor to tax strategies and consultative insights for complex global markets." },
+  { icon: "handshake", title: "Partnership", body: "We view every client engagement as a long-term collaboration. We are the structural engineers supporting your firm's growth through every cycle." },
+];
+
+const milestones = [
+  { year: "1994", title: "Foundation", body: "Established in London with a focus on structural real estate auditing." },
+  { year: "2008", title: "Crisis Resilience", body: "Pioneered 'Stress-Ledger' testing for institutional assets during market volatility." },
+  { year: "2022", title: "Digital Transformation", body: "Integration of AI-driven predictive modeling into our primary consulting branch." },
+];
+
+const partners = [
+  { name: "Julian Thorne", role: "Managing Partner, Audit", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBoW1UKNffaKMsbp9_qZ_t7VGSgbj6-GH2WuSEqi9ZXKNnSJiLCnpLeKIK1KfZY_KXjEwfv9JODk83kspTSNr6FJ0337L10qGl7gf0ywk3eyzCy72qPi2Gb7-UF94z7cH95KhIRe0e5GR9myEtz8vde1N7DyW2OcQ8yZmrUPZlrQJH7ORTdejcYGZOP47KI0avlrzDt_YMIL9kGHKSN29udNSnSUICv5IyzQkVBQ8OqXWvzzrlmJbB6ULbQfP6DhDgLlV9y6AJDacg" },
+  { name: "Elena Rodriguez", role: "Chief Consulting Officer", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBp3yP3muqERnxTdw9YYyEWq7tYSUgHeFoGHEMdm4A1-5FwhZrmv-bw1g4h4FbeCNbTqCRTgnY3ZppQD7DptFcFXssa5GIhMPnxYyof8bavo35yJsmY7HSAU2QSayUnz-j8DhvHwlpugaw9HbTctegjJyq5jQy4AlNZF38tuC68iAwJV9nM2cC8YpXTw_cRb_ZH7WYcnlAkayomihgIQGZlYtwi3sStwKDt4kTVWKn4N59GPB1MnBEAsKYqkaEfG7gCKTyBQvCKc_0" },
+  { name: "Marcus Vane", role: "Head of Tax Strategy", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuByad3oWXWQxZ9cDB9at1cR8_WtjRBrK1NEHnp6C5MTYWYamloY2H9brHWN5NftJMjiReUnlsxICUy2pLE4bNNiqpwHCxao0yhZr5XgiifrQLZCo0hvaCJrbgSBpJChN7vlzW3NMSQ-noTe-rdX3EYUl2LlZfPFaB6YugNIxFR3mk1Dkli8odO7aZwUFx3IIIEasph-WiwCrgQs1Fl3iMFs2aqN_tPcANQA73FZLF2MRGfRfd7lJO--05w5n-D9WBx2xkvrCWp5YAo" },
+  { name: "Sarah Jenkins", role: "Director of Insights", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKytW_RQ67URaFvi8wqqlQEF4lHOlmiA6FL5-ndM12XNfPggnjB6l11uMu4Uzyh4yVOpIv8JnZjVklXpAqd523B0eg_iYxSSozOnXa7Ql9vv7xl-AM7DS9TOeiKbxwTQEfvyfoVOXoNUYoBINLwAPGDyPwtrgs5Xol5feyabuGq3jEZ5JJ5SEuvkKQp0IE1AsIUvekWP1BX4DsuZVwtdGv9fjPay7vMMD4IivBINSSiJrPDPGyxWf7MeZootTiRuMNahKguTx7yuA" },
+];
+---
+
+<TemplateLayout
+  title="About Archi-Ledger | Architectural Integrity in Finance"
+  description="ARCHI-LEDGER was founded on the principle that a financial statement should be as rigorous as an architectural blueprint. Meet the partners and milestones."
+  active="about"
+  canonicalPath="/templates/accounting-archiledger/about"
+>
+<main class="max-w-container-max mx-auto border-x border-primary bg-white relative">
+
+<!-- Hero: Mission and History -->
+<section class="relative border-b border-primary p-al-margin-mobile md:p-al-margin-desktop flex flex-col md:flex-row gap-12 items-center">
+  <div class="flex-1 space-y-8 z-10">
+    <div class="inline-block px-3 py-1 border border-primary bg-secondary-fixed text-on-secondary-fixed font-al-label-sm text-al-label-sm uppercase tracking-widest">Established 1994</div>
+    <h1 class="font-al-headline-xl text-al-headline-lg-mobile md:text-al-headline-xl text-primary max-w-2xl">Structural Integrity Applied to <span class="bg-primary text-on-primary px-2">Global Finance.</span></h1>
+    <p class="font-al-body-lg text-al-body-lg text-on-surface-variant max-w-xl">
+      ARCHI-LEDGER was founded on the principle that a financial statement should be as rigorous as an architectural blueprint. We don't just audit numbers; we examine the foundations of enterprise.
+    </p>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="p-6 border border-primary bg-surface-container-low">
+        <div class="font-al-headline-md text-al-headline-md text-primary">30+</div>
+        <div class="font-al-label-sm text-al-label-sm uppercase text-on-surface-variant">Years of Precision</div>
+      </div>
+      <div class="p-6 border border-primary bg-surface-container-low">
+        <div class="font-al-headline-md text-al-headline-md text-primary">500+</div>
+        <div class="font-al-label-sm text-al-label-sm uppercase text-on-surface-variant">Institutional Clients</div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-1 w-full relative z-10">
+    <div class="border-2 border-primary p-2 bg-white hard-shadow">
+      <img class="w-full h-96 object-cover grayscale brightness-90" alt="A high-end architectural photograph of a modern glass and steel skyscraper against a clear sky, geometric and precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAud3TqB9DdtiC3fpNXsPZ94CSQNmXPEPtG_VsVNiARUx8tg4-PG2Vctd9cOeRp_8rFeCR2T77w3RG2iBQRCGOODf6HeJVsJEGDhAv5tZ717pEP3UrhFFFZmxNaZDVq_EimhYxcFSzzP0l4G31qlQT94GmG9octsE5CMV7_83VXEs7xnR-QtOI-ymazsbZfYHlROvEBGxyzQmePa9SOXcE2y9GFzBXwElYcmt_17S97_QUi9qWqRf-X0aM2jzTW369VCc49DRFQP9o" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="border-b border-primary grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-primary">
+  {values.map((v) => (
+    <div class="p-al-margin-mobile md:p-12 hover:bg-surface-container-low transition-colors">
+      <span class="material-symbols-outlined text-4xl text-primary mb-6 block" style="font-variation-settings: 'FILL' 1;">{v.icon}</span>
+      <h3 class="font-al-headline-md text-al-headline-md text-primary mb-4 uppercase">{v.title}</h3>
+      <p class="font-al-body-md text-al-body-md text-on-surface-variant">{v.body}</p>
+    </div>
+  ))}
+</section>
+
+<!-- Timeline -->
+<section class="p-al-margin-mobile md:p-al-margin-desktop bg-surface-container-low border-b border-primary">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="font-al-headline-lg text-al-headline-lg text-primary mb-16 text-center uppercase tracking-tight">Milestones of Accuracy</h2>
+    <div class="relative">
+      <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-primary transform md:-translate-x-1/2"></div>
+      <div class="space-y-12">
+        {milestones.map((m, i) => (
+          <div class="relative flex flex-col md:flex-row items-center">
+            <div class:list={["flex-1 mb-4 md:mb-0", i % 2 === 0 ? "md:pr-16 text-left md:text-right" : "md:pr-16 hidden md:block"]}>
+              {i % 2 === 0 && (
+                <>
+                  <div class="inline-block px-4 py-2 bg-primary text-on-primary font-al-headline-md text-al-headline-md mb-2">{m.year}</div>
+                  <h4 class="font-al-headline-md text-al-headline-md text-primary">{m.title}</h4>
+                  <p class="text-on-surface-variant font-al-body-md">{m.body}</p>
+                </>
+              )}
+            </div>
+            <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-primary border-4 border-white transform -translate-x-1/2 z-10"></div>
+            <div class:list={["flex-1", i % 2 === 0 ? "md:pl-16 hidden md:block" : "md:pl-16 mb-4 md:mb-0"]}>
+              {i % 2 !== 0 && (
+                <>
+                  <div class="inline-block px-4 py-2 bg-primary text-on-primary font-al-headline-md text-al-headline-md mb-2">{m.year}</div>
+                  <h4 class="font-al-headline-md text-al-headline-md text-primary">{m.title}</h4>
+                  <p class="text-on-surface-variant font-al-body-md">{m.body}</p>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners -->
+<section class="p-al-margin-mobile md:p-al-margin-desktop">
+  <div class="flex justify-between items-end mb-12">
+    <div>
+      <h2 class="font-al-headline-lg text-al-headline-lg text-primary uppercase">The Partners</h2>
+      <p class="text-on-surface-variant font-al-body-md mt-2">Expertise built on decades of regulatory navigation.</p>
+    </div>
+    <div class="hidden md:block h-px flex-grow mx-8 bg-primary opacity-20"></div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-primary divide-x divide-y divide-primary">
+    {partners.map((p) => (
+      <div class="group bg-white flex flex-col">
+        <div class="aspect-square grayscale group-hover:grayscale-0 transition-all duration-500 relative overflow-hidden border-b border-primary">
+          <img class="w-full h-full object-cover" src={p.image} alt={`Portrait of ${p.name}, ${p.role}.`} loading="lazy" />
+        </div>
+        <div class="p-6 bg-white">
+          <h5 class="font-al-headline-md text-al-headline-md text-primary">{p.name}</h5>
+          <p class="font-al-label-sm text-al-label-sm text-on-surface-variant uppercase tracking-widest mt-1">{p.role}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-primary text-on-primary p-al-margin-mobile md:p-al-margin-desktop text-center">
+  <h2 class="font-al-headline-xl text-al-headline-lg-mobile md:text-al-headline-xl mb-8 max-w-2xl mx-auto">Build Your Enterprise on a Solid Foundation.</h2>
+  <a href="/templates/accounting-archiledger/contact" class="inline-block bg-white text-primary px-10 py-4 font-al-headline-md text-al-headline-md uppercase hard-shadow-hover transition-all active:translate-y-1">Schedule a Consultation</a>
+</section>
+
+</main>
+</TemplateLayout>

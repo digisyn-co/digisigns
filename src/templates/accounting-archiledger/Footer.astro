@@ -1,0 +1,44 @@
+---
+// Canonical footer normalized from the source screens (Home, Services,
+// About, Contact all shipped slightly different footers; this is the
+// consolidated version). Newsletter signup wired via the shared
+// data-success-target contact-form convention in BaseLayout.
+---
+
+<footer class="bg-primary text-on-primary border-t-2 border-primary w-full">
+  <div class="grid grid-cols-1 md:grid-cols-4 w-full py-al-margin-desktop px-al-margin-mobile md:px-al-margin-desktop max-w-container-max mx-auto divide-y md:divide-y-0 md:divide-x divide-white/10">
+    <div class="pb-8 md:pb-0 md:pr-8">
+      <div class="font-al-headline-md text-al-headline-md mb-4 uppercase font-bold">ARCHI-LEDGER</div>
+      <p class="font-al-label-sm text-al-label-sm opacity-60">PRECISION. TRANSPARENCY. INTEGRITY.</p>
+    </div>
+    <div class="py-8 md:py-0 md:px-8 flex flex-col gap-3">
+      <h4 class="font-bold mb-1 uppercase tracking-widest opacity-50 font-al-label-sm text-al-label-sm">Services</h4>
+      <a class="font-al-label-sm text-al-label-sm opacity-80 hover:opacity-100 transition-opacity" href="/templates/accounting-archiledger/services">Audit &amp; Assurance</a>
+      <a class="font-al-label-sm text-al-label-sm opacity-80 hover:opacity-100 transition-opacity" href="/templates/accounting-archiledger/services">Tax Planning &amp; Compliance</a>
+      <a class="font-al-label-sm text-al-label-sm opacity-80 hover:opacity-100 transition-opacity" href="/templates/accounting-archiledger/services">Business Advisory</a>
+      <a class="font-al-label-sm text-al-label-sm opacity-80 hover:opacity-100 transition-opacity" href="/templates/accounting-archiledger/services">Forensic Accounting</a>
+    </div>
+    <div class="py-8 md:py-0 md:px-8 flex flex-col gap-3">
+      <h4 class="font-bold mb-1 uppercase tracking-widest opacity-50 font-al-label-sm text-al-label-sm">Company</h4>
+      <a class="font-al-label-sm text-al-label-sm opacity-80 hover:opacity-100 transition-opacity" href="/templates/accounting-archiledger/about">About Us</a>
+      <a class="font-al-label-sm text-al-label-sm opacity-80 hover:opacity-100 transition-opacity" href="/templates/accounting-archiledger/blog">Insights</a>
+      <a class="font-al-label-sm text-al-label-sm opacity-80 hover:opacity-100 transition-opacity" href="/templates/accounting-archiledger/contact">Contact</a>
+      <a class="font-al-label-sm text-al-label-sm opacity-80 hover:opacity-100 transition-opacity" href="#">Regulatory Disclosures</a>
+    </div>
+    <div class="pt-8 md:pt-0 md:pl-8 flex flex-col gap-3">
+      <h4 class="font-bold mb-1 uppercase tracking-widest opacity-50 font-al-label-sm text-al-label-sm">Newsletter</h4>
+      <p class="font-al-label-sm text-al-label-sm opacity-80 mb-1">Quarterly architectural financial insights.</p>
+      <form id="footerNewsletterForm" data-success-target="#footerNewsletterSuccess" class="flex border border-white/30">
+        <input type="email" name="email" required placeholder="EMAIL" class="bg-transparent border-none focus:ring-0 font-al-label-sm text-al-label-sm w-full p-2 text-white placeholder:text-white/50 uppercase outline-none" />
+        <button type="submit" class="bg-white text-primary px-4 py-2 hover:bg-secondary-fixed transition-all shrink-0" aria-label="Subscribe">
+          <span class="material-symbols-outlined text-[20px] leading-none">arrow_forward</span>
+        </button>
+      </form>
+      <p id="footerNewsletterSuccess" class="hidden font-al-label-sm text-al-label-sm text-secondary-fixed mt-1">Thanks — you're subscribed.</p>
+    </div>
+  </div>
+  <div class="w-full border-t border-white/10 py-6 px-al-margin-mobile md:px-al-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="font-al-label-sm text-al-label-sm opacity-60 uppercase">© 2026 ARCHI-LEDGER PARTNERS. ALL RIGHTS RESERVED.</div>
+    <div class="font-al-label-sm text-al-label-sm opacity-60 uppercase">London / New York / Singapore / Zurich</div>
+  </div>
+</footer>
