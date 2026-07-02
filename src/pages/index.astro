@@ -9,7 +9,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { templates } from "@/lib/templates";
 
 const featured = templates.find((t) => t.featured);
-const upcoming = templates.filter((t) => !t.featured);
+// Live templates that aren't the single featured showcase still need real,
+// clickable links to their /templates/<slug>/ routes -- they render in their
+// own grid below, separate from true "Coming Soon" (status: in-progress)
+// placeholder cards, which stay non-clickable.
+const liveOthers = templates.filter((t) => !t.featured && t.status === "live");
+const upcoming = templates.filter((t) => t.status === "in-progress");
 ---
 
 <BaseLayout
@@ -178,6 +183,35 @@ const upcoming = templates.filter((t) => !t.featured);
       </div>
     </div>
   </section>
+
+  <!-- Live Template Collection (all live templates besides the single featured one) -->
+  {liveOthers.length > 0 && (
+    <section class="py-24 bg-surface">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="mb-16">
+          <span class="font-label-sm text-label-sm uppercase text-secondary-fixed-dim tracking-widest mb-4 block">Live Now</span>
+          <h2 class="font-headline-lg text-headline-lg text-text-primary">More Systems in the Collection</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+          {liveOthers.map((t) => (
+            <a href={`/templates/${t.slug}/`} class="group block reveal-on-scroll">
+              <div class="aspect-square bg-surface-container overflow-hidden mb-6 relative border border-border-subtle">
+                <div class="absolute inset-0 bg-surface-deep/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center">
+                  <span class="bg-primary-container text-on-primary-container px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-3">
+                    Live System Preview <span class="material-symbols-outlined text-base">arrow_forward</span>
+                  </span>
+                </div>
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={`Preview of the ${t.name} template`} src={t.previewImage} />
+                <div class="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 font-label-sm text-[10px] uppercase tracking-widest z-20">Live</div>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-text-primary mb-2 group-hover:text-primary transition-colors">{t.name}</h3>
+              <p class="font-label-sm text-label-sm uppercase text-text-muted tracking-widest">{t.industry}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Upcoming Previews Grid -->
   <section class="py-24 bg-surface-container-lowest">
