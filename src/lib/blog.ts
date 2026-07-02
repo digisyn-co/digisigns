@@ -429,6 +429,72 @@ export const blogPosts: Record<string, BlogPost[]> = {
       ],
     },
   ],
+  "accounting-aurelian": [
+    {
+      slug: "architecture-of-legacy-beyond-the-balance-sheet",
+      title: "The Architecture of Legacy: Building Beyond the Balance Sheet",
+      excerpt:
+        "True wealth isn't just a number; it's a structural framework designed to withstand generations. We explore the philosophical foundations of generational wealth transfer.",
+      date: "June 14, 2026",
+      author: "Aurelian Tax & Advisory",
+      readTime: "6 min read",
+      category: "Legacy",
+      body: [
+        "Most estate plans are built around a single question: how do I minimize what's owed. It's the right question for a single generation, and the wrong one for a legacy. A structure optimized purely for tax efficiency in the current transfer often creates friction, rigidity, or outright conflict in the transfer after that.",
+        "The framework we favor treats each generational transfer as a distinct event with its own tax posture, governance needs, and family dynamics -- rather than cloning a single trust structure forward indefinitely. A structure that served the founder well is rarely the right shape for grandchildren operating in a different regulatory environment with different numbers of beneficiaries.",
+        "The most durable legacies we've helped build share one trait: a governance layer separate from the tax layer. The tax structure determines what's owed and when. The governance layer -- letters of intent, family charters, defined decision rights -- determines how disagreements get resolved without the structure itself needing to be unwound.",
+        "Building beyond the balance sheet means accepting that the spreadsheet is necessary but not sufficient. The families whose wealth outlasts them by multiple generations are the ones who invested as much in the human architecture as the financial one.",
+      ],
+    },
+    {
+      slug: "nuance-in-global-taxation-navigating-subtle-borders",
+      title: "Nuance in Global Taxation: Navigating the Subtle Borders",
+      excerpt:
+        "How shifting international regulations require a more fluid, artistic approach to multi-jurisdictional tax planning.",
+      date: "May 22, 2026",
+      author: "Aurelian Tax & Advisory",
+      readTime: "5 min read",
+      category: "Strategy",
+      body: [
+        "Cross-border tax planning used to reward whoever found the cleanest arbitrage between two jurisdictions' rules. That era is largely over. The current regulatory environment -- shaped by coordinated information sharing and substance requirements -- rewards structures that reflect where real economic activity actually happens, not just where documents are filed.",
+        "This is a genuine shift in what good planning looks like. A holding structure in a favorable jurisdiction now needs real decision-making authority, real staff, and real operational substance there, or it invites exactly the scrutiny it was meant to avoid. The clients who adapted earliest treated this as a design constraint from the outset rather than a compliance patch applied after the fact.",
+        "The subtlety is in knowing which borders still offer genuine, defensible advantage and which ones now carry more risk than benefit once substance requirements are priced in. That distinction changes by jurisdiction and by year, which is why static structures age poorly in this environment.",
+        "The clients who navigate this most comfortably are the ones who treat their international structure as something to be reviewed on a real cadence, not something set up once and left alone. The borders haven't disappeared. They've just gotten more particular about who's allowed to cross them, and why.",
+      ],
+    },
+    {
+      slug: "quiet-luxury-of-tax-efficiency",
+      title: "The Quiet Luxury of Tax Efficiency",
+      excerpt:
+        "Exploring the sophisticated silence of a perfectly optimized portfolio, and why the best structures are the ones you never feel.",
+      date: "April 30, 2026",
+      author: "Aurelian Tax & Advisory",
+      readTime: "4 min read",
+      category: "Philosophy",
+      body: [
+        "The best-run financial structures share a quality that's easy to miss: they're quiet. No scrambling every April, no surprise liabilities, no urgent restructuring after a regulatory change catches everyone off guard. That quiet isn't an accident. It's the visible result of work done well in advance, when there was no pressure forcing the decision.",
+        "We've noticed that clients new to this level of planning often expect tax efficiency to feel like a series of clever moves -- an aggressive deduction here, a well-timed transaction there. In practice, the most durable efficiency looks almost boring from the inside: consistent structure, regular review, decisions made months before a deadline rather than days before it.",
+        "The counterintuitive part is that this quiet approach is usually also the more aggressive one on results, precisely because it isn't reactive. A strategy planned eighteen months out has options a strategy planned eighteen days out simply does not.",
+        "Luxury, in this context, isn't the size of the portfolio. It's the absence of financial anxiety that comes from knowing the structure was built correctly the first time, and reviewed carefully enough since that nothing about it will require an emergency phone call.",
+      ],
+    },
+    {
+      slug: "ethics-of-preservation-in-a-digital-age",
+      title: "The Ethics of Preservation in a Digital Age",
+      excerpt:
+        "A philosophical look at how modern transparency affects the historical tradition of private wealth stewardship.",
+      date: "March 19, 2026",
+      author: "Aurelian Tax & Advisory",
+      readTime: "5 min read",
+      category: "Philosophy",
+      body: [
+        "Private wealth stewardship has historically relied on a degree of discretion that is increasingly difficult to maintain. Beneficial ownership registries, automatic information exchange between tax authorities, and digital paper trails have made the old model of quiet, undocumented privacy largely obsolete, for better and for worse.",
+        "This shift forces a genuine ethical question that earlier generations of advisors didn't have to answer directly: what is privacy actually for. If it's for legitimate protection -- security, family safety, reasonable discretion about personal financial matters -- transparency requirements don't really threaten it, since compliant structures were never trying to hide anything from tax authorities to begin with.",
+        "If privacy was functioning as concealment, the new transparency regime removes that option entirely, and we think that's the correct outcome. We don't build structures designed to be opaque to regulators; we build structures designed to be efficient and defensible under full disclosure, because that is the only kind of structure that survives contact with the current regulatory environment.",
+        "The families who adapt most comfortably to this shift are the ones who were never relying on opacity as a strategy in the first place. Preservation in a transparent age looks less like hiding wealth and more like structuring it so well that full disclosure changes nothing about its efficiency.",
+      ],
+    },
+  ],
 };
 
 export function getBlogPost(templateSlug: string, postSlug: string): BlogPost | undefined {

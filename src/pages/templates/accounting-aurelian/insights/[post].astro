@@ -1,0 +1,54 @@
+---
+import TemplateLayout from "@/templates/accounting-aurelian/TemplateLayout.astro";
+import { blogPosts } from "@/lib/blog";
+
+export function getStaticPaths() {
+  return blogPosts["accounting-aurelian"].map((post) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const related = blogPosts["accounting-aurelian"].filter((p) => p.slug !== post.slug).slice(0, 2);
+---
+
+<TemplateLayout
+  title={`${post.title} | Aurelian Tax & Advisory`}
+  description={post.excerpt}
+  active="insights"
+  canonicalPath={`/templates/accounting-aurelian/insights/${post.slug}`}
+>
+<main class="pt-8 pb-au-section-gap max-w-au-container-max mx-auto px-au-margin-mobile md:px-margin-desktop">
+<div class="max-w-3xl mx-auto py-au-section-gap">
+<a href="/templates/accounting-aurelian/insights" class="font-au-label-md text-au-label-md uppercase tracking-widest text-on-tertiary-container mb-8 inline-flex items-center gap-2">
+<span aria-hidden="true">&larr;</span> Perspectives on Wealth
+</a>
+<span class="bg-primary-container text-on-primary-fixed px-3 py-1 font-au-label-md text-au-caption uppercase tracking-wider w-fit mb-6 inline-block mt-8">{post.category}</span>
+<h1 class="font-au-display-lg text-au-headline-lg-mobile md:text-au-display-lg text-primary mb-8">{post.title}</h1>
+<div class="flex flex-wrap items-center gap-6 font-au-label-md text-au-caption text-on-surface-variant uppercase tracking-widest pb-8 mb-8 border-b border-outline-variant/30">
+<span>{post.author}</span>
+<span>{post.date}</span>
+<span>{post.readTime}</span>
+</div>
+<div class="space-y-6">
+{post.body.map((paragraph) => (
+<p class="font-au-body-lg text-au-body-lg text-on-surface-variant leading-relaxed">{paragraph}</p>
+))}
+</div>
+</div>
+{related.length > 0 && (
+<div class="mt-au-section-gap pt-au-section-gap border-t border-outline-variant/30">
+<h2 class="font-au-headline-lg text-au-headline-lg text-primary mb-8">More Perspectives</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-au-gutter">
+{related.map((p) => (
+<a href={`/templates/accounting-aurelian/insights/${p.slug}`} class="group bg-surface-container-low p-8 border border-outline-variant/20">
+<span class="bg-primary-container text-on-primary-fixed px-3 py-1 font-au-label-md text-au-caption uppercase tracking-wider w-fit mb-4 inline-block">{p.category}</span>
+<h3 class="font-au-headline-md text-au-headline-md text-primary group-hover:text-on-tertiary-container transition-colors">{p.title}</h3>
+</a>
+))}
+</div>
+</div>
+)}
+</main>
+</TemplateLayout>
