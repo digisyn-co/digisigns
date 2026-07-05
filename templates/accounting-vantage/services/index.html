@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glow-teal: rgba(0, 219, 231, 0.3);
+        }
+        body {
+            background-color: #051425;
+            color: #d5e3fc;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 219, 231, 0.4);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px var(--glow-teal);
+        }
+        .inner-glow {
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-link {
+            border-bottom: 2px solid #ddfcff;
+            padding-bottom: 4px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#051425",
+                        "outline": "#8f9097",
+                        "on-primary": "#273045",
+                        "surface-bright": "#2c3a4d",
+                        "on-secondary": "#00363a",
+                        "surface-container-low": "#0d1c2e",
+                        "on-secondary-fixed-variant": "#004f54",
+                        "primary-container": "#0a1428",
+                        "on-primary-container": "#757f97",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#002022",
+                        "on-primary-fixed-variant": "#3d475d",
+                        "surface-tint": "#bdc6e1",
+                        "tertiary-fixed-dim": "#c8c6c3",
+                        "tertiary-container": "#141513",
+                        "on-secondary-container": "#006a70",
+                        "on-tertiary-container": "#7f7f7c",
+                        "on-surface": "#d5e3fc",
+                        "secondary": "#ddfcff",
+                        "surface-container-high": "#1d2b3d",
+                        "surface-container": "#122032",
+                        "on-tertiary-fixed-variant": "#474744",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#051425",
+                        "surface-container-highest": "#283648",
+                        "on-primary-fixed": "#121b2f",
+                        "secondary-fixed": "#74f5ff",
+                        "inverse-on-surface": "#233144",
+                        "tertiary-fixed": "#e4e2de",
+                        "outline-variant": "#45464d",
+                        "primary-fixed-dim": "#bdc6e1",
+                        "surface-variant": "#283648",
+                        "primary": "#bdc6e1",
+                        "on-surface-variant": "#c6c6cd",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#00dbe7",
+                        "inverse-primary": "#555e76",
+                        "inverse-surface": "#d5e3fc",
+                        "surface": "#051425",
+                        "primary-fixed": "#d9e2fe",
+                        "surface-container-lowest": "#010f20",
+                        "on-tertiary-fixed": "#1b1c1a",
+                        "on-background": "#d5e3fc",
+                        "secondary-container": "#00f1fe",
+                        "on-tertiary": "#30312e",
+                        "tertiary": "#c8c6c3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "margin-mobile": "24px",
+                        "margin-desktop": "64px",
+                        "stack-sm": "16px",
+                        "stack-md": "32px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "stack-lg": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Libre Caslon Text"],
+                        "label-md": ["Hanken Grotesk"],
+                        "caption": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "display-lg": ["Libre Caslon Text"],
+                        "display-lg-mobile": ["Libre Caslon Text"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body-md text-on-background selection:bg-secondary-fixed-dim selection:text-background">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center px-margin-desktop py-gutter max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-on-surface">Vantage Ledger</div>
+<div class="hidden md:flex items-center gap-stack-md font-label-md text-label-md">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="/templates/accounting-vantage/">Portfolio</a>
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1" href="/templates/accounting-vantage/services/">Services</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="/templates/accounting-vantage/advisory/">Advisory</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="/templates/accounting-vantage/about/">Insights</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="/templates/accounting-vantage/">Contact</a>
+</div>
+<div class="flex items-center gap-stack-sm">
+<button class="bg-secondary-fixed-dim text-background px-6 py-2 rounded-lg font-label-md hover:scale-95 transition-transform duration-200">
+                    Client Portal
+                </button>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section with Shader -->
+<header class="relative min-h-[716px] flex flex-col justify-center items-center pt-32 overflow-hidden">
+<!-- STITCH_SHADER_START:ANIMATION_2 class="absolute inset-0 w-full h-full opacity-30" -->
+<div class="absolute inset-0 w-full h-full opacity-30" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_2');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 mouse = u_mouse / u_resolution;
+    
+    // Create a cinematic deep blue/teal gradient base
+    vec3 color1 = vec3(0.02, 0.08, 0.15); // Deep Navy
+    vec3 color2 = vec3(0.05, 0.2, 0.3);   // Electric Teal
+    
+    // Moving organic noise/waves
+    float noise = sin(uv.x * 3.0 + u_time * 0.5) * cos(uv.y * 2.0 + u_time * 0.3);
+    noise += sin(uv.y * 5.0 - u_time * 0.7) * cos(uv.x * 4.0 + u_time * 0.4);
+    
+    vec3 color = mix(color1, color2, uv.y + noise * 0.2);
+    
+    // Add a subtle vignette
+    float vignette = 1.0 - length(uv - 0.5) * 1.2;
+    color *= clamp(vignette, 0.5, 1.0);
+    
+    // Interactive glow from mouse
+    float dist = distance(uv, mouse);
+    float glow = 0.05 / (dist + 0.1);
+    color += vec3(0.0, 0.5, 0.6) * glow * 0.5;
+
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_2 -->
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-stack-sm tracking-tight">Financial Precision, Cinematic Execution.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Comprehensive accounting solutions designed for the modern era. We blend technical rigor with a high-fidelity client experience.
+            </p>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent"></div>
+</header>
+<!-- Services Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-stack-lg text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg mb-stack-sm">Our Core Disciplines</h2>
+<div class="w-24 h-1 bg-secondary-fixed-dim mb-stack-md"></div>
+</div>
+<!-- Services Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-md">
+<!-- Corporate Tax -->
+<div class="md:col-span-8 glass-card rounded-xl p-8 flex flex-col md:flex-row gap-8 items-center inner-glow group">
+<div class="w-full md:w-1/2 aspect-video overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A cinematic, low-angle shot of a high-rise financial district at twilight. The scene is dominated by deep blues and architectural geometry, with office lights reflecting off glass facades. The lighting is moody and professional, using a cool color palette with teal highlights, evoking a sense of corporate power and structured tax compliance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLe0giWQHCABDuEqMG_r7dG9t44LdK5bdZGvFXJxRM0XArJTgm0YQVN18isTz4tNEVenC0xuqnhnvnmnGCOxLs4sl7skMvK-_weg3RRQ3Xap3gWVcZZxP3mmxCyVWm5HZ1YfkyiVaiXVVW6lc72J5v8NPARGZVISK7iwHoFNPvHg_6UZLRkSGIkw3l57zPGrZUojDHathVsFUqeZdpg_7MXNg83kSRWibVw1xdhGs7zVwKrfxhhPfre19vbRcDyBYwUQPXFE655i0"/>
+</div>
+<div class="w-full md:w-1/2">
+<span class="font-label-md text-secondary-fixed-dim mb-2 block">Strategic Compliance</span>
+<h3 class="font-headline-md text-headline-md mb-4">Corporate Tax</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Navigating the intricate landscape of corporate taxation with surgical precision to optimize your fiscal health.</p>
+<button class="px-6 py-3 border border-outline-variant rounded-lg font-label-md hover:bg-secondary-fixed-dim hover:text-background transition-all duration-300 glow-hover">
+                        Learn More
+                    </button>
+</div>
+</div>
+<!-- Personal Wealth -->
+<div class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between inner-glow group">
+<div>
+<div class="w-16 h-16 bg-surface-container-highest rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary-fixed-dim group-hover:text-background transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Personal Wealth</h3>
+<p class="font-body-md text-on-surface-variant">Bespoke financial stewardship for individuals who demand transparency and long-term growth security.</p>
+</div>
+<button class="mt-8 px-6 py-3 border border-outline-variant rounded-lg font-label-md hover:border-secondary-fixed-dim hover:text-secondary-fixed-dim transition-all duration-300">
+                    Learn More
+                </button>
+</div>
+<!-- Audit & Assurance -->
+<div class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between inner-glow group">
+<div>
+<div class="w-16 h-16 bg-surface-container-highest rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary-fixed-dim group-hover:text-background transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Audit &amp; Assurance</h3>
+<p class="font-body-md text-on-surface-variant">Uncompromising verification processes that instill confidence in stakeholders and market observers.</p>
+</div>
+<button class="mt-8 px-6 py-3 border border-outline-variant rounded-lg font-label-md hover:border-secondary-fixed-dim hover:text-secondary-fixed-dim transition-all duration-300">
+                    Learn More
+                </button>
+</div>
+<!-- Forensic Accounting -->
+<div class="md:col-span-8 glass-card rounded-xl p-8 flex flex-col md:flex-row-reverse gap-8 items-center inner-glow group">
+<div class="w-full md:w-1/2 aspect-video overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A sophisticated close-up of a digital screen displaying complex data visualizations and glowing nodes connecting. The aesthetic is deep midnight blue with vibrant cyan accents, simulating an investigative forensic atmosphere. The lighting is high-contrast, moody, and suggests high-tech financial investigation and digital evidence analysis." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4iFWCxlG13_IY50elTQMlu96DwPHZffypI_1tBIpVRgLqe8JIU8lzwinpgO5J4VIQu3ApRhWAG_KwIK0-6x5ys5XmIMwLDPsfCHu6tgMbaMsk353Ur1gedq-kP8phqAiI7QF2HlyGXzQnBFzwHiXR6bzEyKMpVczCbBOEwU8zSB9vpyTqUxAHZFn_oD6F1pVgR8gX_c944157Vo_c6cHCgSHaxC2z8jcgaxnxzbhGZW0U1JQPc6xA5m-Z13vJ70O1tRr74OsI6dk"/>
+</div>
+<div class="w-full md:w-1/2">
+<span class="font-label-md text-secondary-fixed-dim mb-2 block">Investigative Depth</span>
+<h3 class="font-headline-md text-headline-md mb-4">Forensic Accounting</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Peeling back the layers of complex data to uncover truths, resolve disputes, and identify hidden financial risks.</p>
+<button class="px-6 py-3 border border-outline-variant rounded-lg font-label-md hover:bg-secondary-fixed-dim hover:text-background transition-all duration-300 glow-hover">
+                        Learn More
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Consultation Section -->
+<section class="py-stack-lg relative overflow-hidden">
+<!-- Background decorative element -->
+<div class="absolute -right-64 top-0 w-[600px] h-[600px] bg-secondary-fixed-dim/5 rounded-full blur-[120px]"></div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-headline-lg mb-stack-md">Elevate Your <br/> Financial Narrative.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-md max-w-lg">
+                        Ready to experience accounting as a catalyst for growth? Schedule your free initial consultation with our senior advisory team.
+                    </p>
+<div class="space-y-stack-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim">check_circle</span>
+<span class="font-body-md">SEC Compliance Review</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim">check_circle</span>
+<span class="font-body-md">Personal Wealth Audit</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim">check_circle</span>
+<span class="font-body-md">24/7 Digital Dashboard Access</span>
+</div>
+</div>
+</div>
+<div class="glass-card p-stack-md rounded-2xl inner-glow">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container-low border-b border-outline-variant focus:border-secondary-fixed-dim focus:ring-0 transition-colors text-on-surface py-3 px-4 rounded-t-lg" placeholder="Enter name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Email Address</label>
+<input class="w-full bg-surface-container-low border-b border-outline-variant focus:border-secondary-fixed-dim focus:ring-0 transition-colors text-on-surface py-3 px-4 rounded-t-lg" placeholder="Enter email" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Service Interest</label>
+<select class="w-full bg-surface-container-low border-b border-outline-variant focus:border-secondary-fixed-dim focus:ring-0 transition-colors text-on-surface py-3 px-4 rounded-t-lg">
+<option>Corporate Tax</option>
+<option>Personal Wealth</option>
+<option>Audit &amp; Assurance</option>
+<option>Forensic Accounting</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Brief Message</label>
+<textarea class="w-full bg-surface-container-low border-b border-outline-variant focus:border-secondary-fixed-dim focus:ring-0 transition-colors text-on-surface py-3 px-4 rounded-t-lg" placeholder="Tell us about your requirements" rows="4"></textarea>
+</div>
+<button class="w-full bg-secondary-fixed-dim text-background font-label-md py-4 rounded-lg shadow-lg shadow-secondary-fixed-dim/20 hover:scale-[1.02] transition-all duration-300">
+                            Request Free Consultation
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full rounded-t-xl bg-surface-container-lowest border-t border-white/10 mt-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-md px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="font-headline-lg text-headline-lg text-primary mb-stack-sm">Vantage Ledger</div>
+<p class="text-on-primary-container font-body-md">Precision in every frame. Defined by cinematic quality and architectural integrity.</p>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-md text-label-md text-primary mb-stack-sm">Legal</h4>
+<ul class="space-y-2 font-body-md text-on-primary-container">
+<li><a class="hover:text-secondary-fixed-dim transition-colors hover:translate-x-1 inline-block transition-transform" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary-fixed-dim transition-colors hover:translate-x-1 inline-block transition-transform" href="#">Terms of Service</a></li>
+<li><a class="hover:text-secondary-fixed-dim transition-colors hover:translate-x-1 inline-block transition-transform" href="#">SEC Compliance</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-md text-label-md text-primary mb-stack-sm">Company</h4>
+<ul class="space-y-2 font-body-md text-on-primary-container">
+<li><a class="hover:text-secondary-fixed-dim transition-colors hover:translate-x-1 inline-block transition-transform" href="#">AICPA Certified</a></li>
+<li><a class="hover:text-secondary-fixed-dim transition-colors hover:translate-x-1 inline-block transition-transform" href="#">Careers</a></li>
+<li><a class="hover:text-secondary-fixed-dim transition-colors hover:translate-x-1 inline-block transition-transform" href="#">Partner Portal</a></li>
+</ul>
+</div>
+<div class="md:col-span-1">
+<h4 class="font-label-md text-label-md text-primary mb-stack-sm">Newsletter</h4>
+<div class="flex gap-2">
+<input class="bg-surface-container-high border-none rounded-lg text-body-md w-full focus:ring-1 focus:ring-primary" placeholder="Email" type="email"/>
+<button class="bg-primary text-on-primary px-4 rounded-lg">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-gutter text-center border-t border-white/5 font-body-md text-on-primary-container opacity-50">
+            © 2024 Vantage Ledger Financial. All rights reserved. Precision in every frame.
+        </div>
+</footer>
+<script>
+        // Micro-interaction for form inputs
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.querySelector('label').classList.add('text-secondary-fixed-dim');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.querySelector('label').classList.remove('text-secondary-fixed-dim');
+            });
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-background/80', 'shadow-2xl');
+                nav.classList.remove('py-gutter');
+                nav.querySelector('div').classList.add('py-4');
+            } else {
+                nav.classList.remove('bg-background/80', 'shadow-2xl');
+                nav.querySelector('div').classList.remove('py-4');
+                nav.classList.add('py-gutter');
+            }
+        });
+    </script>
+</body></html>
